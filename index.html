@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tesis PI3 · Mynor Barrios · Las tres ideas</title>
+<style>
+:root{
+  --porcelana:#EEF2FA; --porcelana-2:#E2E8F6; --papel:#FFFFFF;
+  --tinta:#0A1240; --tinta-2:#3C4570; --tinta-3:#7B83A8;
+  --cobalto:#1F3BFF; --cian:#16C2F3; --mandarina:#FF8A3D; --menta:#12B886;
+  --linea:rgba(10,18,64,.12);
+  --cond:"Bahnschrift SemiCondensed","Bahnschrift Condensed","Bahnschrift","DIN Condensed","Segoe UI",sans-serif;
+  --display:"Bahnschrift","DIN Alternate","Segoe UI Variable Display","Segoe UI",sans-serif;
+  --texto:"Segoe UI Variable Text","Segoe UI",system-ui,sans-serif;
+  --ease:cubic-bezier(.2,.75,.15,1);
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;overflow:hidden;background:var(--porcelana);color:var(--tinta);font-family:var(--texto)}
+#fondo{position:fixed;inset:0;width:100%;height:100%;z-index:0}
+.viewport{position:fixed;inset:0;display:grid;place-items:center;z-index:1}
+.stage{width:1600px;height:900px;position:relative;transform-origin:center center;perspective:2200px}
+
+/* marca / riel / pie */
+.marca{position:absolute;left:52px;top:34px;display:flex;align-items:center;gap:13px;z-index:20}
+.marca .tile{width:46px;height:46px;border-radius:13px;background:var(--tinta);display:grid;place-items:center;
+  box-shadow:0 10px 24px -10px rgba(31,59,255,.7);color:#fff;font:700 20px var(--display)}
+.marca b{font:700 20px var(--display);letter-spacing:.2px}
+.marca b small{display:block;font:500 12.5px var(--texto);color:var(--tinta-3);letter-spacing:.3px}
+.riel{position:absolute;left:52px;top:50%;transform:translateY(-50%);display:grid;gap:15px;z-index:20}
+.riel button{all:unset;cursor:pointer;display:flex;align-items:center;gap:11px;font:600 13px var(--texto);color:var(--tinta-3);transition:color .3s}
+.riel button i{width:9px;height:9px;border-radius:50%;border:1.6px solid var(--tinta-3);transition:all .3s var(--ease)}
+.riel button span{opacity:0;transform:translateX(-6px);transition:all .3s var(--ease);white-space:nowrap}
+.riel:hover button span,.riel button.on span{opacity:1;transform:none}
+.riel button.on{color:var(--tinta)} .riel button.on i{background:var(--cobalto);border-color:var(--cobalto);transform:scale(1.4)}
+.pie{position:absolute;right:52px;bottom:30px;font:13px var(--texto);color:var(--tinta-3);z-index:20}
+.pie b{color:var(--tinta);font-variant-numeric:tabular-nums}
+.ayuda{position:absolute;left:50%;top:18px;transform:translateX(-50%);font:12.5px var(--texto);color:var(--tinta-3);z-index:20}
+
+/* diapositivas */
+.slide{position:absolute;inset:0;padding:92px 80px 54px 148px;transform-style:preserve-3d;opacity:0;pointer-events:none;
+  transform:rotateY(46deg) translateZ(-380px) translateX(320px);transition:transform .95s var(--ease),opacity .7s var(--ease)}
+.slide.act{opacity:1;pointer-events:auto;transform:none}
+.slide.prev{transform:rotateY(-46deg) translateZ(-380px) translateX(-320px)}
+
+.kicker{font:700 13px var(--texto);letter-spacing:.18em;text-transform:uppercase;color:var(--cobalto)}
+.kicker .pick{color:var(--menta)}
+h2{font-family:var(--cond);font-weight:700;margin:8px 0 0;letter-spacing:-.5px;line-height:1.0;font-size:46px;max-width:600px;color:var(--tinta)}
+.slide[data-k="4"] h2{max-width:640px;font-size:42px}
+
+.cols{display:grid;grid-template-columns:minmax(0,1fr) 560px;gap:42px;align-items:center;margin-top:20px}
+
+/* ficha como filas con regla */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.chip{font:600 13.5px var(--texto);padding:7px 13px;border-radius:999px;background:var(--papel);
+  border:1px solid var(--linea);color:var(--tinta)}
+.chip.c{border-color:rgba(31,59,255,.4);color:var(--cobalto)}
+.chip.m{border-color:rgba(255,138,61,.5);color:#C25A14}
+.filas{display:grid}
+.fila{display:grid;grid-template-columns:140px 1fr;gap:16px;padding:9px 0;border-top:1px solid var(--linea);
+  font-size:15.5px;line-height:1.32}
+.fila:last-child{border-bottom:1px solid var(--linea)}
+.fila .a{font:700 14px var(--texto);letter-spacing:.04em;text-transform:uppercase;color:var(--cobalto);padding-top:2px}
+.fila .b{color:var(--tinta-2)}
+.fila .b strong{color:var(--tinta);font-weight:650}
+
+.papers{margin-top:16px;border-left:3px solid var(--cobalto);padding:2px 0 2px 16px}
+.papers .ttl{font:700 12px var(--texto);letter-spacing:.14em;text-transform:uppercase;color:var(--tinta-3);margin-bottom:9px}
+.papers ul{list-style:none;margin:0;padding:0;display:grid;gap:7px}
+.papers li{font-size:15px;line-height:1.3;color:var(--tinta-2)}
+.papers li b{color:var(--tinta);font-weight:650}
+.papers .pid{display:inline-block;min-width:34px;margin-right:8px;padding:2px 6px;border-radius:4px;font:700 11px var(--texto);letter-spacing:.06em;color:#fff;background:var(--cobalto);text-align:center;vertical-align:1px}
+.papers .tag{display:inline-block;font:700 9.5px var(--texto);letter-spacing:.08em;color:#fff;background:var(--menta);
+  border-radius:5px;padding:2px 7px;margin-left:6px;vertical-align:1px}
+
+/* panel 3D */
+.pieza{position:relative;height:452px;border-radius:22px;overflow:hidden;border:1px solid var(--linea);
+  background:radial-gradient(120% 120% at 70% 20%,#fff,var(--porcelana) 80%);
+  box-shadow:0 30px 60px -36px rgba(10,18,64,.5),0 0 0 1px rgba(255,255,255,.6) inset}
+canvas.scene{display:block;width:100%;height:100%}
+.cap{position:absolute;left:18px;right:18px;bottom:15px;font-size:13px;color:var(--tinta-2);line-height:1.35}
+.cap b{color:var(--cobalto)}
+
+/* slide 4 */
+.banks{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-bottom:6px}
+.bank{padding:8px 18px 8px 0;border-top:2px solid var(--linea)}
+.bank:not(:last-child){border-right:1px solid var(--linea)}
+.bank:nth-child(n+2){padding-left:20px}
+.bank .n{font:700 46px var(--cond);color:var(--cobalto);line-height:1;font-variant-numeric:tabular-nums}
+.bank h3{margin:3px 0 0;font:700 16px var(--cond);color:var(--tinta)}
+.bank p{margin:2px 0 0;font-size:12.5px;color:var(--tinta-3)}
+.embudo{display:flex;gap:8px;margin:18px 0 16px}
+.embudo div{flex:1;background:linear-gradient(90deg,var(--cobalto),var(--cian));color:#fff;border-radius:11px;padding:9px 8px;text-align:center}
+.embudo div .k{font:700 15px var(--display);display:block}
+.embudo div .l{font-size:10.5px;opacity:.92;line-height:1.2;display:block;margin-top:2px}
+.lab{margin:16px 0 14px}
+.labh{font:700 11.5px var(--texto);letter-spacing:.14em;text-transform:uppercase;color:var(--tinta-3);margin-bottom:6px}
+.labrow{display:flex;gap:12px;align-items:baseline;padding:5px 0;border-top:1px solid var(--linea);font-size:13px;color:var(--tinta-2);line-height:1.3}
+.labrow .t{font:700 12px var(--texto);color:var(--cobalto);min-width:44px;font-variant-numeric:tabular-nums}
+.labrow b{color:var(--tinta);font-weight:650}
+.ainote{display:flex;gap:12px;align-items:flex-start;background:var(--tinta);color:#fff;border-radius:16px;padding:14px 18px;margin-bottom:16px}
+.ainote .ic{font-size:20px;line-height:1.1}
+.ainote p{margin:0;font-size:14.5px;line-height:1.4} .ainote b{color:#9FB0FF}
+.shots{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.shot{border-radius:12px;overflow:hidden;border:1px solid var(--linea);background:var(--papel);
+  box-shadow:0 14px 30px -20px rgba(10,18,64,.5)}
+.shot img{width:100%;height:118px;object-fit:cover;object-position:center;display:block}
+.shot .lab{font:600 12px var(--texto);color:var(--tinta-2);padding:7px 10px;border-top:1px solid var(--linea)}
+.shot .lab b{color:var(--cobalto)}
+
+/* guion overlay */
+.notas{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);width:min(1080px,92vw);
+  background:rgba(10,18,64,.95);color:#fff;border-radius:18px;padding:16px 22px;font-size:16.5px;line-height:1.5;
+  z-index:50;display:none;box-shadow:0 22px 44px -12px rgba(0,0,0,.5)}
+.notas.on{display:block} .notas b{color:#9FB0FF;font:600 13px var(--texto);display:block;margin-bottom:5px}
+</style>
+</head>
+<body>
+<canvas id="fondo"></canvas>
+<div class="viewport"><div class="stage" id="stage">
+
+  <div class="marca"><div class="tile">M</div><b>Tesis PI3<small>Mynor Barrios · UNIS</small></b></div>
+  <nav class="riel" id="riel"></nav>
+  <div class="pie"><b id="cur">1</b> / 4 &nbsp;·&nbsp; ← → navegar · G guion · F pantalla</div>
+  <div class="ayuda">Usa las flechas del teclado para avanzar</div>
+
+  <!-- SLIDE 1 -->
+  <section class="slide" data-k="1">
+    <div class="kicker">Rama 1 · Seguridad de redes de computadoras</div>
+    <h2>La “zona ciega” del jamming en alarmas de 433&nbsp;MHz</h2>
+    <div class="cols">
+      <div>
+        <div class="chips">
+          <span class="chip c">Zona ciega</span><span class="chip">Jamming intermitente</span>
+          <span class="chip">RSSI vs. patrón</span><span class="chip c">Clasificador ML</span>
+          <span class="chip m">Defensa, no ataque</span>
+        </div>
+        <div class="filas">
+          <div class="fila"><span class="a">Problema</span><span class="b">Un bloqueo de radio a ráfagas podría tumbar los sensores de una alarma <strong>sin que el panel lo note</strong>.</span></div>
+          <div class="fila"><span class="a">Pregunta</span><span class="b">¿Existe una “zona ciega” temporal y puede un modelo detectarla por el <strong>patrón</strong> de la señal?</span></div>
+          <div class="fila"><span class="a">Hipótesis</span><span class="b">El patrón del ataque (ráfagas, varianza) lo delata aunque el promedio de energía no lo haga.</span></div>
+          <div class="fila"><span class="a">Objetivo</span><span class="b">Caracterizar la zona ciega y entrenar un clasificador que distinga jamming de ruido normal.</span></div>
+        </div>
+        <div class="papers">
+          <div class="ttl">Papers principales relacionados</div>
+          <ul>
+            <li><span class="pid">R1</span><b>Xu et al. (2005)</b> — Tipos de jammer y métricas PSR/PDR, asume tráfico constante</li>
+            <li><span class="pid">R2</span><b>Osanaiye et al. (2018)</b> — Detección estadística (EWMA): mi baseline, solo en simulación</li>
+            <li><span class="pid">R3</span><b>Araújo et al. (2025)</b> — Jamming de 433 MHz con SDR: falla sobre −40 dBm, sin patrón ni BER</li>
+          </ul>
+        </div>
+      </div>
+      <div class="pieza"><canvas class="scene" id="c1"></canvas>
+        <div class="cap"><b>Señal vs. bloqueo:</b> el emisor manda pulsos de radio, y el jammer (naranja) los interrumpe a ráfagas.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 2 -->
+  <section class="slide" data-k="2">
+    <div class="kicker">Rama 2 · Inteligencia artificial</div>
+    <h2>Un OOM killer que aprende a quién sacrificar</h2>
+    <div class="cols">
+      <div>
+        <div class="chips">
+          <span class="chip">OOM killer</span><span class="chip m">badness score ciego</span>
+          <span class="chip c">eBPF · hook BPF OOM (propuesta)</span><span class="chip c">Política aprendida</span>
+          <span class="chip">Cero hardware</span>
+        </div>
+        <div class="filas">
+          <div class="fila"><span class="a">Problema</span><span class="b">Cuando falta memoria, Linux mata al proceso con una fórmula que <strong>casi solo mira el tamaño</strong>.</span></div>
+          <div class="fila"><span class="a">Pregunta</span><span class="b">¿Puede una política aprendida, inyectada con <strong>eBPF</strong>, decidir mejor a quién matar?</span></div>
+          <div class="fila"><span class="a">Hipótesis</span><span class="b">Mirar más señales (uso reciente, prioridad, memoria exclusiva) reduce las malas decisiones.</span></div>
+          <div class="fila"><span class="a">Objetivo</span><span class="b">Entrenar e inyectar (eBPF) un clasificador de víctima y medirlo contra la regla actual.</span></div>
+        </div>
+        <div class="papers">
+          <div class="ttl">Papers principales relacionados</div>
+          <ul>
+            <li><span class="pid">IA1</span><b>Shankar (2025)</b> — Survey de ML en el kernel: no menciona el OOM killer</li>
+            <li><span class="pid">IA2</span><b>eBPF-mm (2024)</b> — Hook eBPF que decide el tamaño de página en el kernel</li>
+            <li><span class="pid">IA3</span><b>Gbadamosi et al. (2024)</b> — Runtime y verificador de eBPF: por qué es seguro</li>
+          </ul>
+        </div>
+      </div>
+      <div class="pieza"><canvas class="scene" id="c2"></canvas>
+        <div class="cap"><b>Memoria bajo presión:</b> cada cubo es un proceso. Cuando falta RAM, uno “muere” (naranja). ¿Mata al correcto?</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 3 -->
+  <section class="slide" data-k="3">
+    <div class="kicker">Rama 3 · Ciencia de datos <span class="pick">· la que elegiré</span></div>
+    <h2>Una herramienta para ganarle concursos al Estado (Guatecompras)</h2>
+    <div class="cols">
+      <div>
+        <div class="chips">
+          <span class="chip c">Recomendador de concursos</span><span class="chip">Probabilidad de ganar</span>
+          <span class="chip">Precio para competir</span><span class="chip c">Datos públicos</span>
+          <span class="chip m">Producto para PyMES</span>
+        </div>
+        <div class="filas">
+          <div class="fila"><span class="a">Problema</span><span class="b">Una empresa no sabe a qué concursos de Guatecompras entrar ni a qué precio ofertar, y decide <strong>“a ojo”</strong>.</span></div>
+          <div class="fila"><span class="a">Pregunta</span><span class="b">¿Puede un modelo recomendar concursos afines, estimar la probabilidad de ganar y sugerir un precio competitivo?</span></div>
+          <div class="fila"><span class="a">Hipótesis</span><span class="b">El historial de adjudicaciones predice qué empresa gana qué concurso y a qué precio, mejor que el azar.</span></div>
+          <div class="fila"><span class="a">Objetivo</span><span class="b">Construir y validar las tres piezas sobre Guatecompras y medir qué variables pesan en Guatemala.</span></div>
+        </div>
+        <div class="papers">
+          <div class="ttl">Papers principales relacionados</div>
+          <ul>
+            <li><span class="pid">D1</span><b>García Rodríguez et al. (2020)</b> — Recomendador con random forest: 102,087 licitaciones de España</li>
+            <li><span class="pid">D2</span><b>García Rodríguez et al. (2019)</b> — Estimador de precio de adjudicación</li>
+          </ul>
+        </div>
+      </div>
+      <div class="pieza"><canvas class="scene" id="c3"></canvas>
+        <div class="cap"><b>Red de contratación:</b> empresas (azul) y concursos (naranja). El modelo aprende quién gana qué y los empareja.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SLIDE 4 -->
+  <section class="slide" data-k="4">
+    <div class="kicker">Entregable del laboratorio · ResearchRabbit</div>
+    <h2>Tres bancos de papers y sus embudos de descubrimiento</h2>
+    <div class="cols">
+      <div>
+        <div class="ainote"><div class="ic">✦</div>
+          <p><b>Con apoyo de inteligencia artificial</b> cribé un volumen mucho mayor de papers por etapas, como pide el embudo, y <b>verifiqué en línea</b> los pilares de cada idea.</p></div>
+        <div class="banks">
+          <div class="bank"><div class="n">40</div><h3>Rama 1 · Jamming</h3><p>candidatos · 35 cribados · 8 pilares</p></div>
+          <div class="bank"><div class="n">30</div><h3>Rama 2 · OOM</h3><p>candidatos · 26 cribados · 8 pilares</p></div>
+          <div class="bank"><div class="n">40</div><h3>Rama 3 · Datos</h3><p>candidatos · 30 cribados · 9 pilares</p></div>
+        </div>
+        <div class="lab">
+          <div class="labh">Entregables del laboratorio · 70 minutos</div>
+          <div class="labrow"><span class="t">0–10</span><span>Definir consulta y 3 semillas → <b>DOI + criterio</b></span></div>
+          <div class="labrow"><span class="t">10–25</span><span>Expandir referencias y citas → <b>colección trazable</b></span></div>
+          <div class="labrow"><span class="t">25–45</span><span>Detectar 3 clústeres → <b>mapa con etiquetas</b></span></div>
+          <div class="labrow"><span class="t">45–60</span><span>Identificar 2 trabajos puente → <b>justificación</b></span></div>
+          <div class="labrow"><span class="t">60–70</span><span>Formular un vacío → <b>hipótesis de brecha</b></span></div>
+        </div>
+        <div class="shots">
+          <div class="shot"><img src="img/rabbit_jamming.png" alt="ResearchRabbit jamming"><div class="lab"><b>Rama 1</b> · Jamming (215 nodos)</div></div>
+          <div class="shot"><img src="img/rabbit_oom.png" alt="ResearchRabbit OOM"><div class="lab"><b>Rama 2</b> · OOM killer</div></div>
+          <div class="shot"><img src="img/rabbit_datos.png" alt="ResearchRabbit datos"><div class="lab"><b>Rama 3</b> · Ciencia de datos</div></div>
+        </div>
+      </div>
+      <div class="pieza"><canvas class="scene" id="c4"></canvas>
+        <div class="cap"><b>Red de literatura:</b> cada punto es un paper, y los naranja son los pilares que hay que leer completos.</div>
+      </div>
+    </div>
+  </section>
+
+</div></div>
+
+<div class="notas" id="notas"><b id="notas-t"></b><span id="notas-x"></span></div>
+
+<script src="lib/three.min.js"></script>
+<script>
+(function(){
+  var stage=document.getElementById('stage');
+  function escalar(){var s=Math.min(innerWidth/1600,innerHeight/900);stage.style.transform='scale('+s+')';}
+  addEventListener('resize',escalar);escalar();
+
+  var slides=[].slice.call(document.querySelectorAll('.slide'));
+  var labels=['Redes','IA','Datos','Lab'];
+  var cur=0, scenes=[];
+  var riel=document.getElementById('riel');
+  slides.forEach(function(s,i){
+    var b=document.createElement('button');b.innerHTML='<i></i><span>'+labels[i]+'</span>';
+    b.onclick=function(e){e.stopPropagation();ir(i);};riel.appendChild(b);
+  });
+  var rbtns=[].slice.call(riel.children);
+
+  var GUION=[
+    {t:'Seguridad de redes',x:'Alarma = red de sensores por radio en 433 MHz. El jamming es una denegación de servicio sobre el canal. Lo original: la “zona ciega” — un jammer intermitente tumba al sensor sin que el panel lo note, porque promedia en ~1 s y el daño es en ms. La hipótesis: se detecta por el patrón, no por la energía (Xu 2005 asumía tráfico constante y Osanaiye solo simuló). Es defensa, y el experimento va en jaula de Faraday o por cable.'},
+    {t:'Inteligencia artificial',x:'Sin RAM, Linux mata un proceso con una fórmula que casi solo mira el tamaño: decide mal. La idea: una política aprendida que mira más señales, inyectada con eBPF sin recompilar. El hook para el OOM killer está propuesto (RFC 2023 y “mm: BPF OOM”, v3 en 2026), no integrado: en PI4 lo aplico como parche en una VM. Es la más original y la más arriesgada, con cero hardware.'},
+    {t:'Ciencia de datos (la elegida)',x:'Guatecompras es público. Una empresa no sabe a qué concursos entrar ni a qué precio. La herramienta: recomendador + probabilidad de ganar + precio de referencia. Competir mejor, no burlar. La elijo: datos públicos, método validado en España (en Paraguay ya hay IA para MIPYMES, pero nadie publicó un estudio evaluado con Guatecompras), menor riesgo y potencial de producto para mi empresa.'},
+    {t:'Entregable ResearchRabbit',x:'Para cada rama armé un banco: 2–3 semillas, ResearchRabbit expande la red de citas y con IA elijo los mejores — 40 por tema con los pilares marcados. Las capturas son las redes reales. En cada idea muestro los papers principales relacionados (R1–R3, IA1–IA3, D1–D2).'}
+  ];
+
+  function ir(i){
+    if(i<0)i=0; if(i>slides.length-1)i=slides.length-1;
+    slides.forEach(function(s,k){s.classList.remove('act','prev');if(k<i)s.classList.add('prev');});
+    slides[i].classList.add('act');
+    rbtns.forEach(function(b,k){b.classList.toggle('on',k===i);});
+    cur=i; document.getElementById('cur').textContent=i+1;
+    var g=GUION[i]; document.getElementById('notas-t').textContent=(i+1)+' · '+g.t;
+    document.getElementById('notas-x').textContent=g.x;
+    scenes.forEach(function(sc){sc.resize&&sc.resize();});
+  }
+  addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown'){ir(cur+1);e.preventDefault();}
+    else if(e.key==='ArrowLeft'||e.key==='PageUp'){ir(cur-1);e.preventDefault();}
+    else if(e.key==='g'||e.key==='G'){document.getElementById('notas').classList.toggle('on');}
+    else if(e.key==='f'||e.key==='F'){var el=document.documentElement;
+      if(!document.fullscreenElement){el.requestFullscreen&&el.requestFullscreen();}else{document.exitFullscreen&&document.exitFullscreen();}}
+  });
+  document.addEventListener('click',function(e){
+    if(e.target.closest('.riel')||e.target.closest('.notas')||e.target.closest('canvas.scene'))return;
+    ir(cur+1);
+  });
+
+  /* ================= fondo: constelación ================= */
+  var cv=document.getElementById('fondo'),cx=cv.getContext('2d'),pts=[];
+  function initF(){cv.width=innerWidth*devicePixelRatio;cv.height=innerHeight*devicePixelRatio;
+    pts=Array.from({length:100},function(){return {x:(Math.random()-.5)*2,y:(Math.random()-.5)*2,z:Math.random()*2+.2,c:Math.random()<.25};});}
+  addEventListener('resize',initF);initF();
+  var mx=0,my=0;addEventListener('mousemove',function(e){mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5;});
+  function fondo(){
+    var W=cv.width,H=cv.height,dpr=devicePixelRatio;cx.clearRect(0,0,W,H);
+    var g=cx.createRadialGradient(W*.76,H*.2,0,W*.76,H*.2,W*.7);g.addColorStop(0,'rgba(22,194,243,.14)');g.addColorStop(1,'rgba(22,194,243,0)');cx.fillStyle=g;cx.fillRect(0,0,W,H);
+    var g2=cx.createRadialGradient(W*.12,H*.95,0,W*.12,H*.95,W*.6);g2.addColorStop(0,'rgba(31,59,255,.1)');g2.addColorStop(1,'rgba(31,59,255,0)');cx.fillStyle=g2;cx.fillRect(0,0,W,H);
+    var pr=pts.map(function(p){p.z-=.0015;if(p.z<.2)p.z=2.2;var s=1/p.z;return {X:W/2+(p.x+mx*.2)*W*.5*s,Y:H/2+(p.y+my*.2)*H*.5*s,s:s,c:p.c};});
+    cx.lineWidth=1*dpr;
+    for(var i=0;i<pr.length;i++)for(var j=i+1;j<pr.length;j++){var a=pr[i],b=pr[j],d=Math.hypot(a.X-b.X,a.Y-b.Y);
+      if(d<120*dpr){cx.strokeStyle='rgba(31,59,255,'+(.11*(1-d/(120*dpr)))+')';cx.beginPath();cx.moveTo(a.X,a.Y);cx.lineTo(b.X,b.Y);cx.stroke();}}
+    for(var k=0;k<pr.length;k++){var p=pr[k];cx.fillStyle=p.c?'rgba(22,194,243,.7)':'rgba(31,59,255,.4)';cx.beginPath();cx.arc(p.X,p.Y,Math.min(4,1.4*p.s)*dpr,0,7);cx.fill();}
+  }
+
+  /* ================= escenas 3D (Three.js) ================= */
+  var OK=(typeof THREE!=='undefined');
+  var COB=0x1f3bff, CIAN=0x16c2f3, MAND=0xff8a3d, TINTA=0x0a1240;
+  function mk(canvas){var r=new THREE.WebGLRenderer({canvas:canvas,antialias:true,alpha:true});r.setPixelRatio(Math.min(devicePixelRatio,2));return r;}
+  function sz(c){var p=c.parentElement;return {w:p.clientWidth||560,h:p.clientHeight||440};}
+  function base(id,build){
+    var c=document.getElementById(id);if(!OK||!c)return;
+    try{var r=mk(c),sc=new THREE.Scene(),s=sz(c),cam=new THREE.PerspectiveCamera(50,s.w/s.h,.1,100);
+      cam.position.set(0,0,6);r.setSize(s.w,s.h,false);
+      var api={r:r,scene:sc,cam:cam,idx:0,resize:function(){var s=sz(c);cam.aspect=s.w/s.h;cam.updateProjectionMatrix();r.setSize(s.w,s.h,false);}};
+      build(api);scenes.push(api);
+    }catch(err){if(c)c.style.display='none';}
+  }
+  function active(api){return slides[api.idx].classList.contains('act');}
+
+  base('c1',function(a){a.idx=0;var g=new THREE.Group();a.scene.add(g);
+    g.add(new THREE.Mesh(new THREE.SphereGeometry(.42,24,24),new THREE.MeshBasicMaterial({color:COB})));
+    var waves=[];for(var i=0;i<5;i++){var w=new THREE.Mesh(new THREE.SphereGeometry(1,22,16),
+      new THREE.MeshBasicMaterial({color:CIAN,wireframe:true,transparent:true,opacity:.5}));w.scale.setScalar(.5+i*.9);g.add(w);waves.push(w);}
+    var N=150,pos=new Float32Array(N*3);for(var j=0;j<N;j++){pos[j*3]=2.4+(Math.random()-.5)*1.6;pos[j*3+1]=1.3+(Math.random()-.5)*1.6;pos[j*3+2]=(Math.random()-.5)*1.6;}
+    var pg=new THREE.BufferGeometry();pg.setAttribute('position',new THREE.BufferAttribute(pos,3));
+    var jam=new THREE.Points(pg,new THREE.PointsMaterial({color:MAND,size:.09,transparent:true,opacity:.9}));g.add(jam);
+    var t=0;(function loop(){requestAnimationFrame(loop);if(!active(a))return;t+=.016;g.rotation.y+=.0032;g.rotation.x=Math.sin(t*.4)*.12;
+      waves.forEach(function(w,i){var ph=(t*.5+i*.6)%2.6;w.scale.setScalar(.4+ph*1.15);w.material.opacity=Math.max(0,.5-ph*.2);});
+      jam.material.opacity=(Math.sin(t*3.1)>.4?1:.12)*(.55+Math.random()*.35);jam.rotation.z+=.01;a.r.render(a.scene,a.cam);})();});
+
+  base('c2',function(a){a.idx=1;var g=new THREE.Group();a.scene.add(g);g.rotation.x=-.5;
+    var cubes=[],n=6,gap=.62;for(var x=0;x<n;x++)for(var y=0;y<n;y++){
+      var m=new THREE.Mesh(new THREE.BoxGeometry(.46,.46,.46),new THREE.MeshBasicMaterial({color:0x2746d8}));
+      m.position.set((x-(n-1)/2)*gap,(y-(n-1)/2)*gap,0);
+      m.add(new THREE.LineSegments(new THREE.EdgesGeometry(m.geometry),new THREE.LineBasicMaterial({color:CIAN,transparent:true,opacity:.55})));
+      g.add(m);cubes.push(m);}
+    var victim=-1,vt=0,t=0;(function loop(){requestAnimationFrame(loop);if(!active(a))return;t+=.016;g.rotation.y+=.004;g.rotation.x=-.5+Math.sin(t*.3)*.08;
+      cubes.forEach(function(c){var s=.5+.5*Math.sin(t*1.4+(c.position.x+c.position.y)*1.1);c.material.color.setRGB(.12+.05*s,.24+.12*s,.78+.1*s);c.scale.setScalar(1);});
+      vt-=.016;if(vt<=0){victim=Math.floor(Math.random()*cubes.length);vt=2.1;}
+      if(victim>=0){var k=cubes[victim];if(vt<.8){k.material.color.setRGB(1,.54,.24);k.scale.setScalar(Math.max(.05,vt/.8));}else{k.material.color.setRGB(1,.56,.26);}}
+      a.r.render(a.scene,a.cam);})();});
+
+  base('c3',function(a){a.idx=2;var g=new THREE.Group();a.scene.add(g);var M=26,data=[];
+    for(var i=0;i<M;i++){var r=2.3*Math.cbrt(Math.random()),th=Math.random()*Math.PI*2,ph=Math.acos(2*Math.random()-1);
+      var v=new THREE.Vector3(r*Math.sin(ph)*Math.cos(th),r*Math.sin(ph)*Math.sin(th),r*Math.cos(ph));var am=(i%3===0);
+      var m=new THREE.Mesh(new THREE.SphereGeometry(am?.17:.13,16,16),new THREE.MeshBasicMaterial({color:am?MAND:COB}));m.position.copy(v);g.add(m);data.push(v);}
+    var segs=[];for(var i=0;i<M;i++)for(var j=i+1;j<M;j++){if(data[i].distanceTo(data[j])<1.7){segs.push(data[i].x,data[i].y,data[i].z,data[j].x,data[j].y,data[j].z);}}
+    var lg=new THREE.BufferGeometry();lg.setAttribute('position',new THREE.BufferAttribute(new Float32Array(segs),3));
+    var lines=new THREE.LineSegments(lg,new THREE.LineBasicMaterial({color:TINTA,transparent:true,opacity:.22}));g.add(lines);
+    var t=0;(function loop(){requestAnimationFrame(loop);if(!active(a))return;t+=.016;g.rotation.y+=.0045;g.rotation.x=Math.sin(t*.25)*.18;
+      lines.material.opacity=.14+.12*(.5+.5*Math.sin(t*1.6));a.r.render(a.scene,a.cam);})();});
+
+  base('c4',function(a){a.idx=3;var g=new THREE.Group();a.scene.add(g);var P=40,pts3=[],ms=[];
+    for(var i=0;i<P;i++){var r=2.6*Math.cbrt(Math.random()),th=Math.random()*Math.PI*2,ph=Math.acos(2*Math.random()-1);
+      var v=new THREE.Vector3(r*Math.sin(ph)*Math.cos(th),r*Math.sin(ph)*Math.sin(th),r*Math.cos(ph));var am=i<9;
+      var m=new THREE.Mesh(new THREE.SphereGeometry(am?.15:.08,14,14),new THREE.MeshBasicMaterial({color:am?MAND:COB,transparent:true,opacity:am?1:.7}));m.position.copy(v);g.add(m);pts3.push(v);ms.push({m:m,am:am,ph:Math.random()*6});}
+    var segs=[];for(var i=0;i<P;i++)for(var j=i+1;j<P;j++){if(pts3[i].distanceTo(pts3[j])<1.5&&Math.random()<.7){segs.push(pts3[i].x,pts3[i].y,pts3[i].z,pts3[j].x,pts3[j].y,pts3[j].z);}}
+    var lg=new THREE.BufferGeometry();lg.setAttribute('position',new THREE.BufferAttribute(new Float32Array(segs),3));
+    g.add(new THREE.LineSegments(lg,new THREE.LineBasicMaterial({color:TINTA,transparent:true,opacity:.2})));
+    var t=0;(function loop(){requestAnimationFrame(loop);if(!active(a))return;t+=.016;g.rotation.y+=.0038;g.rotation.x=Math.sin(t*.22)*.2;
+      ms.forEach(function(o){if(o.am){o.m.scale.setScalar(1+.18*Math.sin(t*2+o.ph));}});a.r.render(a.scene,a.cam);})();});
+
+  (function bucle(){fondo();requestAnimationFrame(bucle);})();
+  ir(Math.max(0,(parseInt(location.hash.slice(1))||1)-1));
+  addEventListener('hashchange',function(){ir((parseInt(location.hash.slice(1))||1)-1);});
+})();
+</script>
+</body>
+</html>
