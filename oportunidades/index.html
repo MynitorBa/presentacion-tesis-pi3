@@ -263,7 +263,7 @@ const SH={
  cold:(i,c)=>{if(i<N*.96){const p=sph(Math.cbrt(Math.random())*8);return[[p[0]-5,p[1],p[2]],D.clone().lerp(c,.45),1]}const p=sph(Math.cbrt(Math.random())*1.3);return[[p[0]+7,p[1]-6,p[2]],c,2.6]},
  page:(i,c)=>{const cols=64,x=i%cols,y=Math.floor(i/cols);const on=Math.random()<.55||x%9==0;return[[(x-cols/2)*.42,(20-y)*.62,rnd(.15)],on?c:D,on?1:.5]},
  missing:(i,c)=>{const p=sph(10+rnd(.4));const ok=Math.random()<.1;return[p,ok?c:D,ok?2:.7]},
- ring:(i,c)=>{const a=Math.random()*6.283,r=11+rnd(.7);const win=i<40;return[win?[12+rnd(.4),0,rnd(.4)]:[Math.cos(a)*r,rnd(.7),Math.sin(a)*r],win?W:c,win?3:1]},
+ ring:(i,c)=>{const a=Math.random()*6.283,r=11+rnd(.7);const win=i<40;return[win?[Math.cos(a)*.6,rnd(.4)+3.5,Math.sin(a)*.6]:[Math.cos(a)*r,rnd(.7),Math.sin(a)*r],win?W:c,win?3:1]},
  converge:(i,c)=>{const k=i%7,a=k/7*6.283,d=Math.random(),r=3+d*14;return[[Math.cos(a)*r+rnd(.5),Math.sin(a)*r*.6+rnd(.5),rnd(2)],d<.25?c:D.clone().lerp(c,.4),d<.25?1.6:1]},
  network:(i,c)=>{const k=i%9,a=k/9*6.283,ce=[Math.cos(a)*11,Math.sin(a)*7,rnd(3)],p=sph(Math.cbrt(Math.random())*2.6);return[[ce[0]+p[0],ce[1]+p[1],ce[2]+p[2]],c,1.1]},
  cubes:(i,c)=>{const k=i%4,ce=[[-12,0,0],[-4,0,0],[4,0,0],[12,0,0]][k],s=[2,2.8,3.4,4.2][k];return[[ce[0]+rnd(s),ce[1]+rnd(s),ce[2]+rnd(s)],D.clone().lerp(c,.35+k*.2),1]},
