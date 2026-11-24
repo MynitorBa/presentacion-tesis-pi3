@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Oportunidades Guatecompras</title>
+<meta name="description" content="Once oportunidades de investigación para Guatecompras, con sus papers.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,400&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#f4efe6;--paper2:#ebe4d6;--ink:#14213a;--ink2:#3c4660;--mute:#7a7466;--line:#d8cfbd;
+--g:#1d6b52;--t:#b5502f;--i:#2e4f8f;--acc:var(--g)}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;background:#1b1712;overflow:hidden}
+body{font-family:"Work Sans",system-ui,sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased}
+#stage{position:fixed;inset:0}
+#deck{width:1600px;height:900px;position:absolute;left:50%;top:50%;transform-origin:center center;transform:translate(-50%,-50%)}
+.slide{position:absolute;inset:0;background:var(--paper);opacity:0;visibility:hidden;transition:opacity .45s ease,transform .45s ease;transform:translateX(24px);overflow:hidden}
+.slide.on{opacity:1;visibility:visible;transform:none}
+.slide.prev{transform:translateX(-24px)}
+.slide::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(20,33,58,.05) 1px,transparent 1px);background-size:22px 22px;pointer-events:none}
+.inner{position:relative;height:100%;padding:88px 110px 80px}
+.kicker{font:600 15px/1 "Work Sans";letter-spacing:.22em;text-transform:uppercase;color:var(--acc);margin-bottom:26px}
+.display{font:400 128px/.95 "Fraunces",serif;letter-spacing:-.035em;font-variation-settings:"opsz" 144}
+.title{font:400 72px/1.02 "Fraunces",serif;letter-spacing:-.025em;margin-bottom:30px;font-variation-settings:"opsz" 144}
+.title.sm{font-size:54px;margin-bottom:10px}
+em{font-style:italic;color:var(--acc)}
+.lead{font:300 30px/1.4 "Work Sans";max-width:980px;margin-top:38px;color:var(--ink2)}
+.body{font:400 24px/1.5 "Work Sans";color:var(--ink2);max-width:640px;margin-bottom:18px}
+.body.s{font-size:19.5px;line-height:1.5;max-width:none}
+.muted{color:var(--mute)}
+.cover .byline{position:absolute;left:110px;bottom:80px;display:flex;gap:42px;font:500 18px "Work Sans";color:var(--mute);letter-spacing:.04em}
+.cover-num{position:absolute;right:70px;bottom:-110px;font:300 560px/1 "Fraunces",serif;color:transparent;-webkit-text-stroke:2px var(--line);letter-spacing:-.06em}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:center;height:100%}
+.funnel{list-style:none;display:flex;flex-direction:column;gap:12px}
+.funnel li{position:relative;display:grid;grid-template-columns:150px 1fr;align-items:baseline;padding:18px 24px;border-left:6px solid var(--ink)}
+.funnel li::before{content:"";position:absolute;left:0;top:0;bottom:0;width:var(--w);background:var(--paper2)}
+.funnel li>*{position:relative}
+.funnel li b{font:400 48px/1 "Fraunces",serif;white-space:nowrap}
+.funnel li span{font-size:19px;color:var(--mute)}
+.funnel li.hot{border-left-color:var(--g)}.funnel li.hot::before{background:rgba(29,107,82,.16)}.funnel li.hot b{color:var(--g)}.funnel li.hot span{color:var(--ink);font-weight:500}
+.struck{list-style:none;border-top:2px solid var(--ink)}
+.struck li{padding:26px 0;border-bottom:1px solid var(--line)}
+.struck s{display:block;font:400 34px/1.2 "Fraunces",serif;text-decoration-color:var(--t);text-decoration-thickness:3px;color:var(--ink2)}
+.struck span{display:block;margin-top:8px;font-size:18px;color:var(--mute)}
+.map{display:grid;grid-template-columns:1.1fr .8fr 1.1fr;gap:28px;margin-top:10px}
+.blk{border-top:6px solid var(--c);background:var(--paper2);padding:26px 28px 22px}
+.blk.g{--c:var(--g)}.blk.t{--c:var(--t)}.blk.i{--c:var(--i)}
+.blk h3{font:500 15px "Work Sans";letter-spacing:.18em;text-transform:uppercase;color:var(--c);margin-bottom:16px}
+.blk ul{list-style:none}
+.blk li a{display:flex;gap:16px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--line);color:var(--ink);text-decoration:none;font:400 25px/1.25 "Fraunces",serif}
+.blk li a:hover{color:var(--c)}
+.blk li b{font:600 15px "Work Sans";color:var(--c);min-width:26px}
+.op{display:grid;grid-template-columns:330px 1fr;height:100%;margin:-88px -110px -80px}
+.op.g{--c:var(--g)}.op.t{--c:var(--t)}.op.i{--c:var(--i)}
+.op-side{background:var(--c);color:#fbf7ef;padding:70px 44px 60px;display:flex;flex-direction:column}
+.op-n{font:300 150px/.85 "Fraunces",serif;letter-spacing:-.05em}
+.op-blk{font:600 13px "Work Sans";letter-spacing:.2em;text-transform:uppercase;opacity:.8;margin-top:18px}
+.stat{margin-top:auto;border-top:1px solid rgba(255,255,255,.35);padding-top:24px}
+.stat b{display:block;font:400 54px/1 "Fraunces",serif;letter-spacing:-.02em}
+.stat span{display:block;font-size:16px;line-height:1.4;margin-top:10px;opacity:.88}
+.gap{margin-top:26px;font-size:15px;letter-spacing:.04em;opacity:.9}
+.op-main{padding:70px 80px 56px 70px;display:flex;flex-direction:column}
+.sub{font:italic 300 27px/1.3 "Fraunces",serif;color:var(--c);margin-bottom:30px}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:54px;flex:1}
+h4{font:600 13.5px "Work Sans";letter-spacing:.2em;text-transform:uppercase;color:var(--mute);margin:0 0 14px;padding-bottom:10px;border-bottom:2px solid var(--ink)}
+section h4+p+h4{margin-top:22px}
+.ev{list-style:none}
+.ev li{display:grid;grid-template-columns:74px 1fr;gap:14px;padding:12px 0;border-bottom:1px solid var(--line);font-size:17.5px;line-height:1.45;color:var(--ink2)}
+.chip{display:inline-block;font:600 14px/1 "Work Sans";letter-spacing:.06em;color:var(--c,var(--ink));border:1.5px solid currentColor;padding:6px 8px;height:fit-content;text-align:center}
+.do{background:var(--paper2);border-left:4px solid var(--c);padding:16px 20px}
+.flow{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:40px;border-top:2px solid var(--ink)}
+.step{padding:36px 36px 0 0;position:relative}
+.step+.step{padding-left:36px;border-left:1px solid var(--line)}
+.step b{font:300 110px/1 "Fraunces",serif;color:var(--line)}
+.step h3{font:400 34px/1.15 "Fraunces",serif;margin:8px 0 16px}
+.step p{font-size:21px;line-height:1.5;color:var(--ink2)}
+.q{height:100%;display:flex;flex-direction:column;justify-content:center;max-width:1260px}
+blockquote{font:400 50px/1.25 "Fraunces",serif;letter-spacing:-.015em;border-left:8px solid var(--acc);padding-left:46px}
+.refs{list-style:none;columns:2;column-gap:60px;margin-top:20px}
+.refs li{break-inside:avoid;display:flex;gap:16px;align-items:baseline;padding:10px 0;border-bottom:1px solid var(--line);font-size:18px;color:var(--ink2)}
+.refs .chip{min-width:62px}
+.foot{position:absolute;bottom:60px;left:110px;font-size:16px;color:var(--mute)}
+#bar{position:fixed;left:0;bottom:0;height:4px;background:var(--g);transition:width .4s ease;z-index:5}
+#hud{position:fixed;right:22px;bottom:16px;font:500 13px "Work Sans";color:#bdb4a2;letter-spacing:.08em;z-index:5;display:flex;gap:16px;align-items:center}
+#hud button{background:none;border:1px solid #5a5346;color:#d8cfbd;font:inherit;padding:6px 10px;cursor:pointer;border-radius:2px}
+#hud button:hover{border-color:#d8cfbd}
+#notes{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);width:min(900px,92vw);background:rgba(20,33,58,.96);color:#f4efe6;padding:20px 26px;font:400 17px/1.55 "Work Sans";border-left:4px solid var(--g);z-index:6;display:none}
+#notes.show{display:block}
+#notes b{display:block;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#9fd3bf;margin-bottom:6px}
+body.ov #deck{position:static;transform:none!important;width:auto;height:auto;display:grid;grid-template-columns:repeat(4,320px);gap:18px;padding:30px}
+body.ov{overflow:auto}
+body.ov #stage{position:static;display:block}
+body.ov .slide{position:relative;opacity:1;visibility:visible;transform:none;width:1600px;height:900px;zoom:.2;cursor:pointer;outline:0 solid var(--g)}
+body.ov .slide.on{outline-width:14px}
+@media print{html,body{background:#fff;overflow:visible}#stage{position:static;display:block}#deck{transform:none!important}
+.slide{position:relative;opacity:1;visibility:visible;transform:none;page-break-after:always}#bar,#hud,#notes{display:none}@page{size:1600px 900px;margin:0}}
+</style></head>
+<body><div id="stage"><div id="deck"><section class="slide" data-notes="Presento las oportunidades de investigación que encontré al leer 40 papers con DOI. Todo lo que diga viene de un paper con su identificador GC, que es el nombre del PDF en mi carpeta."><div class="inner">
+<div class="cover">
+  <div class="kicker">PI3 · Estado del arte · Guatecompras</div>
+  <h1 class="display">Once oportunidades<br><em>que nadie ha cerrado</em></h1>
+  <p class="lead">Lo que dejan abierto 40 papers sobre contratación pública y aprendizaje automático,
+  y cómo lo aprovecharía con los datos de Guatecompras.</p>
+  <div class="byline"><span>Mynor Barrios</span><span>Universidad del Istmo</span><span>Noviembre 2026</span></div>
+  <div class="cover-num" aria-hidden="true">11</div>
+</div></div></section><section class="slide" data-notes="Partí de 496 resultados, quité los que no tenían DOI o eran anteriores a 2012, leí títulos y resúmenes, y me quedé con 40. Doce los traduje completos."><div class="inner">
+<div class="split">
+  <div>
+    <div class="kicker">De dónde salen</div>
+    <h2 class="title">Un embudo de <em>496</em> a <em>40</em></h2>
+    <p class="body">Busqué en OpenAlex combinando contratación pública con aprendizaje automático, recomendación,
+    predicción, redes y datos abiertos, con énfasis en América Latina. Solo dejé papers con DOI verificado.</p>
+    <p class="body muted">Los pilares los traduje al español conservando su formato original.</p>
+  </div>
+  <ol class="funnel">
+    <li style="--w:100%"><b>496</b><span>resultados en OpenAlex</span></li>
+    <li style="--w:82%"><b>≈ 400</b><span>con DOI, desde 2012</span></li>
+    <li style="--w:56%"><b>≈ 90</b><span>relevantes por título y resumen</span></li>
+    <li style="--w:38%" class="hot"><b>40</b><span>estado del arte</span></li>
+    <li style="--w:24%"><b>12</b><span>traducidos completos</span></li>
+  </ol>
+</div></div></section><section class="slide" data-notes="Ya había dicho que nadie lo ha evaluado en Guatemala, que el precio conviene darlo como rango y que es una herramienta para pymes. Eso no lo repito. Todo lo que sigue es nuevo."><div class="inner">
+<div class="split">
+  <div>
+    <div class="kicker">Antes de empezar</div>
+    <h2 class="title">Lo que <em>ya dije</em> no lo repito</h2>
+    <p class="body">En la primera presentación ya planteé tres oportunidades. Aquí solo van las nuevas,
+    las que aparecieron al leer los 40 papers a fondo.</p>
+  </div>
+  <ul class="struck"><li><s>Nadie ha evaluado esto con datos de Guatemala</s><span>Era el vacío de contexto de la primera presentación.</span></li><li><s>Dar el precio como un rango</s><span>Ya se dijo con Kim y Jung.</span></li><li><s>Herramienta pensada para pymes</s><span>Ya se dijo como el enfoque de producto.</span></li></ul>
+</div></div></section><section class="slide" data-notes="Las agrupo en tres bloques. El primero es evaluar como en la vida real, que es mi aporte principal. El segundo es conocer los datos, que va primero porque decide qué se puede hacer. El tercero son variables nuevas que pruebo una por una."><div class="inner">
+<div class="kicker">El mapa</div>
+<h2 class="title">Once oportunidades en <em>tres bloques</em></h2>
+<div class="map"><div class="blk g"><h3>Evaluar como en la vida real</h3><ul><li><a href="#5"><b>01</b>Probar el modelo con el futuro</a></li><li><a href="#6"><b>02</b>Predecir solo con lo que se sabe al publicar</a></li><li><a href="#7"><b>03</b>Empresas nuevas y arranque en frío</a></li><li><a href="#15"><b>11</b>Métricas honestas para casos raros</a></li></ul></div><div class="blk t"><h3>Conocer los datos</h3><ul><li><a href="#9"><b>05</b>Medir y reportar la calidad de los datos</a></li><li><a href="#10"><b>06</b>Los que perdieron también cuentan</a></li></ul></div><div class="blk i"><h3>Probar variables nuevas</h3><ul><li><a href="#8"><b>04</b>Usar el texto de la convocatoria</a></li><li><a href="#11"><b>07</b>Anticipar la competencia</a></li><li><a href="#12"><b>08</b>La red de compradores y proveedores</a></li><li><a href="#13"><b>09</b>Un modelo por tipo de compra</a></li><li><a href="#14"><b>10</b>Aprender de otros países</a></li></ul></div></div></div></section><section class="slide" data-notes="Si mezclas años al azar, el modelo “ve el futuro” al entrenar: aprende de concursos de 2024 y luego lo pruebas con uno de 2022. En la vida real una empresa solo tiene el pasado. Por eso los resultados publicados pueden ser más optimistas de lo que serían en uso real, y casi nadie lo ha medido. Entrenar con 2015–2022, ajustar con 2023 y probar solo con 2024–2025. Comparar contra la misma prueba hecha al azar para mostrar cuánto cambia."><div class="inner">
+<div class="op g">
+  <aside class="op-side">
+    <div class="op-n">01</div>
+    <div class="op-blk">Evaluar como en la vida real</div>
+    <div class="stat"><b>80:20</b><span>partición al azar en García (2019)</span></div>
+    <div class="gap">Vacío de <b>método</b></div>
+  </aside>
+  <div class="op-main">
+    <h2 class="title sm">Probar el modelo con el futuro</h2>
+    <p class="sub">Validar con concursos posteriores, no al azar.</p>
+    <div class="cols">
+      <section><h4>Qué dicen los papers</h4><ul class="ev"><li><span class="chip">GC12</span><p>Estima el precio de adjudicación en España y valida separando los datos al azar, 80 % para entrenar y 20 % para probar.</p></li><li><span class="chip">GC28</span><p>VigIA entrena con 70 % y prueba con 30 % de los contratos de Bogotá, sin separar por fecha.</p></li><li><span class="chip">GC11</span><p>Usa 80 % para entrenar y 20 % para probar, y ambos grupos cubren los mismos años, 2011 a 2018.</p></li><li><span class="chip">GC10</span><p>Insiste en predecir en el momento real en que se publica la licitación.</p></li></ul></section>
+      <section>
+        <h4>Por qué es una oportunidad</h4><p class="body s">Si mezclas años al azar, el modelo “ve el futuro” al entrenar: aprende de concursos de 2024 y luego lo pruebas con uno de 2022. En la vida real una empresa solo tiene el pasado. Por eso los resultados publicados pueden ser más optimistas de lo que serían en uso real, y casi nadie lo ha medido.</p>
+        <h4>Qué haría con Guatecompras</h4><p class="body s do">Entrenar con 2015–2022, ajustar con 2023 y probar solo con 2024–2025. Comparar contra la misma prueba hecha al azar para mostrar cuánto cambia.</p>
+      </section>
+    </div>
+  </div>
+</div></div></section><section class="slide" data-notes="Muchos modelos usan datos que no existen cuando la empresa decide, como el número final de oferentes o las fechas de ejecución. Eso infla los resultados. VigIA muestra que la caída es de unos 11 puntos. Para una empresa lo útil es el modelo “del día de la publicación”, y ese casi no se ha medido. Separar las variables en dos grupos: las que existen al publicar el concurso y las que aparecen después. Entrenar solo con el primer grupo y reportar las dos cifras."><div class="inner">
+<div class="op g">
+  <aside class="op-side">
+    <div class="op-n">02</div>
+    <div class="op-blk">Evaluar como en la vida real</div>
+    <div class="stat"><b>87 → 76 %</b><span>exactitud de VigIA al quitar datos posteriores</span></div>
+    <div class="gap">Vacío de <b>medición</b></div>
+  </aside>
+  <div class="op-main">
+    <h2 class="title sm">Predecir solo con lo que se sabe al publicar</h2>
+    <p class="sub">Sin datos que aparecen después del concurso.</p>
+    <div class="cols">
+      <section><h4>Qué dicen los papers</h4><ul class="ev"><li><span class="chip">GC28</span><p>Con todas las variables, VigIA acierta el 87.47 %. Con solo lo que se sabe antes de firmar, baja a 76.06 %.</p></li><li><span class="chip">GC10</span><p>Propone predecir la oferta única el mismo día en que se anuncia la licitación.</p></li><li><span class="chip">GC11</span><p>Usa solo el texto del aviso, que existe desde el primer día.</p></li></ul></section>
+      <section>
+        <h4>Por qué es una oportunidad</h4><p class="body s">Muchos modelos usan datos que no existen cuando la empresa decide, como el número final de oferentes o las fechas de ejecución. Eso infla los resultados. VigIA muestra que la caída es de unos 11 puntos. Para una empresa lo útil es el modelo “del día de la publicación”, y ese casi no se ha medido.</p>
+        <h4>Qué haría con Guatecompras</h4><p class="body s do">Separar las variables en dos grupos: las que existen al publicar el concurso y las que aparecen después. Entrenar solo con el primer grupo y reportar las dos cifras.</p>
+      </section>
+    </div>
+  </div>
+</div></div></section><section class="slide" data-notes="Un recomendador aprende del historial, pero la empresa que más necesita ayuda es la que casi no tiene historial. Ningún paper evalúa por separado qué tan bien funciona el modelo con empresas nuevas. Medir el recomendador en dos grupos: empresas con muchos concursos y empresas con 0 a 2. Probar variables que no dependen del historial, como la categoría y el texto."><div class="inner">
+<div class="op g">
+  <aside class="op-side">
+    <div class="op-n">03</div>
+    <div class="op-blk">Evaluar como en la vida real</div>
+    <div class="stat"><b>228 días</b><span>registro del proveedor en que baja el riesgo (VigIA)</span></div>
+    <div class="gap">Vacío de <b>método</b></div>
+  </aside>
+  <div class="op-main">
+    <h2 class="title sm">Empresas nuevas y arranque en frío</h2>
+    <p class="sub">Recomendar a quien casi no tiene historial.</p>
+    <div class="cols">
+      <section><h4>Qué dicen los papers</h4><ul class="ev"><li><span class="chip">GC04</span><p>TenderKG señala que los datos de licitaciones son escasos y que recomendar a empresas con poco historial es un reto abierto.</p></li><li><span class="chip">GC07</span><p>Muestra que muchas empresas ofertan una sola vez, lo que complica estimar su probabilidad de participar.</p></li><li><span class="chip">GC28</span><p>Los días que lleva registrado el proveedor predicen problemas: el riesgo baja después de unos 228 días.</p></li><li><span class="chip">GC21</span><p>Estudia qué hace que las empresas jóvenes participen y ganen.</p></li></ul></section>
+      <section>
+        <h4>Por qué es una oportunidad</h4><p class="body s">Un recomendador aprende del historial, pero la empresa que más necesita ayuda es la que casi no tiene historial. Ningún paper evalúa por separado qué tan bien funciona el modelo con empresas nuevas.</p>
+        <h4>Qué haría con Guatecompras</h4><p class="body s do">Medir el recomendador en dos grupos: empresas con muchos concursos y empresas con 0 a 2. Probar variables que no dependen del historial, como la categoría y el texto.</p>
+      </section>
+    </div>
+  </div>
+</div></div></section><section class="slide" data-notes="El texto dice qué se compra, con qué detalle y con qué requisitos. Acikalin muestra que eso cambia el resultado, pero en Europa. Con textos en español de Guatemala no hay nada publicado. Comparar el modelo con y sin el texto del concurso (palabras clave y embeddings en español) y medir si mejora."><div class="inner">
+<div class="op i">
+  <aside class="op-side">
+    <div class="op-n">04</div>
+    <div class="op-blk">Probar variables nuevas</div>
+    <div class="stat"><b>22</b><span>idiomas en que el texto predijo el resultado (Acikalin)</span></div>
+    <div class="gap">Vacío de <b>método</b></div>
+  </aside>
+  <div class="op-main">
+    <h2 class="title sm">Usar el texto de la convocatoria</h2>
+    <p class="sub">Lo que dice el concurso ayuda a predecir.</p>
+    <div class="cols">
+      <section><h4>Qué dicen los papers</h4><ul class="ev"><li><span class="chip">GC11</span><p>Con solo la descripción del aviso predice el número de ofertas, la oferta única y si el precio superará lo estimado, en 22 idiomas.</p></li><li><span class="chip">GC03</span><p>En Colombia usa solo 40 palabras clave (TF-IDF) para clasificar licitaciones.</p></li><li><span class="chip">GC23</span><p>Advierte que hay avisos con apenas cinco palabras, y que en España las descripciones miden la mitad que en el Reino Unido.</p></li></ul></section>
+      <section>
+        <h4>Por qué es una oportunidad</h4><p class="body s">El texto dice qué se compra, con qué detalle y con qué requisitos. Acikalin muestra que eso cambia el resultado, pero en Europa. Con textos en español de Guatemala no hay nada publicado.</p>
+        <h4>Qué haría con Guatecompras</h4><p class="body s do">Comparar el modelo con y sin el texto del concurso (palabras clave y embeddings en español) y medir si mejora.</p>
+      </section>
+    </div>
+  </div>
+</div></div></section><section class="slide" data-notes="Todos los papers pierden una gran parte de sus datos al limpiarlos, pero nadie lo ha medido para Guatecompras. Saber cuántos concursos sirven es un resultado en sí mismo y decide qué modelos son posibles. Reportar paso a paso cuántos concursos sobreviven a la limpieza y qué campos faltan, y probar si los faltantes predicen algo."><div class="inner">
+<div class="op t">
+  <aside class="op-side">
+    <div class="op-n">05</div>
+    <div class="op-blk">Conocer los datos</div>
+    <div class="stat"><b>9 %</b><span>adjudicaciones que enlazan con su licitación en TED</span></div>
+    <div class="gap">Vacío de <b>medición</b></div>
+  </aside>
+  <div class="op-main">
+    <h2 class="title sm">Medir y reportar la calidad de los datos</h2>
+    <p class="sub">Cuántos registros sirven de verdad.</p>
+    <div class="cols">
+      <section><h4>Qué dicen los papers</h4><ul class="ev"><li><span class="chip">GC23</span><p>El valor se llena en menos del 10 % de los avisos y solo el 9 % de las adjudicaciones enlaza con su licitación.</p></li><li><span class="chip">GC14</span><p>De 13.3 millones de registros de la UE quedan 10 millones útiles (75 %).</p></li><li><span class="chip">GC12</span><p>En España pasan de unas 232 mil licitaciones a 58 mil.</p></li><li><span class="chip">GC02</span><p>Solo el 21.5 % de los registros tiene datos de adjudicación.</p></li></ul></section>
+      <section>
+        <h4>Por qué es una oportunidad</h4><p class="body s">Todos los papers pierden una gran parte de sus datos al limpiarlos, pero nadie lo ha medido para Guatecompras. Saber cuántos concursos sirven es un resultado en sí mismo y decide qué modelos son posibles.</p>
+        <h4>Qué haría con Guatecompras</h4><p class="body s do">Reportar paso a paso cuántos concursos sobreviven a la limpieza y qué campos faltan, y probar si los faltantes predicen algo.</p>
+      </section>
+    </div>
+  </div>
+</div></div></section><section class="slide" data-notes="Para estimar la probabilidad de ganar hay que comparar al ganador contra los que perdieron. Si solo se conoce al ganador, el modelo no tiene contra qué comparar. Hay que verificar si Guatecompras publica a todos los oferentes. Revisar en los datos abiertos de Guatecompras si están todos los oferentes por concurso y cuántos concursos los tienen completos."><div class="inner">
+<div class="op t">
+  <aside class="op-side">
+    <div class="op-n">06</div>
+    <div class="op-blk">Conocer los datos</div>
+    <div class="stat"><b>todos</b><span>los oferentes deberían publicarse, no solo el ganador (Soylu)</span></div>
+    <div class="gap">Vacío de <b>medición</b></div>
+  </aside>
+  <div class="op-main">
+    <h2 class="title sm">Los que perdieron también cuentan</h2>
+    <p class="sub">Sin perdedores no hay probabilidad de ganar.</p>
+    <div class="cols">
+      <section><h4>Qué dicen los papers</h4><ul class="ev"><li><span class="chip">GC23</span><p>Recomienda publicar el identificador de todos los oferentes, no solo del ganador, para medir competencia y barreras de entrada.</p></li><li><span class="chip">GC07</span><p>Estima la probabilidad de participar de cada oferente, lo que exige saber quién se presentó.</p></li><li><span class="chip">GC09</span><p>Aprende de decisiones pasadas de ofertar o no, que incluyen concursos que no se ganaron.</p></li></ul></section>
+      <section>
+        <h4>Por qué es una oportunidad</h4><p class="body s">Para estimar la probabilidad de ganar hay que comparar al ganador contra los que perdieron. Si solo se conoce al ganador, el modelo no tiene contra qué comparar. Hay que verificar si Guatecompras publica a todos los oferentes.</p>
+        <h4>Qué haría con Guatecompras</h4><p class="body s do">Revisar en los datos abiertos de Guatecompras si están todos los oferentes por concurso y cuántos concursos los tienen completos.</p>
+      </section>
+    </div>
+  </div>
+</div></div></section><section class="slide" data-notes="Si sabes cuántos van a competir, sabes cuánto bajar tu precio y si vale la pena entrar. Estos papers lo predicen, pero no lo usan como paso previo para estimar la probabilidad de ganar de una empresa. Predecir primero el número de oferentes y usar esa predicción como variable de la probabilidad de ganar. Comparar con y sin ella."><div class="inner">
+<div class="op i">
+  <aside class="op-side">
+    <div class="op-n">07</div>
+    <div class="op-blk">Probar variables nuevas</div>
+    <div class="stat"><b>9 %</b><span>peso del número de ofertas en el precio (Rahman)</span></div>
+    <div class="gap">Vacío de <b>comparación</b></div>
+  </aside>
+  <div class="op-main">
+    <h2 class="title sm">Anticipar la competencia</h2>
+    <p class="sub">Cuántos van a ofertar, antes de que cierre.</p>
+    <div class="cols">
+      <section><h4>Qué dicen los papers</h4><ul class="ev"><li><span class="chip">GC08</span><p>Predice el número de oferentes en construcción con modelos explicables.</p></li><li><span class="chip">GC10</span><p>Predice la oferta única al publicar la licitación.</p></li><li><span class="chip">GC14</span><p>El número de ofertas pesa cerca del 9 % al predecir el valor del contrato.</p></li><li><span class="chip">GC37</span><p>Muestra que la calidad de la regulación cambia la competencia y la costo-eficiencia en la UE.</p></li></ul></section>
+      <section>
+        <h4>Por qué es una oportunidad</h4><p class="body s">Si sabes cuántos van a competir, sabes cuánto bajar tu precio y si vale la pena entrar. Estos papers lo predicen, pero no lo usan como paso previo para estimar la probabilidad de ganar de una empresa.</p>
+        <h4>Qué haría con Guatecompras</h4><p class="body s do">Predecir primero el número de oferentes y usar esa predicción como variable de la probabilidad de ganar. Comparar con y sin ella.</p>
+      </section>
+    </div>
+  </div>
+</div></div></section><section class="slide" data-notes="Las redes ya se usan en Guatemala, pero para buscar corrupción. Nadie las ha usado para ayudar a la empresa: con qué comprador ya trabajó, con quién compite siempre, a qué grupo pertenece. Calcular para cada empresa su número de compradores, si repite con el mismo comprador y su comunidad, y medir si mejoran la recomendación."><div class="inner">
+<div class="op i">
+  <aside class="op-side">
+    <div class="op-n">08</div>
+    <div class="op-blk">Probar variables nuevas</div>
+    <div class="stat"><b>33,579</b><span>contratos de Guatemala analizados como red (Waxenecker)</span></div>
+    <div class="gap">Vacío de <b>método</b></div>
+  </aside>
+  <div class="op-main">
+    <h2 class="title sm">La red de compradores y proveedores</h2>
+    <p class="sub">Con quién ha trabajado la empresa importa.</p>
+    <div class="cols">
+      <section><h4>Qué dicen los papers</h4><ul class="ev"><li><span class="chip">GC27</span><p>Analiza 33,579 contratos municipales de construcción de Guatemala (2012–2020) como red, para estudiar corrupción.</p></li><li><span class="chip">GC31</span><p>En Chile encuentra comunidades de proveedores con análisis de redes.</p></li><li><span class="chip">GC32</span><p>En Brasil estudia la red de empresas que ofertan juntas.</p></li><li><span class="chip">GC10</span><p>Agrega variables de red a la predicción temprana de la oferta única.</p></li></ul></section>
+      <section>
+        <h4>Por qué es una oportunidad</h4><p class="body s">Las redes ya se usan en Guatemala, pero para buscar corrupción. Nadie las ha usado para ayudar a la empresa: con qué comprador ya trabajó, con quién compite siempre, a qué grupo pertenece.</p>
+        <h4>Qué haría con Guatecompras</h4><p class="body s do">Calcular para cada empresa su número de compradores, si repite con el mismo comprador y su comunidad, y medir si mejoran la recomendación.</p>
+      </section>
+    </div>
+  </div>
+</div></div></section><section class="slide" data-notes="Guatecompras tiene modalidades muy distintas (compra directa, baja cuantía, cotización, licitación). Un solo modelo para todas puede esconder que funciona bien en unas y mal en otras. Entrenar un modelo general y uno por modalidad, y comparar sus resultados."><div class="inner">
+<div class="op i">
+  <aside class="op-side">
+    <div class="op-n">09</div>
+    <div class="op-blk">Probar variables nuevas</div>
+    <div class="stat"><b>88 vs 79 %</b><span>exactitud por tipo de contrato en VigIA</span></div>
+    <div class="gap">Vacío de <b>comparación</b></div>
+  </aside>
+  <div class="op-main">
+    <h2 class="title sm">Un modelo por tipo de compra</h2>
+    <p class="sub">No es lo mismo una compra directa que una licitación.</p>
+    <div class="cols">
+      <section><h4>Qué dicen los papers</h4><ul class="ev"><li><span class="chip">GC28</span><p>Separando contratos de servicios profesionales logra 88.29 %, y en los demás 79.16 %. Los umbrales cambian por tipo.</p></li><li><span class="chip">GC11</span><p>Filtrar por idioma y por sector da los mejores resultados.</p></li><li><span class="chip">GC14</span><p>El país y el sector cambian mucho el valor del contrato.</p></li></ul></section>
+      <section>
+        <h4>Por qué es una oportunidad</h4><p class="body s">Guatecompras tiene modalidades muy distintas (compra directa, baja cuantía, cotización, licitación). Un solo modelo para todas puede esconder que funciona bien en unas y mal en otras.</p>
+        <h4>Qué haría con Guatecompras</h4><p class="body s do">Entrenar un modelo general y uno por modalidad, y comparar sus resultados.</p>
+      </section>
+    </div>
+  </div>
+</div></div></section><section class="slide" data-notes="Si Guatemala tiene pocos datos en alguna categoría, se podría aprender de países con sistemas parecidos. Nadie ha probado si eso funciona en América Latina. Entrenar con datos de Guatemala solos y con Guatemala más Colombia, y comparar en los mismos concursos de prueba."><div class="inner">
+<div class="op i">
+  <aside class="op-side">
+    <div class="op-n">10</div>
+    <div class="op-blk">Probar variables nuevas</div>
+    <div class="stat"><b>+</b><span>entrenar con todos los idiomas mejoró los resultados (Acikalin)</span></div>
+    <div class="gap">Vacío de <b>comparación</b></div>
+  </aside>
+  <div class="op-main">
+    <h2 class="title sm">Aprender de otros países</h2>
+    <p class="sub">Usar datos de Colombia o España para ayudar a Guatemala.</p>
+    <div class="cols">
+      <section><h4>Qué dicen los papers</h4><ul class="ev"><li><span class="chip">GC11</span><p>Entrenar con los 22 idiomas juntos supera a entrenar un modelo por idioma, y usar datos de otros países ayuda.</p></li><li><span class="chip">GC14</span><p>El país es la variable que más pesa, así que transferir no es automático.</p></li><li><span class="chip">GC03</span><p>Colombia publica datos en un sistema parecido (SECOP).</p></li><li><span class="chip">GC28</span><p>VigIA propone probar sus métodos en otros países.</p></li></ul></section>
+      <section>
+        <h4>Por qué es una oportunidad</h4><p class="body s">Si Guatemala tiene pocos datos en alguna categoría, se podría aprender de países con sistemas parecidos. Nadie ha probado si eso funciona en América Latina.</p>
+        <h4>Qué haría con Guatecompras</h4><p class="body s do">Entrenar con datos de Guatemala solos y con Guatemala más Colombia, y comparar en los mismos concursos de prueba.</p>
+      </section>
+    </div>
+  </div>
+</div></div></section><section class="slide" data-notes="Ganar un concurso es raro, así que un modelo puede “acertar” casi siempre diciendo que no vas a ganar. Hay que medir con métricas que muestran si encuentra los casos importantes. Reportar precision@k, recall@k y PR-AUC sobre la prueba sin sobremuestrear, y contra una regla simple."><div class="inner">
+<div class="op g">
+  <aside class="op-side">
+    <div class="op-n">11</div>
+    <div class="op-blk">Evaluar como en la vida real</div>
+    <div class="stat"><b>99 %</b><span>exactitud reportada con sobremuestreo (Colombia)</span></div>
+    <div class="gap">Vacío de <b>medición</b></div>
+  </aside>
+  <div class="op-main">
+    <h2 class="title sm">Métricas honestas para casos raros</h2>
+    <p class="sub">Un 99 % puede ser engañoso.</p>
+    <div class="cols">
+      <section><h4>Qué dicen los papers</h4><ul class="ev"><li><span class="chip">GC03</span><p>Reporta 99 % usando sobremuestreo (SMOTE-Tomek), lo que puede inflar el resultado.</p></li><li><span class="chip">GC11</span><p>En la oferta única la precisión es 0.61 pero la sensibilidad solo 0.34: encuentra pocos casos.</p></li><li><span class="chip">GC28</span><p>Explica que un modelo muy agresivo hace perder recursos con falsos positivos.</p></li></ul></section>
+      <section>
+        <h4>Por qué es una oportunidad</h4><p class="body s">Ganar un concurso es raro, así que un modelo puede “acertar” casi siempre diciendo que no vas a ganar. Hay que medir con métricas que muestran si encuentra los casos importantes.</p>
+        <h4>Qué haría con Guatecompras</h4><p class="body s do">Reportar precision@k, recall@k y PR-AUC sobre la prueba sin sobremuestrear, y contra una regla simple.</p>
+      </section>
+    </div>
+  </div>
+</div></div></section><section class="slide" data-notes="Primero conozco los datos. Luego evalúo de forma realista, que es el aporte central. Por último pruebo cada variable nueva como un experimento con y sin ella."><div class="inner">
+<div class="kicker">Cómo se juntan</div>
+<h2 class="title">No son once tesis, <em>es una</em></h2>
+<div class="flow">
+  <div class="step"><b>1</b><h3>Conocer los datos</h3><p>Cuántos concursos sirven y si están todos los oferentes (5, 6).</p></div>
+  <div class="step"><b>2</b><h3>Evaluar como en la vida real</h3><p>Probar con el futuro, solo con lo que se sabe al publicar, con empresas nuevas y métricas honestas (1, 2, 3, 11).</p></div>
+  <div class="step"><b>3</b><h3>Probar variables nuevas</h3><p>Texto, competencia, red, tipo de compra y datos de otros países, con y sin cada una (4, 7–10).</p></div>
+</div></div></section><section class="slide" data-notes="Esta es la pregunta que junta todo."><div class="inner">
+<div class="q">
+  <div class="kicker">Pregunta de investigación</div>
+  <blockquote>¿Qué tan bien predicen modelos entrenados con datos abiertos de Guatecompras los concursos a los que una empresa debería entrar, su probabilidad de ganar y el precio, cuando se prueban con concursos posteriores, solo con la información disponible al publicar, y qué aportan el texto, la competencia y la red de la empresa?</blockquote>
+</div></div></section><section class="slide" data-notes="Estas son las fuentes. Cada identificador corresponde a un PDF o a un DOI verificado."><div class="inner">
+<div class="kicker">Referencias</div>
+<h2 class="title sm">Papers citados</h2>
+<ul class="refs"><li><span class="chip">GC02</span>Nai et al. (2023), Computer Law &amp; Security Review</li><li><span class="chip">GC03</span>Figueroa-Gómez y Galpin (2023), SN Computer Science</li><li><span class="chip">GC04</span>Mokhtari et al. (2026), TenderKG, HAL</li><li><span class="chip">GC07</span>Ballesteros-Pérez et al. (2015), Int. J. of Project Management</li><li><span class="chip">GC08</span>Oo et al. (2025), Construction Innovation</li><li><span class="chip">GC09</span>Sönmez y Sözgen (2017), J. of Civil Engineering and Management</li><li><span class="chip">GC10</span>Loumponias et al. (2026), Expert Systems</li><li><span class="chip">GC11</span>Acikalin et al. (2023), Natural Language Engineering</li><li><span class="chip">GC12</span>García Rodríguez et al. (2019), Complexity</li><li><span class="chip">GC14</span>Rahman y Hlinska (2026), IJACSA</li><li><span class="chip">GC21</span>Krieger et al. (2026), Small Business Economics</li><li><span class="chip">GC23</span>Soylu et al. (2022), Information</li><li><span class="chip">GC27</span>Waxenecker y Prell (2024), Social Networks</li><li><span class="chip">GC28</span>Salazar et al. (2024), VigIA, Data &amp; Policy</li><li><span class="chip">GC31</span>Herrera Leiva et al. (2020), IEEE Access</li><li><span class="chip">GC32</span>Lyra et al. (2021), Applied Network Science</li><li><span class="chip">GC37</span>Taş (2020), J. of Regulatory Economics</li></ul>
+<p class="foot">Los PDF traducidos están en la carpeta <i>Papers traducidos</i> con su identificador GC. El resto se consulta por su DOI.</p></div></section></div></div>
+<div id="bar"></div><div id="notes"></div>
+<div id="hud"><span id="cnt"></span><button id="bN" title="Guion (N)">Guion</button><button id="bO" title="Vista general (O)">Vista</button><button id="bF" title="Pantalla completa (F)">⛶</button></div>
+<script>
+const deck=document.getElementById('deck'),S=[...document.querySelectorAll('.slide')],bar=document.getElementById('bar'),
+cnt=document.getElementById('cnt'),notes=document.getElementById('notes');let i=0;
+function fit(){if(document.body.classList.contains('ov'))return;const k=Math.min(innerWidth/1600,innerHeight/900);deck.style.transform=`translate(-50%,-50%) scale(${k})`}
+function go(n,push=true){i=Math.max(0,Math.min(S.length-1,n));S.forEach((s,j)=>{s.classList.toggle('on',j===i);s.classList.toggle('prev',j<i)});
+bar.style.width=((i+1)/S.length*100)+'%';cnt.textContent=String(i+1).padStart(2,'0')+' / '+String(S.length).padStart(2,'0');
+notes.innerHTML='<b>Guion</b>'+S[i].dataset.notes;if(push)history.replaceState(null,'','#'+(i+1))}
+function ov(){document.body.classList.toggle('ov');if(!document.body.classList.contains('ov')){fit();S[i].scrollIntoView()}}
+addEventListener('keydown',ev=>{const k=ev.key;
+if(['ArrowRight','PageDown',' ','Enter'].includes(k)){ev.preventDefault();go(i+1)}
+else if(['ArrowLeft','PageUp','Backspace'].includes(k)){ev.preventDefault();go(i-1)}
+else if(k==='Home')go(0);else if(k==='End')go(S.length-1);
+else if(k==='n'||k==='N'||k==='g'||k==='G')notes.classList.toggle('show');
+else if(k==='o'||k==='O'||k==='Escape'&&document.body.classList.contains('ov'))ov();
+else if(k==='f'||k==='F'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}});
+S.forEach((s,j)=>s.addEventListener('click',ev=>{if(document.body.classList.contains('ov')){go(j);ov();return}
+if(ev.target.closest('a'))return;(ev.clientX>innerWidth/3?go(i+1):go(i-1))}));
+let tx=null;addEventListener('touchstart',e=>tx=e.touches[0].clientX,{passive:true});
+addEventListener('touchend',e=>{if(tx===null)return;const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>40)go(d<0?i+1:i-1);tx=null});
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',ev=>{ev.preventDefault();ev.stopPropagation();go(+a.getAttribute('href').slice(1)-1)}));
+document.getElementById('bN').onclick=()=>notes.classList.toggle('show');document.getElementById('bO').onclick=ov;
+document.getElementById('bF').onclick=()=>document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen();
+addEventListener('resize',fit);addEventListener('hashchange',()=>{const n=parseInt(location.hash.slice(1));if(n&&n-1!==i)go(n-1,false)});fit();go((parseInt(location.hash.slice(1))||1)-1,false);
+</script></body></html>
