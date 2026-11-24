@@ -1,382 +1,298 @@
 <!doctype html>
 <html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Oportunidades Guatecompras</title>
-<meta name="description" content="Once oportunidades de investigación para Guatecompras, con sus papers.">
+<meta name="description" content="Once oportunidades de investigación para Guatecompras.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,600;1,9..144,300;1,9..144,400&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-:root{--paper:#f4efe6;--paper2:#ebe4d6;--ink:#14213a;--ink2:#3c4660;--mute:#7a7466;--line:#d8cfbd;
---g:#1d6b52;--t:#b5502f;--i:#2e4f8f;--acc:var(--g)}
+:root{--bg:#05080f;--fg:#eef1f6;--mute:#8b93a7;--g:#3ddc97;--t:#ff7a59;--i:#6aa8ff;--c:var(--g)}
 *{box-sizing:border-box;margin:0;padding:0}
-html,body{height:100%;background:#1b1712;overflow:hidden}
-body{font-family:"Work Sans",system-ui,sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased}
-#stage{position:fixed;inset:0}
-#deck{width:1600px;height:900px;position:absolute;left:50%;top:50%;transform-origin:center center;transform:translate(-50%,-50%)}
-.slide{position:absolute;inset:0;background:var(--paper);opacity:0;visibility:hidden;transition:opacity .45s ease,transform .45s ease;transform:translateX(24px);overflow:hidden}
-.slide.on{opacity:1;visibility:visible;transform:none}
-.slide.prev{transform:translateX(-24px)}
-.slide::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(20,33,58,.05) 1px,transparent 1px);background-size:22px 22px;pointer-events:none}
-.inner{position:relative;height:100%;padding:88px 110px 80px}
-.kicker{font:600 15px/1 "Work Sans";letter-spacing:.22em;text-transform:uppercase;color:var(--acc);margin-bottom:26px}
-.display{font:400 128px/.95 "Fraunces",serif;letter-spacing:-.035em;font-variation-settings:"opsz" 144}
-.title{font:400 72px/1.02 "Fraunces",serif;letter-spacing:-.025em;margin-bottom:30px;font-variation-settings:"opsz" 144}
-.title.sm{font-size:54px;margin-bottom:10px}
-em{font-style:italic;color:var(--acc)}
-.lead{font:300 30px/1.4 "Work Sans";max-width:980px;margin-top:38px;color:var(--ink2)}
-.body{font:400 24px/1.5 "Work Sans";color:var(--ink2);max-width:640px;margin-bottom:18px}
-.body.s{font-size:19.5px;line-height:1.5;max-width:none}
-.muted{color:var(--mute)}
-.cover .byline{position:absolute;left:110px;bottom:80px;display:flex;gap:42px;font:500 18px "Work Sans";color:var(--mute);letter-spacing:.04em}
-.cover-num{position:absolute;right:70px;bottom:-110px;font:300 560px/1 "Fraunces",serif;color:transparent;-webkit-text-stroke:2px var(--line);letter-spacing:-.06em}
-.split{display:grid;grid-template-columns:1fr 1fr;gap:90px;align-items:center;height:100%}
-.funnel{list-style:none;display:flex;flex-direction:column;gap:12px}
-.funnel li{position:relative;display:grid;grid-template-columns:150px 1fr;align-items:baseline;padding:18px 24px;border-left:6px solid var(--ink)}
-.funnel li::before{content:"";position:absolute;left:0;top:0;bottom:0;width:var(--w);background:var(--paper2)}
-.funnel li>*{position:relative}
-.funnel li b{font:400 48px/1 "Fraunces",serif;white-space:nowrap}
-.funnel li span{font-size:19px;color:var(--mute)}
-.funnel li.hot{border-left-color:var(--g)}.funnel li.hot::before{background:rgba(29,107,82,.16)}.funnel li.hot b{color:var(--g)}.funnel li.hot span{color:var(--ink);font-weight:500}
-.struck{list-style:none;border-top:2px solid var(--ink)}
-.struck li{padding:26px 0;border-bottom:1px solid var(--line)}
-.struck s{display:block;font:400 34px/1.2 "Fraunces",serif;text-decoration-color:var(--t);text-decoration-thickness:3px;color:var(--ink2)}
-.struck span{display:block;margin-top:8px;font-size:18px;color:var(--mute)}
-.map{display:grid;grid-template-columns:1.1fr .8fr 1.1fr;gap:28px;margin-top:10px}
-.blk{border-top:6px solid var(--c);background:var(--paper2);padding:26px 28px 22px}
-.blk.g{--c:var(--g)}.blk.t{--c:var(--t)}.blk.i{--c:var(--i)}
-.blk h3{font:500 15px "Work Sans";letter-spacing:.18em;text-transform:uppercase;color:var(--c);margin-bottom:16px}
-.blk ul{list-style:none}
-.blk li a{display:flex;gap:16px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--line);color:var(--ink);text-decoration:none;font:400 25px/1.25 "Fraunces",serif}
-.blk li a:hover{color:var(--c)}
-.blk li b{font:600 15px "Work Sans";color:var(--c);min-width:26px}
-.op{display:grid;grid-template-columns:330px 1fr;height:100%;margin:-88px -110px -80px}
-.op.g{--c:var(--g)}.op.t{--c:var(--t)}.op.i{--c:var(--i)}
-.op-side{background:var(--c);color:#fbf7ef;padding:70px 44px 60px;display:flex;flex-direction:column}
-.op-n{font:300 150px/.85 "Fraunces",serif;letter-spacing:-.05em}
-.op-blk{font:600 13px "Work Sans";letter-spacing:.2em;text-transform:uppercase;opacity:.8;margin-top:18px}
-.stat{margin-top:auto;border-top:1px solid rgba(255,255,255,.35);padding-top:24px}
-.stat b{display:block;font:400 54px/1 "Fraunces",serif;letter-spacing:-.02em}
-.stat span{display:block;font-size:16px;line-height:1.4;margin-top:10px;opacity:.88}
-.gap{margin-top:26px;font-size:15px;letter-spacing:.04em;opacity:.9}
-.op-main{padding:70px 80px 56px 70px;display:flex;flex-direction:column}
-.sub{font:italic 300 27px/1.3 "Fraunces",serif;color:var(--c);margin-bottom:30px}
-.cols{display:grid;grid-template-columns:1fr 1fr;gap:54px;flex:1}
-h4{font:600 13.5px "Work Sans";letter-spacing:.2em;text-transform:uppercase;color:var(--mute);margin:0 0 14px;padding-bottom:10px;border-bottom:2px solid var(--ink)}
-section h4+p+h4{margin-top:22px}
-.ev{list-style:none}
-.ev li{display:grid;grid-template-columns:74px 1fr;gap:14px;padding:12px 0;border-bottom:1px solid var(--line);font-size:17.5px;line-height:1.45;color:var(--ink2)}
-.chip{display:inline-block;font:600 14px/1 "Work Sans";letter-spacing:.06em;color:var(--c,var(--ink));border:1.5px solid currentColor;padding:6px 8px;height:fit-content;text-align:center}
-.do{background:var(--paper2);border-left:4px solid var(--c);padding:16px 20px}
-.flow{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:40px;border-top:2px solid var(--ink)}
-.step{padding:36px 36px 0 0;position:relative}
-.step+.step{padding-left:36px;border-left:1px solid var(--line)}
-.step b{font:300 110px/1 "Fraunces",serif;color:var(--line)}
-.step h3{font:400 34px/1.15 "Fraunces",serif;margin:8px 0 16px}
-.step p{font-size:21px;line-height:1.5;color:var(--ink2)}
-.q{height:100%;display:flex;flex-direction:column;justify-content:center;max-width:1260px}
-blockquote{font:400 50px/1.25 "Fraunces",serif;letter-spacing:-.015em;border-left:8px solid var(--acc);padding-left:46px}
-.refs{list-style:none;columns:2;column-gap:60px;margin-top:20px}
-.refs li{break-inside:avoid;display:flex;gap:16px;align-items:baseline;padding:10px 0;border-bottom:1px solid var(--line);font-size:18px;color:var(--ink2)}
-.refs .chip{min-width:62px}
-.foot{position:absolute;bottom:60px;left:110px;font-size:16px;color:var(--mute)}
-#bar{position:fixed;left:0;bottom:0;height:4px;background:var(--g);transition:width .4s ease;z-index:5}
-#hud{position:fixed;right:22px;bottom:16px;font:500 13px "Work Sans";color:#bdb4a2;letter-spacing:.08em;z-index:5;display:flex;gap:16px;align-items:center}
-#hud button{background:none;border:1px solid #5a5346;color:#d8cfbd;font:inherit;padding:6px 10px;cursor:pointer;border-radius:2px}
-#hud button:hover{border-color:#d8cfbd}
-#notes{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);width:min(900px,92vw);background:rgba(20,33,58,.96);color:#f4efe6;padding:20px 26px;font:400 17px/1.55 "Work Sans";border-left:4px solid var(--g);z-index:6;display:none}
-#notes.show{display:block}
-#notes b{display:block;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:#9fd3bf;margin-bottom:6px}
-body.ov #deck{position:static;transform:none!important;width:auto;height:auto;display:grid;grid-template-columns:repeat(4,320px);gap:18px;padding:30px}
-body.ov{overflow:auto}
-body.ov #stage{position:static;display:block}
-body.ov .slide{position:relative;opacity:1;visibility:visible;transform:none;width:1600px;height:900px;zoom:.2;cursor:pointer;outline:0 solid var(--g)}
-body.ov .slide.on{outline-width:14px}
-@media print{html,body{background:#fff;overflow:visible}#stage{position:static;display:block}#deck{transform:none!important}
-.slide{position:relative;opacity:1;visibility:visible;transform:none;page-break-after:always}#bar,#hud,#notes{display:none}@page{size:1600px 900px;margin:0}}
+html,body{height:100%;background:var(--bg);overflow:hidden;color:var(--fg);font-family:"Inter",system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+#bg{position:fixed;inset:0;width:100vw;height:100vh;display:block}
+#vig{position:fixed;inset:0;pointer-events:none;background:radial-gradient(ellipse at 50% 50%,transparent 40%,rgba(5,8,15,.85) 100%)}
+#deck{position:fixed;left:50%;top:50%;width:1600px;height:900px;transform:translate(-50%,-50%);perspective:1400px}
+.slide{position:absolute;inset:0;visibility:hidden;pointer-events:none}
+.slide.on{visibility:visible;pointer-events:auto}
+.inner{position:relative;height:100%;padding:90px 120px;transform-style:preserve-3d}
+.r{opacity:0;transform:translate3d(0,40px,-120px) rotateX(18deg);filter:blur(10px);
+transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform 1.1s cubic-bezier(.2,.8,.2,1),filter .9s;transition-delay:calc(var(--d,0)*.11s)}
+.slide.on .r{opacity:1;transform:none;filter:none}
+.slide.out .r{opacity:0;transform:translate3d(0,-30px,80px);filter:blur(8px);transition-delay:0s;transition-duration:.45s}
+.center{height:100%;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+.full{height:100%;display:flex;flex-direction:column;justify-content:center}
+.tag{font:600 15px/1 "Inter";letter-spacing:.32em;text-transform:uppercase;color:var(--c);margin-bottom:26px}
+em{font-style:italic;color:var(--c)}
+.mega{line-height:.8}
+.big3d{font:300 330px/.8 "Fraunces",serif;letter-spacing:-.06em;background:linear-gradient(180deg,#fff 20%,var(--g) 120%);-webkit-background-clip:text;color:transparent;
+display:inline-block;animation:float 6s ease-in-out infinite;text-shadow:0 30px 80px rgba(61,220,151,.25)}
+@keyframes float{0%,100%{transform:translateY(0) rotateY(-8deg)}50%{transform:translateY(-14px) rotateY(8deg)}}
+.hero{font:300 84px/1.02 "Fraunces",serif;letter-spacing:-.03em;margin-top:10px}
+.by{margin-top:46px;font:500 17px "Inter";letter-spacing:.16em;color:var(--mute);text-transform:uppercase}
+.steps{display:flex;align-items:center;gap:40px}
+.st{display:flex;flex-direction:column}
+.st b{font:300 200px/.9 "Fraunces",serif;letter-spacing:-.05em}
+.st span{font:500 18px "Inter";color:var(--mute);letter-spacing:.12em;text-transform:uppercase;margin-top:14px}
+.st.hot b{color:var(--g);text-shadow:0 0 60px rgba(61,220,151,.45)}
+.ar{font:200 80px "Inter";color:#3a4256;font-style:normal}
+.struck{list-style:none}
+.struck li{font:300 64px/1.35 "Fraunces",serif;color:#5c6478}
+.struck s{text-decoration-color:var(--t);text-decoration-thickness:4px}
+.hint{margin-top:44px;font:300 44px "Fraunces",serif}
+.cols3{display:grid;grid-template-columns:repeat(3,1fr);gap:34px;transform-style:preserve-3d}
+.col{background:linear-gradient(160deg,rgba(255,255,255,.07),rgba(255,255,255,.015));border:1px solid rgba(255,255,255,.09);border-top:3px solid var(--c);
+padding:30px 30px 20px;border-radius:18px;backdrop-filter:blur(10px);transform-style:preserve-3d;transition:transform .3s ease}
+.col h3{font:600 14px "Inter";letter-spacing:.24em;text-transform:uppercase;color:var(--c);margin-bottom:14px}
+.col a{display:flex;gap:16px;align-items:baseline;padding:13px 0;border-bottom:1px solid rgba(255,255,255,.07);color:var(--fg);text-decoration:none;font:400 25px/1.2 "Fraunces",serif;transition:color .2s,transform .2s}
+.col a:hover{color:var(--c);transform:translateX(8px)}
+.col a b{font:600 14px "Inter";color:var(--c);min-width:26px}
+.op{height:100%;display:grid;grid-template-columns:520px 1fr;align-items:center;gap:30px}
+.opn{font:200 420px/.8 "Fraunces",serif;letter-spacing:-.08em;color:transparent;-webkit-text-stroke:2px var(--c);opacity:.9;
+filter:drop-shadow(0 0 40px color-mix(in srgb,var(--c) 45%,transparent))}
+.slide.on .opn{animation:float 7s ease-in-out infinite}
+.t2{font:300 76px/1.04 "Fraunces",serif;letter-spacing:-.03em;max-width:880px}
+.stat{margin-top:46px;display:inline-flex;flex-direction:column;padding:28px 36px;border-radius:20px;
+background:linear-gradient(150deg,rgba(255,255,255,.09),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.1);border-left:4px solid var(--c);
+backdrop-filter:blur(12px);box-shadow:0 30px 80px rgba(0,0,0,.45);transition:transform .3s ease;transform-style:preserve-3d}
+.stat b{font:400 96px/1 "Fraunces",serif;color:var(--c);letter-spacing:-.03em}
+.stat span{margin-top:10px;font:400 20px/1.35 "Inter";color:#c3c9d6;max-width:520px}
+.chips{display:flex;gap:12px;margin-top:34px;flex-wrap:wrap}
+.chip{font:600 15px/1 "Inter";letter-spacing:.08em;padding:10px 14px;border-radius:999px;border:1px solid color-mix(in srgb,var(--c) 70%,transparent);color:var(--c);background:rgba(255,255,255,.03)}
+.three{display:flex;gap:28px;margin-top:56px;transform-style:preserve-3d}
+.pill{display:flex;align-items:center;gap:20px;padding:26px 34px;border-radius:20px;border:1px solid rgba(255,255,255,.1);border-top:3px solid var(--c);
+background:linear-gradient(160deg,rgba(255,255,255,.08),rgba(255,255,255,.015));font:400 30px "Fraunces",serif;backdrop-filter:blur(10px);transition:transform .3s}
+.pill b{font:300 64px/1 "Fraunces",serif;color:var(--c)}
+.q{font:300 70px/1.15 "Fraunces",serif;letter-spacing:-.02em;max-width:1300px}
+.refs{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);gap:14px 40px}
+.refs li{display:flex;gap:14px;align-items:center;font:400 19px "Inter";color:#c3c9d6}
+.refs .chip{min-width:70px;text-align:center}
+#bar{position:fixed;left:0;bottom:0;height:3px;background:linear-gradient(90deg,var(--g),var(--i));transition:width .6s ease;z-index:5;box-shadow:0 0 12px var(--g)}
+#cnt{position:fixed;right:26px;bottom:18px;font:500 13px "Inter";letter-spacing:.14em;color:#5c6478;z-index:5}
+#hint{position:fixed;left:26px;bottom:18px;font:500 12px "Inter";letter-spacing:.12em;color:#3e4558;z-index:5;transition:opacity 1s}
 </style></head>
-<body><div id="stage"><div id="deck"><section class="slide" data-notes="Presento las oportunidades de investigación que encontré al leer 40 papers con DOI. Todo lo que diga viene de un paper con su identificador GC, que es el nombre del PDF en mi carpeta."><div class="inner">
-<div class="cover">
-  <div class="kicker">PI3 · Estado del arte · Guatecompras</div>
-  <h1 class="display">Once oportunidades<br><em>que nadie ha cerrado</em></h1>
-  <p class="lead">Lo que dejan abierto 40 papers sobre contratación pública y aprendizaje automático,
-  y cómo lo aprovecharía con los datos de Guatecompras.</p>
-  <div class="byline"><span>Mynor Barrios</span><span>Universidad del Istmo</span><span>Noviembre 2026</span></div>
-  <div class="cover-num" aria-hidden="true">11</div>
-</div></div></section><section class="slide" data-notes="Partí de 496 resultados, quité los que no tenían DOI o eran anteriores a 2012, leí títulos y resúmenes, y me quedé con 40. Doce los traduje completos."><div class="inner">
-<div class="split">
-  <div>
-    <div class="kicker">De dónde salen</div>
-    <h2 class="title">Un embudo de <em>496</em> a <em>40</em></h2>
-    <p class="body">Busqué en OpenAlex combinando contratación pública con aprendizaje automático, recomendación,
-    predicción, redes y datos abiertos, con énfasis en América Latina. Solo dejé papers con DOI verificado.</p>
-    <p class="body muted">Los pilares los traduje al español conservando su formato original.</p>
+<body><canvas id="bg"></canvas><div id="vig"></div>
+<div id="deck"><section class="slide" data-shape="galaxy" data-col="#3ddc97"><div class="inner">
+<div class="center">
+  <div class="tag r">PI3 · Guatecompras</div>
+  <h1 class="mega r" style="--d:1"><span class="big3d">11</span></h1>
+  <h2 class="hero r" style="--d:2">oportunidades<br><em>que nadie ha cerrado</em></h2>
+  <div class="by r" style="--d:3">Mynor Barrios · UNIS · 2026</div>
+</div></div></section><section class="slide" data-shape="funnel" data-col="#3ddc97"><div class="inner">
+<div class="center">
+  <div class="tag r">De dónde salen</div>
+  <div class="steps">
+    <div class="st r" style="--d:1"><b data-count="496">0</b><span>encontrados</span></div><i class="ar r" style="--d:2">→</i>
+    <div class="st r" style="--d:3"><b data-count="40">0</b><span>con DOI y relevantes</span></div><i class="ar r" style="--d:4">→</i>
+    <div class="st hot r" style="--d:5"><b data-count="12">0</b><span>traducidos completos</span></div>
   </div>
-  <ol class="funnel">
-    <li style="--w:100%"><b>496</b><span>resultados en OpenAlex</span></li>
-    <li style="--w:82%"><b>≈ 400</b><span>con DOI, desde 2012</span></li>
-    <li style="--w:56%"><b>≈ 90</b><span>relevantes por título y resumen</span></li>
-    <li style="--w:38%" class="hot"><b>40</b><span>estado del arte</span></li>
-    <li style="--w:24%"><b>12</b><span>traducidos completos</span></li>
-  </ol>
-</div></div></section><section class="slide" data-notes="Ya había dicho que nadie lo ha evaluado en Guatemala, que el precio conviene darlo como rango y que es una herramienta para pymes. Eso no lo repito. Todo lo que sigue es nuevo."><div class="inner">
-<div class="split">
-  <div>
-    <div class="kicker">Antes de empezar</div>
-    <h2 class="title">Lo que <em>ya dije</em> no lo repito</h2>
-    <p class="body">En la primera presentación ya planteé tres oportunidades. Aquí solo van las nuevas,
-    las que aparecieron al leer los 40 papers a fondo.</p>
+</div></div></section><section class="slide" data-shape="dust" data-col="#ff7a59"><div class="inner">
+<div class="center">
+  <div class="tag r">Ya lo dije antes</div>
+  <ul class="struck"><li class="r" style="--d:1"><s>Nadie ha evaluado esto con datos de Guatemala</s></li><li class="r" style="--d:2"><s>Dar el precio como un rango</s></li><li class="r" style="--d:3"><s>Herramienta pensada para pymes</s></li></ul>
+  <p class="hint r" style="--d:5">Todo lo que sigue es <em>nuevo</em></p>
+</div></div></section><section class="slide" data-shape="clusters" data-col="#3ddc97"><div class="inner"><div class="full"><div class="tag r">El mapa</div><div class="cols3"><div class="col tilt" style="--c:#3ddc97"><h3>Evaluar como en la vida real</h3><a class="r" style="--d:1" href="#5"><b>01</b>Probar el modelo con el futuro</a><a class="r" style="--d:2" href="#6"><b>02</b>Predecir solo con lo que se sabe al publicar</a><a class="r" style="--d:3" href="#7"><b>03</b>Empresas nuevas y arranque en frío</a><a class="r" style="--d:4" href="#15"><b>11</b>Métricas honestas para casos raros</a></div><div class="col tilt" style="--c:#ff7a59"><h3>Conocer los datos</h3><a class="r" style="--d:1" href="#9"><b>05</b>Medir y reportar la calidad de los datos</a><a class="r" style="--d:2" href="#10"><b>06</b>Los que perdieron también cuentan</a></div><div class="col tilt" style="--c:#6aa8ff"><h3>Variables nuevas</h3><a class="r" style="--d:1" href="#8"><b>04</b>Usar el texto de la convocatoria</a><a class="r" style="--d:2" href="#11"><b>07</b>Anticipar la competencia</a><a class="r" style="--d:3" href="#12"><b>08</b>La red de compradores y proveedores</a><a class="r" style="--d:4" href="#13"><b>09</b>Un modelo por tipo de compra</a><a class="r" style="--d:5" href="#14"><b>10</b>Aprender de otros países</a></div></div></div></div></section><section class="slide" data-shape="helix" data-col="#3ddc97"><div class="inner">
+<div class="op" style="--c:#3ddc97">
+  <div class="opn r">01</div>
+  <div class="opt">
+    <div class="tag r" style="--d:1">Evaluar como en la vida real</div>
+    <h2 class="t2 r" style="--d:2">Probar el modelo con el futuro</h2>
+    <div class="stat tilt r" style="--d:3"><b>80:20</b><span>partición al azar en García (2019)</span></div>
+    <div class="chips"><span class="chip r" style="--d:4" title="García Rodríguez et al. (2019), Complexity">GC12</span><span class="chip r" style="--d:5" title="Salazar et al. (2024), VigIA, Data &amp; Policy">GC28</span><span class="chip r" style="--d:6" title="Acikalin et al. (2023), Natural Language Engineering">GC11</span><span class="chip r" style="--d:7" title="Loumponias et al. (2026), Expert Systems">GC10</span></div>
   </div>
-  <ul class="struck"><li><s>Nadie ha evaluado esto con datos de Guatemala</s><span>Era el vacío de contexto de la primera presentación.</span></li><li><s>Dar el precio como un rango</s><span>Ya se dijo con Kim y Jung.</span></li><li><s>Herramienta pensada para pymes</s><span>Ya se dijo como el enfoque de producto.</span></li></ul>
-</div></div></section><section class="slide" data-notes="Las agrupo en tres bloques. El primero es evaluar como en la vida real, que es mi aporte principal. El segundo es conocer los datos, que va primero porque decide qué se puede hacer. El tercero son variables nuevas que pruebo una por una."><div class="inner">
-<div class="kicker">El mapa</div>
-<h2 class="title">Once oportunidades en <em>tres bloques</em></h2>
-<div class="map"><div class="blk g"><h3>Evaluar como en la vida real</h3><ul><li><a href="#5"><b>01</b>Probar el modelo con el futuro</a></li><li><a href="#6"><b>02</b>Predecir solo con lo que se sabe al publicar</a></li><li><a href="#7"><b>03</b>Empresas nuevas y arranque en frío</a></li><li><a href="#15"><b>11</b>Métricas honestas para casos raros</a></li></ul></div><div class="blk t"><h3>Conocer los datos</h3><ul><li><a href="#9"><b>05</b>Medir y reportar la calidad de los datos</a></li><li><a href="#10"><b>06</b>Los que perdieron también cuentan</a></li></ul></div><div class="blk i"><h3>Probar variables nuevas</h3><ul><li><a href="#8"><b>04</b>Usar el texto de la convocatoria</a></li><li><a href="#11"><b>07</b>Anticipar la competencia</a></li><li><a href="#12"><b>08</b>La red de compradores y proveedores</a></li><li><a href="#13"><b>09</b>Un modelo por tipo de compra</a></li><li><a href="#14"><b>10</b>Aprender de otros países</a></li></ul></div></div></div></section><section class="slide" data-notes="Si mezclas años al azar, el modelo “ve el futuro” al entrenar: aprende de concursos de 2024 y luego lo pruebas con uno de 2022. En la vida real una empresa solo tiene el pasado. Por eso los resultados publicados pueden ser más optimistas de lo que serían en uso real, y casi nadie lo ha medido. Entrenar con 2015–2022, ajustar con 2023 y probar solo con 2024–2025. Comparar contra la misma prueba hecha al azar para mostrar cuánto cambia."><div class="inner">
-<div class="op g">
-  <aside class="op-side">
-    <div class="op-n">01</div>
-    <div class="op-blk">Evaluar como en la vida real</div>
-    <div class="stat"><b>80:20</b><span>partición al azar en García (2019)</span></div>
-    <div class="gap">Vacío de <b>método</b></div>
-  </aside>
-  <div class="op-main">
-    <h2 class="title sm">Probar el modelo con el futuro</h2>
-    <p class="sub">Validar con concursos posteriores, no al azar.</p>
-    <div class="cols">
-      <section><h4>Qué dicen los papers</h4><ul class="ev"><li><span class="chip">GC12</span><p>Estima el precio de adjudicación en España y valida separando los datos al azar, 80 % para entrenar y 20 % para probar.</p></li><li><span class="chip">GC28</span><p>VigIA entrena con 70 % y prueba con 30 % de los contratos de Bogotá, sin separar por fecha.</p></li><li><span class="chip">GC11</span><p>Usa 80 % para entrenar y 20 % para probar, y ambos grupos cubren los mismos años, 2011 a 2018.</p></li><li><span class="chip">GC10</span><p>Insiste en predecir en el momento real en que se publica la licitación.</p></li></ul></section>
-      <section>
-        <h4>Por qué es una oportunidad</h4><p class="body s">Si mezclas años al azar, el modelo “ve el futuro” al entrenar: aprende de concursos de 2024 y luego lo pruebas con uno de 2022. En la vida real una empresa solo tiene el pasado. Por eso los resultados publicados pueden ser más optimistas de lo que serían en uso real, y casi nadie lo ha medido.</p>
-        <h4>Qué haría con Guatecompras</h4><p class="body s do">Entrenar con 2015–2022, ajustar con 2023 y probar solo con 2024–2025. Comparar contra la misma prueba hecha al azar para mostrar cuánto cambia.</p>
-      </section>
-    </div>
+</div></div></section><section class="slide" data-shape="wall" data-col="#3ddc97"><div class="inner">
+<div class="op" style="--c:#3ddc97">
+  <div class="opn r">02</div>
+  <div class="opt">
+    <div class="tag r" style="--d:1">Evaluar como en la vida real</div>
+    <h2 class="t2 r" style="--d:2">Predecir solo con lo que se sabe al publicar</h2>
+    <div class="stat tilt r" style="--d:3"><b>87 → 76 %</b><span>exactitud de VigIA al quitar datos posteriores</span></div>
+    <div class="chips"><span class="chip r" style="--d:4" title="Salazar et al. (2024), VigIA, Data &amp; Policy">GC28</span><span class="chip r" style="--d:5" title="Loumponias et al. (2026), Expert Systems">GC10</span><span class="chip r" style="--d:6" title="Acikalin et al. (2023), Natural Language Engineering">GC11</span></div>
   </div>
-</div></div></section><section class="slide" data-notes="Muchos modelos usan datos que no existen cuando la empresa decide, como el número final de oferentes o las fechas de ejecución. Eso infla los resultados. VigIA muestra que la caída es de unos 11 puntos. Para una empresa lo útil es el modelo “del día de la publicación”, y ese casi no se ha medido. Separar las variables en dos grupos: las que existen al publicar el concurso y las que aparecen después. Entrenar solo con el primer grupo y reportar las dos cifras."><div class="inner">
-<div class="op g">
-  <aside class="op-side">
-    <div class="op-n">02</div>
-    <div class="op-blk">Evaluar como en la vida real</div>
-    <div class="stat"><b>87 → 76 %</b><span>exactitud de VigIA al quitar datos posteriores</span></div>
-    <div class="gap">Vacío de <b>medición</b></div>
-  </aside>
-  <div class="op-main">
-    <h2 class="title sm">Predecir solo con lo que se sabe al publicar</h2>
-    <p class="sub">Sin datos que aparecen después del concurso.</p>
-    <div class="cols">
-      <section><h4>Qué dicen los papers</h4><ul class="ev"><li><span class="chip">GC28</span><p>Con todas las variables, VigIA acierta el 87.47 %. Con solo lo que se sabe antes de firmar, baja a 76.06 %.</p></li><li><span class="chip">GC10</span><p>Propone predecir la oferta única el mismo día en que se anuncia la licitación.</p></li><li><span class="chip">GC11</span><p>Usa solo el texto del aviso, que existe desde el primer día.</p></li></ul></section>
-      <section>
-        <h4>Por qué es una oportunidad</h4><p class="body s">Muchos modelos usan datos que no existen cuando la empresa decide, como el número final de oferentes o las fechas de ejecución. Eso infla los resultados. VigIA muestra que la caída es de unos 11 puntos. Para una empresa lo útil es el modelo “del día de la publicación”, y ese casi no se ha medido.</p>
-        <h4>Qué haría con Guatecompras</h4><p class="body s do">Separar las variables en dos grupos: las que existen al publicar el concurso y las que aparecen después. Entrenar solo con el primer grupo y reportar las dos cifras.</p>
-      </section>
-    </div>
+</div></div></section><section class="slide" data-shape="cold" data-col="#3ddc97"><div class="inner">
+<div class="op" style="--c:#3ddc97">
+  <div class="opn r">03</div>
+  <div class="opt">
+    <div class="tag r" style="--d:1">Evaluar como en la vida real</div>
+    <h2 class="t2 r" style="--d:2">Empresas nuevas y arranque en frío</h2>
+    <div class="stat tilt r" style="--d:3"><b>228 días</b><span>registro del proveedor en que baja el riesgo (VigIA)</span></div>
+    <div class="chips"><span class="chip r" style="--d:4" title="Mokhtari et al. (2026), TenderKG, HAL">GC04</span><span class="chip r" style="--d:5" title="Ballesteros-Pérez et al. (2015), Int. J. of Project Management">GC07</span><span class="chip r" style="--d:6" title="Salazar et al. (2024), VigIA, Data &amp; Policy">GC28</span><span class="chip r" style="--d:7" title="Krieger et al. (2026), Small Business Economics">GC21</span></div>
   </div>
-</div></div></section><section class="slide" data-notes="Un recomendador aprende del historial, pero la empresa que más necesita ayuda es la que casi no tiene historial. Ningún paper evalúa por separado qué tan bien funciona el modelo con empresas nuevas. Medir el recomendador en dos grupos: empresas con muchos concursos y empresas con 0 a 2. Probar variables que no dependen del historial, como la categoría y el texto."><div class="inner">
-<div class="op g">
-  <aside class="op-side">
-    <div class="op-n">03</div>
-    <div class="op-blk">Evaluar como en la vida real</div>
-    <div class="stat"><b>228 días</b><span>registro del proveedor en que baja el riesgo (VigIA)</span></div>
-    <div class="gap">Vacío de <b>método</b></div>
-  </aside>
-  <div class="op-main">
-    <h2 class="title sm">Empresas nuevas y arranque en frío</h2>
-    <p class="sub">Recomendar a quien casi no tiene historial.</p>
-    <div class="cols">
-      <section><h4>Qué dicen los papers</h4><ul class="ev"><li><span class="chip">GC04</span><p>TenderKG señala que los datos de licitaciones son escasos y que recomendar a empresas con poco historial es un reto abierto.</p></li><li><span class="chip">GC07</span><p>Muestra que muchas empresas ofertan una sola vez, lo que complica estimar su probabilidad de participar.</p></li><li><span class="chip">GC28</span><p>Los días que lleva registrado el proveedor predicen problemas: el riesgo baja después de unos 228 días.</p></li><li><span class="chip">GC21</span><p>Estudia qué hace que las empresas jóvenes participen y ganen.</p></li></ul></section>
-      <section>
-        <h4>Por qué es una oportunidad</h4><p class="body s">Un recomendador aprende del historial, pero la empresa que más necesita ayuda es la que casi no tiene historial. Ningún paper evalúa por separado qué tan bien funciona el modelo con empresas nuevas.</p>
-        <h4>Qué haría con Guatecompras</h4><p class="body s do">Medir el recomendador en dos grupos: empresas con muchos concursos y empresas con 0 a 2. Probar variables que no dependen del historial, como la categoría y el texto.</p>
-      </section>
-    </div>
+</div></div></section><section class="slide" data-shape="page" data-col="#6aa8ff"><div class="inner">
+<div class="op" style="--c:#6aa8ff">
+  <div class="opn r">04</div>
+  <div class="opt">
+    <div class="tag r" style="--d:1">Variables nuevas</div>
+    <h2 class="t2 r" style="--d:2">Usar el texto de la convocatoria</h2>
+    <div class="stat tilt r" style="--d:3"><b>22</b><span>idiomas en que el texto predijo el resultado (Acikalin)</span></div>
+    <div class="chips"><span class="chip r" style="--d:4" title="Acikalin et al. (2023), Natural Language Engineering">GC11</span><span class="chip r" style="--d:5" title="Figueroa-Gómez y Galpin (2023), SN Computer Science">GC03</span><span class="chip r" style="--d:6" title="Soylu et al. (2022), Information">GC23</span></div>
   </div>
-</div></div></section><section class="slide" data-notes="El texto dice qué se compra, con qué detalle y con qué requisitos. Acikalin muestra que eso cambia el resultado, pero en Europa. Con textos en español de Guatemala no hay nada publicado. Comparar el modelo con y sin el texto del concurso (palabras clave y embeddings en español) y medir si mejora."><div class="inner">
-<div class="op i">
-  <aside class="op-side">
-    <div class="op-n">04</div>
-    <div class="op-blk">Probar variables nuevas</div>
-    <div class="stat"><b>22</b><span>idiomas en que el texto predijo el resultado (Acikalin)</span></div>
-    <div class="gap">Vacío de <b>método</b></div>
-  </aside>
-  <div class="op-main">
-    <h2 class="title sm">Usar el texto de la convocatoria</h2>
-    <p class="sub">Lo que dice el concurso ayuda a predecir.</p>
-    <div class="cols">
-      <section><h4>Qué dicen los papers</h4><ul class="ev"><li><span class="chip">GC11</span><p>Con solo la descripción del aviso predice el número de ofertas, la oferta única y si el precio superará lo estimado, en 22 idiomas.</p></li><li><span class="chip">GC03</span><p>En Colombia usa solo 40 palabras clave (TF-IDF) para clasificar licitaciones.</p></li><li><span class="chip">GC23</span><p>Advierte que hay avisos con apenas cinco palabras, y que en España las descripciones miden la mitad que en el Reino Unido.</p></li></ul></section>
-      <section>
-        <h4>Por qué es una oportunidad</h4><p class="body s">El texto dice qué se compra, con qué detalle y con qué requisitos. Acikalin muestra que eso cambia el resultado, pero en Europa. Con textos en español de Guatemala no hay nada publicado.</p>
-        <h4>Qué haría con Guatecompras</h4><p class="body s do">Comparar el modelo con y sin el texto del concurso (palabras clave y embeddings en español) y medir si mejora.</p>
-      </section>
-    </div>
+</div></div></section><section class="slide" data-shape="missing" data-col="#ff7a59"><div class="inner">
+<div class="op" style="--c:#ff7a59">
+  <div class="opn r">05</div>
+  <div class="opt">
+    <div class="tag r" style="--d:1">Conocer los datos</div>
+    <h2 class="t2 r" style="--d:2">Medir y reportar la calidad de los datos</h2>
+    <div class="stat tilt r" style="--d:3"><b>9 %</b><span>adjudicaciones que enlazan con su licitación en TED</span></div>
+    <div class="chips"><span class="chip r" style="--d:4" title="Soylu et al. (2022), Information">GC23</span><span class="chip r" style="--d:5" title="Rahman y Hlinska (2026), IJACSA">GC14</span><span class="chip r" style="--d:6" title="García Rodríguez et al. (2019), Complexity">GC12</span><span class="chip r" style="--d:7" title="Nai et al. (2023), Computer Law &amp; Security Review">GC02</span></div>
   </div>
-</div></div></section><section class="slide" data-notes="Todos los papers pierden una gran parte de sus datos al limpiarlos, pero nadie lo ha medido para Guatecompras. Saber cuántos concursos sirven es un resultado en sí mismo y decide qué modelos son posibles. Reportar paso a paso cuántos concursos sobreviven a la limpieza y qué campos faltan, y probar si los faltantes predicen algo."><div class="inner">
-<div class="op t">
-  <aside class="op-side">
-    <div class="op-n">05</div>
-    <div class="op-blk">Conocer los datos</div>
-    <div class="stat"><b>9 %</b><span>adjudicaciones que enlazan con su licitación en TED</span></div>
-    <div class="gap">Vacío de <b>medición</b></div>
-  </aside>
-  <div class="op-main">
-    <h2 class="title sm">Medir y reportar la calidad de los datos</h2>
-    <p class="sub">Cuántos registros sirven de verdad.</p>
-    <div class="cols">
-      <section><h4>Qué dicen los papers</h4><ul class="ev"><li><span class="chip">GC23</span><p>El valor se llena en menos del 10 % de los avisos y solo el 9 % de las adjudicaciones enlaza con su licitación.</p></li><li><span class="chip">GC14</span><p>De 13.3 millones de registros de la UE quedan 10 millones útiles (75 %).</p></li><li><span class="chip">GC12</span><p>En España pasan de unas 232 mil licitaciones a 58 mil.</p></li><li><span class="chip">GC02</span><p>Solo el 21.5 % de los registros tiene datos de adjudicación.</p></li></ul></section>
-      <section>
-        <h4>Por qué es una oportunidad</h4><p class="body s">Todos los papers pierden una gran parte de sus datos al limpiarlos, pero nadie lo ha medido para Guatecompras. Saber cuántos concursos sirven es un resultado en sí mismo y decide qué modelos son posibles.</p>
-        <h4>Qué haría con Guatecompras</h4><p class="body s do">Reportar paso a paso cuántos concursos sobreviven a la limpieza y qué campos faltan, y probar si los faltantes predicen algo.</p>
-      </section>
-    </div>
+</div></div></section><section class="slide" data-shape="ring" data-col="#ff7a59"><div class="inner">
+<div class="op" style="--c:#ff7a59">
+  <div class="opn r">06</div>
+  <div class="opt">
+    <div class="tag r" style="--d:1">Conocer los datos</div>
+    <h2 class="t2 r" style="--d:2">Los que perdieron también cuentan</h2>
+    <div class="stat tilt r" style="--d:3"><b>todos</b><span>los oferentes deberían publicarse, no solo el ganador (Soylu)</span></div>
+    <div class="chips"><span class="chip r" style="--d:4" title="Soylu et al. (2022), Information">GC23</span><span class="chip r" style="--d:5" title="Ballesteros-Pérez et al. (2015), Int. J. of Project Management">GC07</span><span class="chip r" style="--d:6" title="Sönmez y Sözgen (2017), J. of Civil Engineering and Management">GC09</span></div>
   </div>
-</div></div></section><section class="slide" data-notes="Para estimar la probabilidad de ganar hay que comparar al ganador contra los que perdieron. Si solo se conoce al ganador, el modelo no tiene contra qué comparar. Hay que verificar si Guatecompras publica a todos los oferentes. Revisar en los datos abiertos de Guatecompras si están todos los oferentes por concurso y cuántos concursos los tienen completos."><div class="inner">
-<div class="op t">
-  <aside class="op-side">
-    <div class="op-n">06</div>
-    <div class="op-blk">Conocer los datos</div>
-    <div class="stat"><b>todos</b><span>los oferentes deberían publicarse, no solo el ganador (Soylu)</span></div>
-    <div class="gap">Vacío de <b>medición</b></div>
-  </aside>
-  <div class="op-main">
-    <h2 class="title sm">Los que perdieron también cuentan</h2>
-    <p class="sub">Sin perdedores no hay probabilidad de ganar.</p>
-    <div class="cols">
-      <section><h4>Qué dicen los papers</h4><ul class="ev"><li><span class="chip">GC23</span><p>Recomienda publicar el identificador de todos los oferentes, no solo del ganador, para medir competencia y barreras de entrada.</p></li><li><span class="chip">GC07</span><p>Estima la probabilidad de participar de cada oferente, lo que exige saber quién se presentó.</p></li><li><span class="chip">GC09</span><p>Aprende de decisiones pasadas de ofertar o no, que incluyen concursos que no se ganaron.</p></li></ul></section>
-      <section>
-        <h4>Por qué es una oportunidad</h4><p class="body s">Para estimar la probabilidad de ganar hay que comparar al ganador contra los que perdieron. Si solo se conoce al ganador, el modelo no tiene contra qué comparar. Hay que verificar si Guatecompras publica a todos los oferentes.</p>
-        <h4>Qué haría con Guatecompras</h4><p class="body s do">Revisar en los datos abiertos de Guatecompras si están todos los oferentes por concurso y cuántos concursos los tienen completos.</p>
-      </section>
-    </div>
+</div></div></section><section class="slide" data-shape="converge" data-col="#6aa8ff"><div class="inner">
+<div class="op" style="--c:#6aa8ff">
+  <div class="opn r">07</div>
+  <div class="opt">
+    <div class="tag r" style="--d:1">Variables nuevas</div>
+    <h2 class="t2 r" style="--d:2">Anticipar la competencia</h2>
+    <div class="stat tilt r" style="--d:3"><b>9 %</b><span>peso del número de ofertas en el precio (Rahman)</span></div>
+    <div class="chips"><span class="chip r" style="--d:4" title="Oo et al. (2025), Construction Innovation">GC08</span><span class="chip r" style="--d:5" title="Loumponias et al. (2026), Expert Systems">GC10</span><span class="chip r" style="--d:6" title="Rahman y Hlinska (2026), IJACSA">GC14</span><span class="chip r" style="--d:7" title="Taş (2020), J. of Regulatory Economics">GC37</span></div>
   </div>
-</div></div></section><section class="slide" data-notes="Si sabes cuántos van a competir, sabes cuánto bajar tu precio y si vale la pena entrar. Estos papers lo predicen, pero no lo usan como paso previo para estimar la probabilidad de ganar de una empresa. Predecir primero el número de oferentes y usar esa predicción como variable de la probabilidad de ganar. Comparar con y sin ella."><div class="inner">
-<div class="op i">
-  <aside class="op-side">
-    <div class="op-n">07</div>
-    <div class="op-blk">Probar variables nuevas</div>
-    <div class="stat"><b>9 %</b><span>peso del número de ofertas en el precio (Rahman)</span></div>
-    <div class="gap">Vacío de <b>comparación</b></div>
-  </aside>
-  <div class="op-main">
-    <h2 class="title sm">Anticipar la competencia</h2>
-    <p class="sub">Cuántos van a ofertar, antes de que cierre.</p>
-    <div class="cols">
-      <section><h4>Qué dicen los papers</h4><ul class="ev"><li><span class="chip">GC08</span><p>Predice el número de oferentes en construcción con modelos explicables.</p></li><li><span class="chip">GC10</span><p>Predice la oferta única al publicar la licitación.</p></li><li><span class="chip">GC14</span><p>El número de ofertas pesa cerca del 9 % al predecir el valor del contrato.</p></li><li><span class="chip">GC37</span><p>Muestra que la calidad de la regulación cambia la competencia y la costo-eficiencia en la UE.</p></li></ul></section>
-      <section>
-        <h4>Por qué es una oportunidad</h4><p class="body s">Si sabes cuántos van a competir, sabes cuánto bajar tu precio y si vale la pena entrar. Estos papers lo predicen, pero no lo usan como paso previo para estimar la probabilidad de ganar de una empresa.</p>
-        <h4>Qué haría con Guatecompras</h4><p class="body s do">Predecir primero el número de oferentes y usar esa predicción como variable de la probabilidad de ganar. Comparar con y sin ella.</p>
-      </section>
-    </div>
+</div></div></section><section class="slide" data-shape="network" data-col="#6aa8ff"><div class="inner">
+<div class="op" style="--c:#6aa8ff">
+  <div class="opn r">08</div>
+  <div class="opt">
+    <div class="tag r" style="--d:1">Variables nuevas</div>
+    <h2 class="t2 r" style="--d:2">La red de compradores y proveedores</h2>
+    <div class="stat tilt r" style="--d:3"><b>33,579</b><span>contratos de Guatemala analizados como red (Waxenecker)</span></div>
+    <div class="chips"><span class="chip r" style="--d:4" title="Waxenecker y Prell (2024), Social Networks">GC27</span><span class="chip r" style="--d:5" title="Herrera Leiva et al. (2020), IEEE Access">GC31</span><span class="chip r" style="--d:6" title="Lyra et al. (2021), Applied Network Science">GC32</span><span class="chip r" style="--d:7" title="Loumponias et al. (2026), Expert Systems">GC10</span></div>
   </div>
-</div></div></section><section class="slide" data-notes="Las redes ya se usan en Guatemala, pero para buscar corrupción. Nadie las ha usado para ayudar a la empresa: con qué comprador ya trabajó, con quién compite siempre, a qué grupo pertenece. Calcular para cada empresa su número de compradores, si repite con el mismo comprador y su comunidad, y medir si mejoran la recomendación."><div class="inner">
-<div class="op i">
-  <aside class="op-side">
-    <div class="op-n">08</div>
-    <div class="op-blk">Probar variables nuevas</div>
-    <div class="stat"><b>33,579</b><span>contratos de Guatemala analizados como red (Waxenecker)</span></div>
-    <div class="gap">Vacío de <b>método</b></div>
-  </aside>
-  <div class="op-main">
-    <h2 class="title sm">La red de compradores y proveedores</h2>
-    <p class="sub">Con quién ha trabajado la empresa importa.</p>
-    <div class="cols">
-      <section><h4>Qué dicen los papers</h4><ul class="ev"><li><span class="chip">GC27</span><p>Analiza 33,579 contratos municipales de construcción de Guatemala (2012–2020) como red, para estudiar corrupción.</p></li><li><span class="chip">GC31</span><p>En Chile encuentra comunidades de proveedores con análisis de redes.</p></li><li><span class="chip">GC32</span><p>En Brasil estudia la red de empresas que ofertan juntas.</p></li><li><span class="chip">GC10</span><p>Agrega variables de red a la predicción temprana de la oferta única.</p></li></ul></section>
-      <section>
-        <h4>Por qué es una oportunidad</h4><p class="body s">Las redes ya se usan en Guatemala, pero para buscar corrupción. Nadie las ha usado para ayudar a la empresa: con qué comprador ya trabajó, con quién compite siempre, a qué grupo pertenece.</p>
-        <h4>Qué haría con Guatecompras</h4><p class="body s do">Calcular para cada empresa su número de compradores, si repite con el mismo comprador y su comunidad, y medir si mejoran la recomendación.</p>
-      </section>
-    </div>
+</div></div></section><section class="slide" data-shape="cubes" data-col="#6aa8ff"><div class="inner">
+<div class="op" style="--c:#6aa8ff">
+  <div class="opn r">09</div>
+  <div class="opt">
+    <div class="tag r" style="--d:1">Variables nuevas</div>
+    <h2 class="t2 r" style="--d:2">Un modelo por tipo de compra</h2>
+    <div class="stat tilt r" style="--d:3"><b>88 vs 79 %</b><span>exactitud por tipo de contrato en VigIA</span></div>
+    <div class="chips"><span class="chip r" style="--d:4" title="Salazar et al. (2024), VigIA, Data &amp; Policy">GC28</span><span class="chip r" style="--d:5" title="Acikalin et al. (2023), Natural Language Engineering">GC11</span><span class="chip r" style="--d:6" title="Rahman y Hlinska (2026), IJACSA">GC14</span></div>
   </div>
-</div></div></section><section class="slide" data-notes="Guatecompras tiene modalidades muy distintas (compra directa, baja cuantía, cotización, licitación). Un solo modelo para todas puede esconder que funciona bien en unas y mal en otras. Entrenar un modelo general y uno por modalidad, y comparar sus resultados."><div class="inner">
-<div class="op i">
-  <aside class="op-side">
-    <div class="op-n">09</div>
-    <div class="op-blk">Probar variables nuevas</div>
-    <div class="stat"><b>88 vs 79 %</b><span>exactitud por tipo de contrato en VigIA</span></div>
-    <div class="gap">Vacío de <b>comparación</b></div>
-  </aside>
-  <div class="op-main">
-    <h2 class="title sm">Un modelo por tipo de compra</h2>
-    <p class="sub">No es lo mismo una compra directa que una licitación.</p>
-    <div class="cols">
-      <section><h4>Qué dicen los papers</h4><ul class="ev"><li><span class="chip">GC28</span><p>Separando contratos de servicios profesionales logra 88.29 %, y en los demás 79.16 %. Los umbrales cambian por tipo.</p></li><li><span class="chip">GC11</span><p>Filtrar por idioma y por sector da los mejores resultados.</p></li><li><span class="chip">GC14</span><p>El país y el sector cambian mucho el valor del contrato.</p></li></ul></section>
-      <section>
-        <h4>Por qué es una oportunidad</h4><p class="body s">Guatecompras tiene modalidades muy distintas (compra directa, baja cuantía, cotización, licitación). Un solo modelo para todas puede esconder que funciona bien en unas y mal en otras.</p>
-        <h4>Qué haría con Guatecompras</h4><p class="body s do">Entrenar un modelo general y uno por modalidad, y comparar sus resultados.</p>
-      </section>
-    </div>
+</div></div></section><section class="slide" data-shape="bridge" data-col="#6aa8ff"><div class="inner">
+<div class="op" style="--c:#6aa8ff">
+  <div class="opn r">10</div>
+  <div class="opt">
+    <div class="tag r" style="--d:1">Variables nuevas</div>
+    <h2 class="t2 r" style="--d:2">Aprender de otros países</h2>
+    <div class="stat tilt r" style="--d:3"><b>+</b><span>entrenar con todos los idiomas mejoró los resultados (Acikalin)</span></div>
+    <div class="chips"><span class="chip r" style="--d:4" title="Acikalin et al. (2023), Natural Language Engineering">GC11</span><span class="chip r" style="--d:5" title="Rahman y Hlinska (2026), IJACSA">GC14</span><span class="chip r" style="--d:6" title="Figueroa-Gómez y Galpin (2023), SN Computer Science">GC03</span><span class="chip r" style="--d:7" title="Salazar et al. (2024), VigIA, Data &amp; Policy">GC28</span></div>
   </div>
-</div></div></section><section class="slide" data-notes="Si Guatemala tiene pocos datos en alguna categoría, se podría aprender de países con sistemas parecidos. Nadie ha probado si eso funciona en América Latina. Entrenar con datos de Guatemala solos y con Guatemala más Colombia, y comparar en los mismos concursos de prueba."><div class="inner">
-<div class="op i">
-  <aside class="op-side">
-    <div class="op-n">10</div>
-    <div class="op-blk">Probar variables nuevas</div>
-    <div class="stat"><b>+</b><span>entrenar con todos los idiomas mejoró los resultados (Acikalin)</span></div>
-    <div class="gap">Vacío de <b>comparación</b></div>
-  </aside>
-  <div class="op-main">
-    <h2 class="title sm">Aprender de otros países</h2>
-    <p class="sub">Usar datos de Colombia o España para ayudar a Guatemala.</p>
-    <div class="cols">
-      <section><h4>Qué dicen los papers</h4><ul class="ev"><li><span class="chip">GC11</span><p>Entrenar con los 22 idiomas juntos supera a entrenar un modelo por idioma, y usar datos de otros países ayuda.</p></li><li><span class="chip">GC14</span><p>El país es la variable que más pesa, así que transferir no es automático.</p></li><li><span class="chip">GC03</span><p>Colombia publica datos en un sistema parecido (SECOP).</p></li><li><span class="chip">GC28</span><p>VigIA propone probar sus métodos en otros países.</p></li></ul></section>
-      <section>
-        <h4>Por qué es una oportunidad</h4><p class="body s">Si Guatemala tiene pocos datos en alguna categoría, se podría aprender de países con sistemas parecidos. Nadie ha probado si eso funciona en América Latina.</p>
-        <h4>Qué haría con Guatecompras</h4><p class="body s do">Entrenar con datos de Guatemala solos y con Guatemala más Colombia, y comparar en los mismos concursos de prueba.</p>
-      </section>
-    </div>
+</div></div></section><section class="slide" data-shape="rare" data-col="#3ddc97"><div class="inner">
+<div class="op" style="--c:#3ddc97">
+  <div class="opn r">11</div>
+  <div class="opt">
+    <div class="tag r" style="--d:1">Evaluar como en la vida real</div>
+    <h2 class="t2 r" style="--d:2">Métricas honestas para casos raros</h2>
+    <div class="stat tilt r" style="--d:3"><b>99 %</b><span>exactitud reportada con sobremuestreo (Colombia)</span></div>
+    <div class="chips"><span class="chip r" style="--d:4" title="Figueroa-Gómez y Galpin (2023), SN Computer Science">GC03</span><span class="chip r" style="--d:5" title="Acikalin et al. (2023), Natural Language Engineering">GC11</span><span class="chip r" style="--d:6" title="Salazar et al. (2024), VigIA, Data &amp; Policy">GC28</span></div>
   </div>
-</div></div></section><section class="slide" data-notes="Ganar un concurso es raro, así que un modelo puede “acertar” casi siempre diciendo que no vas a ganar. Hay que medir con métricas que muestran si encuentra los casos importantes. Reportar precision@k, recall@k y PR-AUC sobre la prueba sin sobremuestrear, y contra una regla simple."><div class="inner">
-<div class="op g">
-  <aside class="op-side">
-    <div class="op-n">11</div>
-    <div class="op-blk">Evaluar como en la vida real</div>
-    <div class="stat"><b>99 %</b><span>exactitud reportada con sobremuestreo (Colombia)</span></div>
-    <div class="gap">Vacío de <b>medición</b></div>
-  </aside>
-  <div class="op-main">
-    <h2 class="title sm">Métricas honestas para casos raros</h2>
-    <p class="sub">Un 99 % puede ser engañoso.</p>
-    <div class="cols">
-      <section><h4>Qué dicen los papers</h4><ul class="ev"><li><span class="chip">GC03</span><p>Reporta 99 % usando sobremuestreo (SMOTE-Tomek), lo que puede inflar el resultado.</p></li><li><span class="chip">GC11</span><p>En la oferta única la precisión es 0.61 pero la sensibilidad solo 0.34: encuentra pocos casos.</p></li><li><span class="chip">GC28</span><p>Explica que un modelo muy agresivo hace perder recursos con falsos positivos.</p></li></ul></section>
-      <section>
-        <h4>Por qué es una oportunidad</h4><p class="body s">Ganar un concurso es raro, así que un modelo puede “acertar” casi siempre diciendo que no vas a ganar. Hay que medir con métricas que muestran si encuentra los casos importantes.</p>
-        <h4>Qué haría con Guatecompras</h4><p class="body s do">Reportar precision@k, recall@k y PR-AUC sobre la prueba sin sobremuestrear, y contra una regla simple.</p>
-      </section>
-    </div>
+</div></div></section><section class="slide" data-shape="stack" data-col="#3ddc97"><div class="inner">
+<div class="center">
+  <div class="tag r">Cómo se juntan</div>
+  <h2 class="hero r" style="--d:1">No son once tesis, <em>es una</em></h2>
+  <div class="three">
+    <div class="pill tilt r" style="--d:2;--c:#ff7a59"><b>1</b>Conocer los datos</div>
+    <div class="pill tilt r" style="--d:3;--c:#3ddc97"><b>2</b>Evaluar como en la vida real</div>
+    <div class="pill tilt r" style="--d:4;--c:#6aa8ff"><b>3</b>Probar variables nuevas</div>
   </div>
-</div></div></section><section class="slide" data-notes="Primero conozco los datos. Luego evalúo de forma realista, que es el aporte central. Por último pruebo cada variable nueva como un experimento con y sin ella."><div class="inner">
-<div class="kicker">Cómo se juntan</div>
-<h2 class="title">No son once tesis, <em>es una</em></h2>
-<div class="flow">
-  <div class="step"><b>1</b><h3>Conocer los datos</h3><p>Cuántos concursos sirven y si están todos los oferentes (5, 6).</p></div>
-  <div class="step"><b>2</b><h3>Evaluar como en la vida real</h3><p>Probar con el futuro, solo con lo que se sabe al publicar, con empresas nuevas y métricas honestas (1, 2, 3, 11).</p></div>
-  <div class="step"><b>3</b><h3>Probar variables nuevas</h3><p>Texto, competencia, red, tipo de compra y datos de otros países, con y sin cada una (4, 7–10).</p></div>
-</div></div></section><section class="slide" data-notes="Esta es la pregunta que junta todo."><div class="inner">
-<div class="q">
-  <div class="kicker">Pregunta de investigación</div>
-  <blockquote>¿Qué tan bien predicen modelos entrenados con datos abiertos de Guatecompras los concursos a los que una empresa debería entrar, su probabilidad de ganar y el precio, cuando se prueban con concursos posteriores, solo con la información disponible al publicar, y qué aportan el texto, la competencia y la red de la empresa?</blockquote>
-</div></div></section><section class="slide" data-notes="Estas son las fuentes. Cada identificador corresponde a un PDF o a un DOI verificado."><div class="inner">
-<div class="kicker">Referencias</div>
-<h2 class="title sm">Papers citados</h2>
-<ul class="refs"><li><span class="chip">GC02</span>Nai et al. (2023), Computer Law &amp; Security Review</li><li><span class="chip">GC03</span>Figueroa-Gómez y Galpin (2023), SN Computer Science</li><li><span class="chip">GC04</span>Mokhtari et al. (2026), TenderKG, HAL</li><li><span class="chip">GC07</span>Ballesteros-Pérez et al. (2015), Int. J. of Project Management</li><li><span class="chip">GC08</span>Oo et al. (2025), Construction Innovation</li><li><span class="chip">GC09</span>Sönmez y Sözgen (2017), J. of Civil Engineering and Management</li><li><span class="chip">GC10</span>Loumponias et al. (2026), Expert Systems</li><li><span class="chip">GC11</span>Acikalin et al. (2023), Natural Language Engineering</li><li><span class="chip">GC12</span>García Rodríguez et al. (2019), Complexity</li><li><span class="chip">GC14</span>Rahman y Hlinska (2026), IJACSA</li><li><span class="chip">GC21</span>Krieger et al. (2026), Small Business Economics</li><li><span class="chip">GC23</span>Soylu et al. (2022), Information</li><li><span class="chip">GC27</span>Waxenecker y Prell (2024), Social Networks</li><li><span class="chip">GC28</span>Salazar et al. (2024), VigIA, Data &amp; Policy</li><li><span class="chip">GC31</span>Herrera Leiva et al. (2020), IEEE Access</li><li><span class="chip">GC32</span>Lyra et al. (2021), Applied Network Science</li><li><span class="chip">GC37</span>Taş (2020), J. of Regulatory Economics</li></ul>
-<p class="foot">Los PDF traducidos están en la carpeta <i>Papers traducidos</i> con su identificador GC. El resto se consulta por su DOI.</p></div></section></div></div>
-<div id="bar"></div><div id="notes"></div>
-<div id="hud"><span id="cnt"></span><button id="bN" title="Guion (N)">Guion</button><button id="bO" title="Vista general (O)">Vista</button><button id="bF" title="Pantalla completa (F)">⛶</button></div>
+</div></div></section><section class="slide" data-shape="torus" data-col="#6aa8ff"><div class="inner">
+<div class="center">
+  <div class="tag r">Pregunta</div>
+  <h2 class="q r" style="--d:1">¿Qué tan bien ayudan estos modelos a una empresa en Guatecompras <em>probados como en la vida real</em>?</h2>
+</div></div></section><section class="slide" data-shape="dust" data-col="#3ddc97"><div class="inner"><div class="full"><div class="tag r">Papers citados</div><ul class="refs"><li class="r" style="--d:1.0"><span class="chip">GC02</span>Nai et al. (2023)</li><li class="r" style="--d:1.5"><span class="chip">GC03</span>Figueroa-Gómez y Galpin (2023)</li><li class="r" style="--d:2.0"><span class="chip">GC04</span>Mokhtari et al. (2026)</li><li class="r" style="--d:2.5"><span class="chip">GC07</span>Ballesteros-Pérez et al. (2015)</li><li class="r" style="--d:3.0"><span class="chip">GC08</span>Oo et al. (2025)</li><li class="r" style="--d:3.5"><span class="chip">GC09</span>Sönmez y Sözgen (2017)</li><li class="r" style="--d:4.0"><span class="chip">GC10</span>Loumponias et al. (2026)</li><li class="r" style="--d:4.5"><span class="chip">GC11</span>Acikalin et al. (2023)</li><li class="r" style="--d:5.0"><span class="chip">GC12</span>García Rodríguez et al. (2019)</li><li class="r" style="--d:5.5"><span class="chip">GC14</span>Rahman y Hlinska (2026)</li><li class="r" style="--d:6.0"><span class="chip">GC21</span>Krieger et al. (2026)</li><li class="r" style="--d:6.5"><span class="chip">GC23</span>Soylu et al. (2022)</li><li class="r" style="--d:7.0"><span class="chip">GC27</span>Waxenecker y Prell (2024)</li><li class="r" style="--d:7.0"><span class="chip">GC28</span>Salazar et al. (2024)</li><li class="r" style="--d:7.0"><span class="chip">GC31</span>Herrera Leiva et al. (2020)</li><li class="r" style="--d:7.0"><span class="chip">GC32</span>Lyra et al. (2021)</li><li class="r" style="--d:7.0"><span class="chip">GC37</span>Taş (2020)</li></ul></div></div></section></div>
+<div id="bar"></div><div id="cnt"></div><div id="hint">← → para avanzar · F pantalla completa</div>
+<script src="lib/three.min.js"></script>
 <script>
-const deck=document.getElementById('deck'),S=[...document.querySelectorAll('.slide')],bar=document.getElementById('bar'),
-cnt=document.getElementById('cnt'),notes=document.getElementById('notes');let i=0;
-function fit(){if(document.body.classList.contains('ov'))return;const k=Math.min(innerWidth/1600,innerHeight/900);deck.style.transform=`translate(-50%,-50%) scale(${k})`}
-function go(n,push=true){i=Math.max(0,Math.min(S.length-1,n));S.forEach((s,j)=>{s.classList.toggle('on',j===i);s.classList.toggle('prev',j<i)});
-bar.style.width=((i+1)/S.length*100)+'%';cnt.textContent=String(i+1).padStart(2,'0')+' / '+String(S.length).padStart(2,'0');
-notes.innerHTML='<b>Guion</b>'+S[i].dataset.notes;if(push)history.replaceState(null,'','#'+(i+1))}
-function ov(){document.body.classList.toggle('ov');if(!document.body.classList.contains('ov')){fit();S[i].scrollIntoView()}}
-addEventListener('keydown',ev=>{const k=ev.key;
-if(['ArrowRight','PageDown',' ','Enter'].includes(k)){ev.preventDefault();go(i+1)}
-else if(['ArrowLeft','PageUp','Backspace'].includes(k)){ev.preventDefault();go(i-1)}
-else if(k==='Home')go(0);else if(k==='End')go(S.length-1);
-else if(k==='n'||k==='N'||k==='g'||k==='G')notes.classList.toggle('show');
-else if(k==='o'||k==='O'||k==='Escape'&&document.body.classList.contains('ov'))ov();
-else if(k==='f'||k==='F'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}});
-S.forEach((s,j)=>s.addEventListener('click',ev=>{if(document.body.classList.contains('ov')){go(j);ov();return}
-if(ev.target.closest('a'))return;(ev.clientX>innerWidth/3?go(i+1):go(i-1))}));
+const S=[...document.querySelectorAll('.slide')],deck=document.getElementById('deck'),bar=document.getElementById('bar'),cnt=document.getElementById('cnt');
+let cur=-1;
+function fit(){const k=Math.min(innerWidth/1600,innerHeight/900);deck.style.transform=`translate(-50%,-50%) scale(${k})`}
+function count(el){const t=+el.dataset.count,t0=performance.now();(function f(now){const p=Math.min(1,(now-t0)/1400),v=1-Math.pow(1-p,3);el.textContent=Math.round(t*v);if(p<1)requestAnimationFrame(f)})(t0)}
+function go(n){n=Math.max(0,Math.min(S.length-1,n));if(n===cur)return;
+ if(cur>=0){const o=S[cur];o.classList.remove('on');o.classList.add('out');setTimeout(()=>o.classList.remove('out'),500)}
+ cur=n;const s=S[n];S.forEach(x=>{if(x!==s)x.classList.remove('on')});setTimeout(()=>{if(cur!==n)return;s.classList.add('on');s.querySelectorAll('[data-count]').forEach(count)},280);
+ bar.style.width=((n+1)/S.length*100)+'%';cnt.textContent=String(n+1).padStart(2,'0')+' / '+S.length;
+ history.replaceState(null,'','#'+(n+1));if(window.morph)morph(s.dataset.shape,s.dataset.col)}
+addEventListener('keydown',e=>{const k=e.key;
+ if(['ArrowRight','ArrowDown','PageDown',' ','Enter'].includes(k)){e.preventDefault();go(cur+1)}
+ else if(['ArrowLeft','ArrowUp','PageUp','Backspace'].includes(k)){e.preventDefault();go(cur-1)}
+ else if(k==='Home')go(0);else if(k==='End')go(S.length-1);
+ else if(k==='f'||k==='F'){document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen()}});
+addEventListener('click',e=>{if(e.target.closest('a'))return;e.clientX>innerWidth/3?go(cur+1):go(cur-1)});
+document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();e.stopPropagation();go(+a.getAttribute('href').slice(1)-1)}));
 let tx=null;addEventListener('touchstart',e=>tx=e.touches[0].clientX,{passive:true});
-addEventListener('touchend',e=>{if(tx===null)return;const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>40)go(d<0?i+1:i-1);tx=null});
-document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',ev=>{ev.preventDefault();ev.stopPropagation();go(+a.getAttribute('href').slice(1)-1)}));
-document.getElementById('bN').onclick=()=>notes.classList.toggle('show');document.getElementById('bO').onclick=ov;
-document.getElementById('bF').onclick=()=>document.fullscreenElement?document.exitFullscreen():document.documentElement.requestFullscreen();
-addEventListener('resize',fit);addEventListener('hashchange',()=>{const n=parseInt(location.hash.slice(1));if(n&&n-1!==i)go(n-1,false)});fit();go((parseInt(location.hash.slice(1))||1)-1,false);
+addEventListener('touchend',e=>{if(tx===null)return;const d=e.changedTouches[0].clientX-tx;if(Math.abs(d)>40)go(d<0?cur+1:cur-1);tx=null});
+addEventListener('hashchange',()=>{const n=parseInt(location.hash.slice(1));if(n)go(n-1)});
+/* tilt 3D con el mouse */
+addEventListener('mousemove',e=>{const x=e.clientX/innerWidth-.5,y=e.clientY/innerHeight-.5;window.mx=x;window.my=y;
+ document.querySelectorAll('.slide.on .tilt').forEach(el=>{el.style.transform=`rotateY(${x*14}deg) rotateX(${-y*12}deg) translateZ(20px)`})});
+addEventListener('resize',fit);fit();
+setTimeout(()=>document.getElementById('hint').style.opacity=0,6000);
+
+/* ---------- escena 3D ---------- */
+(function(){if(!window.THREE)return;
+const N=2600,R=new THREE.WebGLRenderer({canvas:document.getElementById('bg'),antialias:true,alpha:true});
+R.setPixelRatio(Math.min(devicePixelRatio,2));
+const scene=new THREE.Scene(),cam=new THREE.PerspectiveCamera(55,1,.1,200);cam.position.set(0,0,34);
+scene.fog=new THREE.FogExp2(0x05080f,.018);
+const pos=new Float32Array(N*3),col=new Float32Array(N*3),tp=new Float32Array(N*3),tc=new Float32Array(N*3),sz=new Float32Array(N),tsz=new Float32Array(N);
+const g=new THREE.BufferGeometry();g.setAttribute('position',new THREE.BufferAttribute(pos,3));g.setAttribute('color',new THREE.BufferAttribute(col,3));g.setAttribute('size',new THREE.BufferAttribute(sz,1));
+const cv=document.createElement('canvas');cv.width=cv.height=64;const cx=cv.getContext('2d'),gr=cx.createRadialGradient(32,32,0,32,32,32);
+gr.addColorStop(0,'rgba(255,255,255,1)');gr.addColorStop(.25,'rgba(255,255,255,.75)');gr.addColorStop(1,'rgba(255,255,255,0)');cx.fillStyle=gr;cx.fillRect(0,0,64,64);
+const mat=new THREE.ShaderMaterial({transparent:true,depthWrite:false,blending:THREE.AdditiveBlending,vertexColors:true,
+ uniforms:{tex:{value:new THREE.CanvasTexture(cv)},px:{value:R.getPixelRatio()},al:{value:.7}},
+ vertexShader:'attribute float size;varying vec3 vC;uniform float px;void main(){vC=color;vec4 mv=modelViewMatrix*vec4(position,1.);gl_PointSize=size*px*(300./-mv.z);gl_Position=projectionMatrix*mv;}',
+ fragmentShader:'uniform sampler2D tex;uniform float al;varying vec3 vC;void main(){vec4 t=texture2D(tex,gl_PointCoord);gl_FragColor=vec4(vC*al,1.)*t;}'});
+const pts=new THREE.Points(g,mat),grp=new THREE.Group();grp.add(pts);scene.add(grp);
+/* líneas para la red */
+const LN=420,lp=new Float32Array(LN*6),lg=new THREE.BufferGeometry();lg.setAttribute('position',new THREE.BufferAttribute(lp,3));
+const lm=new THREE.LineBasicMaterial({color:0x6aa8ff,transparent:true,opacity:0,blending:THREE.AdditiveBlending});const lines=new THREE.LineSegments(lg,lm);grp.add(lines);
+let pairs=[];
+const rnd=(a=1)=>(Math.random()*2-1)*a,C=new THREE.Color(),W=new THREE.Color('#ffffff'),D=new THREE.Color('#2a3350');
+function sph(r){const u=Math.random(),v=Math.random(),th=2*Math.PI*u,ph=Math.acos(2*v-1);return[r*Math.sin(ph)*Math.cos(th),r*Math.sin(ph)*Math.sin(th),r*Math.cos(ph)]}
+for(let i=0;i<N;i++){const p=sph(40+Math.random()*30);pos.set(p,i*3);col.set([.2,.25,.35],i*3);sz[i]=1}
+let spin=.0012,lineTarget=0,offx=0,alT=.7;
+const SH={
+ galaxy:(i,c)=>{const a=i/N*Math.PI*14+rnd(.3),r=2+i/N*16+rnd(1.2);return[[Math.cos(a)*r,rnd(.6)*(1.6-r/16),Math.sin(a)*r],i%9?c:W,i%23?1:2.2]},
+ funnel:(i,c)=>{const t=Math.random(),a=Math.random()*6.283,r=1+Math.pow(1-t,1.6)*13;return[[Math.cos(a)*r,(t-.5)*22,Math.sin(a)*r],t>.82?c:D.clone().lerp(c,.35),t>.82?1.6:1]},
+ dust:(i,c)=>{const p=sph(8+Math.random()*22);return[p,D,.8]},
+ clusters:(i,c)=>{const k=i%3,ce=[[-11,0,0],[0,0,-2],[11,0,0]][k],p=sph(Math.cbrt(Math.random())*5.5);return[[ce[0]+p[0],ce[1]+p[1],ce[2]+p[2]],new THREE.Color(['#3ddc97','#ff7a59','#6aa8ff'][k]),1.1]},
+ helix:(i,c)=>{const t=i/N,a=t*Math.PI*10;return[[(t-.5)*36,Math.cos(a)*4+rnd(.4),Math.sin(a)*4+rnd(.4)],t>.8?c:D.clone().lerp(c,.4),t>.8?1.8:1]},
+ wall:(i,c)=>{const left=i%2===0;return[[left?-6-Math.random()*12:6+Math.random()*12,rnd(9),rnd(4)],left?c:D,left?1.3:.8]},
+ cold:(i,c)=>{if(i<N*.96){const p=sph(Math.cbrt(Math.random())*8);return[[p[0]-5,p[1],p[2]],D.clone().lerp(c,.45),1]}const p=sph(Math.cbrt(Math.random())*1.3);return[[p[0]+7,p[1]-6,p[2]],c,2.6]},
+ page:(i,c)=>{const cols=64,x=i%cols,y=Math.floor(i/cols);const on=Math.random()<.55||x%9==0;return[[(x-cols/2)*.42,(20-y)*.62,rnd(.15)],on?c:D,on?1:.5]},
+ missing:(i,c)=>{const p=sph(10+rnd(.4));const ok=Math.random()<.1;return[p,ok?c:D,ok?2:.7]},
+ ring:(i,c)=>{const a=Math.random()*6.283,r=11+rnd(.7);const win=i<40;return[win?[12+rnd(.4),0,rnd(.4)]:[Math.cos(a)*r,rnd(.7),Math.sin(a)*r],win?W:c,win?3:1]},
+ converge:(i,c)=>{const k=i%7,a=k/7*6.283,d=Math.random(),r=3+d*14;return[[Math.cos(a)*r+rnd(.5),Math.sin(a)*r*.6+rnd(.5),rnd(2)],d<.25?c:D.clone().lerp(c,.4),d<.25?1.6:1]},
+ network:(i,c)=>{const k=i%9,a=k/9*6.283,ce=[Math.cos(a)*11,Math.sin(a)*7,rnd(3)],p=sph(Math.cbrt(Math.random())*2.6);return[[ce[0]+p[0],ce[1]+p[1],ce[2]+p[2]],c,1.1]},
+ cubes:(i,c)=>{const k=i%4,ce=[[-12,0,0],[-4,0,0],[4,0,0],[12,0,0]][k],s=[2,2.8,3.4,4.2][k];return[[ce[0]+rnd(s),ce[1]+rnd(s),ce[2]+rnd(s)],D.clone().lerp(c,.35+k*.2),1]},
+ bridge:(i,c)=>{if(i<N*.15){const t=Math.random();return[[-10+t*20,Math.sin(t*Math.PI)*5,rnd(.3)],W,1.3]}const left=i%2==0,p=sph(Math.cbrt(Math.random())*(left?6:3.5));return[[p[0]+(left?-11:11),p[1],p[2]],left?D.clone().lerp(c,.5):c,left?1:1.5]},
+ rare:(i,c)=>{const p=sph(Math.cbrt(Math.random())*14);const hit=i%60===0;return[p,hit?c:D,hit?3:.7]},
+ stack:(i,c)=>{const k=i%3,a=Math.random()*6.283,r=4.6+rnd(.3);return[[Math.cos(a)*r,(k-1)*3.4+7.5,Math.sin(a)*r],new THREE.Color(['#ff7a59','#3ddc97','#6aa8ff'][k]),1.1]},
+ torus:(i,c)=>{const u=Math.random()*6.283,v=Math.random()*6.283,R1=10,r1=3.4;return[[(R1+r1*Math.cos(v))*Math.cos(u),r1*Math.sin(v),(R1+r1*Math.cos(v))*Math.sin(u)],i%7?c:W,1]}};
+const LINESHAPES={network:1,clusters:.35,converge:.25};
+window.morph=function(sh,hex){C.set(hex);const f=SH[sh]||SH.galaxy;
+ for(let i=0;i<N;i++){const [p,cc,s]=f(i,C);tp.set(p,i*3);tc.set([cc.r,cc.g,cc.b],i*3);tsz[i]=s}
+ lineTarget=LINESHAPES[sh]||0;lm.color.set(hex);pairs=[];
+ if(lineTarget){for(let k=0;k<LN;k++){const a=Math.floor(Math.random()*N);let b=a+9*(1+Math.floor(Math.random()*3));if(sh!=='network')b=a+3;pairs.push([a,b%N])}}
+ spin={galaxy:.0016,funnel:.003,helix:.0008,page:.0004,wall:.0006,cubes:.0012,torus:.002}[sh]||.0012;
+ const L={galaxy:9,funnel:11,dust:6,stack:15,torus:10},O={clusters:0};offx=sh in O?0:(sh in L?L[sh]:-13);alT={clusters:.38,galaxy:.6}[sh]||.7;
+ grp.rotation.x=0;tilt={page:.0,wall:.0,helix:.25}[sh]??.35};
+let tilt=.35;
+function size(){R.setSize(innerWidth,innerHeight,false);cam.aspect=innerWidth/innerHeight;cam.position.z=innerWidth<innerHeight?52:34;cam.updateProjectionMatrix()}
+addEventListener('resize',size);size();
+const clk=new THREE.Clock();
+(function loop(){requestAnimationFrame(loop);const t=clk.getElapsedTime();
+ for(let i=0;i<N*3;i++){pos[i]+=(tp[i]-pos[i])*.045;col[i]+=(tc[i]-col[i])*.05}
+ for(let i=0;i<N;i++)sz[i]+=(tsz[i]*(1+.25*Math.sin(t*2+i))-sz[i])*.08;
+ g.attributes.position.needsUpdate=g.attributes.color.needsUpdate=g.attributes.size.needsUpdate=true;
+ if(pairs.length){for(let k=0;k<pairs.length;k++){const [a,b]=pairs[k];lp.set([pos[a*3],pos[a*3+1],pos[a*3+2],pos[b*3],pos[b*3+1],pos[b*3+2]],k*6)}lg.attributes.position.needsUpdate=true}
+ lm.opacity+=((pairs.length?lineTarget*.35:0)-lm.opacity)*.05;
+ grp.position.x+=(offx*(innerWidth<innerHeight?.4:1)-grp.position.x)*.04;mat.uniforms.al.value+=(alT-mat.uniforms.al.value)*.05;
+ grp.rotation.y+=spin;grp.rotation.x+=(tilt-grp.rotation.x)*.03;
+ cam.position.x+=((window.mx||0)*6-cam.position.x)*.03;cam.position.y+=(-(window.my||0)*4-cam.position.y)*.03;cam.lookAt(0,0,0);
+ R.render(scene,cam)})();
+})();
+go((parseInt(location.hash.slice(1))||1)-1);
 </script></body></html>
