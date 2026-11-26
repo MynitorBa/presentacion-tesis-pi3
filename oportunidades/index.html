@@ -1,9 +1,9 @@
 <!doctype html>
 <html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Oportunidades Guatecompras</title>
-<meta name="description" content="Once oportunidades de investigación para Guatecompras.">
+<meta name="description" content="Cuatro oportunidades de investigación para Guatecompras, con los papers de donde salen.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,200;0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{--bg:#05080f;--fg:#eef1f6;--mute:#8b93a7;--g:#3ddc97;--t:#ff7a59;--i:#6aa8ff;--c:var(--g)}
 *{box-sizing:border-box;margin:0;padding:0}
@@ -68,13 +68,78 @@ background:linear-gradient(160deg,rgba(255,255,255,.08),rgba(255,255,255,.015));
 #bar{position:fixed;left:0;bottom:0;height:3px;background:linear-gradient(90deg,var(--g),var(--i));transition:width .6s ease;z-index:5;box-shadow:0 0 12px var(--g)}
 #cnt{position:fixed;right:26px;bottom:18px;font:500 13px "Inter";letter-spacing:.14em;color:#5c6478;z-index:5}
 #hint{position:fixed;left:26px;bottom:18px;font:500 12px "Inter";letter-spacing:.12em;color:#3e4558;z-index:5;transition:opacity 1s}
+
+:root{--v:#c792ff}
+.sub{font:400 30px/1.35 "Inter";color:#c3c9d6;max-width:860px;margin-top:26px}
+.idea{font:300 34px/1.3 "Fraunces",serif;color:#dfe3ec;max-width:900px;margin-top:26px}
+.stats{display:flex;gap:22px}
+.op .stat{margin-top:34px;padding:20px 28px}
+.op .stat b{font-size:68px}
+.op .stat span{font-size:18px;max-width:380px}
+.op .t2{font-size:64px}
+.stat.alt{border-left-color:#fff}
+.stat.alt b{color:#fff}
+.four{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:10px;transform-style:preserve-3d}
+.fc{display:flex;flex-direction:column;gap:14px;padding:30px 26px;border-radius:20px;text-decoration:none;color:var(--fg);min-height:300px;
+background:linear-gradient(160deg,rgba(255,255,255,.08),rgba(255,255,255,.015));border:1px solid rgba(255,255,255,.1);border-top:4px solid var(--c);backdrop-filter:blur(10px);transition:transform .3s}
+.fc b{font:200 96px/.9 "Fraunces",serif;color:var(--c)}
+.fc span{font:400 30px/1.15 "Fraunces",serif}
+.fc i{margin-top:auto;font:600 13px "Inter";letter-spacing:.18em;text-transform:uppercase;color:var(--mute);font-style:normal}
+.crit{display:flex;gap:16px;margin-top:40px;flex-wrap:wrap}
+.crit span{font:500 18px "Inter";padding:12px 20px;border-radius:999px;border:1px solid rgba(255,255,255,.16);color:#c3c9d6;background:rgba(255,255,255,.03)}
+.crit span::before{content:"✓  ";color:var(--g)}
+.h2s{font:300 52px/1.05 "Fraunces",serif;letter-spacing:-.02em;margin-bottom:34px}
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.card{padding:24px 28px;border-radius:18px;background:linear-gradient(160deg,rgba(255,255,255,.085),rgba(255,255,255,.02));
+border:1px solid rgba(255,255,255,.1);border-left:4px solid var(--c);backdrop-filter:blur(12px);box-shadow:0 24px 60px rgba(0,0,0,.4);transition:transform .3s}
+.ch{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.ch b{font:500 22px "Fraunces",serif}
+.ch i{margin-left:auto;font:600 13px "Inter";letter-spacing:.1em;color:var(--mute);font-style:normal;white-space:nowrap}
+.card p{font:400 19px/1.4 "Inter";color:#dfe3ec;margin-top:8px}
+.card p span{display:block;font:600 12px "Inter";letter-spacing:.2em;text-transform:uppercase;margin-bottom:4px;color:var(--c)}
+.card p.fl{color:#ffd2c4}
+.card p.fl span{color:#ff7a59}
+.flow{display:grid;grid-template-columns:1fr 50px 1fr 50px 1fr;align-items:stretch;transform-style:preserve-3d}
+.fs{padding:26px 28px;border-radius:18px;background:linear-gradient(160deg,rgba(255,255,255,.08),rgba(255,255,255,.015));border:1px solid rgba(255,255,255,.1);backdrop-filter:blur(10px);transition:transform .3s}
+.fs span{display:block;font:600 13px "Inter";letter-spacing:.2em;text-transform:uppercase;color:var(--mute);margin-bottom:12px}
+.fs p{font:400 22px/1.4 "Inter";color:#e6e9f0}
+.fs.hot{border:1px solid color-mix(in srgb,var(--c) 70%,transparent);box-shadow:0 0 60px color-mix(in srgb,var(--c) 25%,transparent)}
+.fs.hot span{color:var(--c)}
+.fa{display:flex;align-items:center;justify-content:center;font:200 46px "Inter";color:#4a5268}
+.do{display:grid;grid-template-columns:1.25fr 1fr;gap:22px;margin-top:26px}
+.do div{padding:24px 28px;border-radius:18px;border:1px dashed rgba(255,255,255,.18);background:rgba(255,255,255,.025)}
+.do span{display:block;font:600 13px "Inter";letter-spacing:.2em;text-transform:uppercase;color:var(--c);margin-bottom:10px}
+.do p{font:400 21px/1.4 "Inter";color:#dfe3ec}
+.chain{display:flex;align-items:center;gap:14px;margin-top:48px}
+.chain .pill{flex-direction:column;align-items:flex-start;gap:8px;font-size:25px;max-width:280px;line-height:1.15}
+.chain .pill b{font-size:44px}
+.chain .end{border-top-color:#fff;background:linear-gradient(160deg,rgba(255,255,255,.16),rgba(255,255,255,.04))}
+.chain .ar{font-size:44px}
+.t11{width:100%;border-collapse:collapse;font:400 19px/1.3 "Inter"}
+.t11 th{font:600 12px "Inter";letter-spacing:.2em;text-transform:uppercase;color:var(--mute);text-align:left;padding:0 14px 12px}
+.t11 td{padding:10px 14px;border-top:1px solid rgba(255,255,255,.08);color:#aeb5c4}
+.t11 td:first-child{font:600 16px "Inter";color:var(--mute);width:50px}
+.t11 tr.sel td{color:#fff;background:rgba(255,255,255,.05)}
+.t11 tr.sel td:first-child{color:var(--c)}
+.t11 .st{font:600 13px "Inter";letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
+.t11 tr.sel .st{color:var(--c)}
+.l40{columns:2;column-gap:60px}
+.l40 h4{font:600 13px "Inter";letter-spacing:.18em;text-transform:uppercase;color:var(--c);margin:16px 0 8px;break-after:avoid}
+.l40 h4:first-child{margin-top:0}
+.l40 div{display:flex;gap:12px;align-items:baseline;font:400 16.5px/1.5 "Inter";color:#8b93a7;break-inside:avoid}
+.l40 div b{font:600 14px "Inter";color:#5c6478;min-width:44px}
+.l40 div span{color:#c3c9d6}
+.l40 div em{font-style:normal;color:#6c7488}
+.l40 div.u b,.l40 div.u span{color:var(--c)}
+.leg{margin-top:20px;font:500 15px "Inter";color:var(--mute)}
+.leg b{color:var(--c)}
 </style></head>
 <body><canvas id="bg"></canvas><div id="vig"></div>
 <div id="deck"><section class="slide" data-shape="galaxy" data-col="#3ddc97"><div class="inner">
 <div class="center">
-  <div class="tag r">PI3 · Guatecompras</div>
-  <h1 class="mega r" style="--d:1"><span class="big3d">11</span></h1>
-  <h2 class="hero r" style="--d:2">oportunidades<br><em>que nadie ha cerrado</em></h2>
+  <div class="tag r">PI3 · Estado del arte · Guatecompras</div>
+  <h1 class="mega r" style="--d:1"><span class="big3d">4</span></h1>
+  <h2 class="hero r" style="--d:2">oportunidades<br><em>para ayudar a la empresa</em></h2>
   <div class="by r" style="--d:3">Mynor Barrios · UNIS · 2026</div>
 </div></div></section><section class="slide" data-shape="funnel" data-col="#3ddc97"><div class="inner">
 <div class="center">
@@ -82,126 +147,171 @@ background:linear-gradient(160deg,rgba(255,255,255,.08),rgba(255,255,255,.015));
   <div class="steps">
     <div class="st r" style="--d:1"><b data-count="496">0</b><span>encontrados</span></div><i class="ar r" style="--d:2">→</i>
     <div class="st r" style="--d:3"><b data-count="40">0</b><span>con DOI y relevantes</span></div><i class="ar r" style="--d:4">→</i>
-    <div class="st hot r" style="--d:5"><b data-count="12">0</b><span>traducidos completos</span></div>
+    <div class="st hot r" style="--d:5"><b data-count="11">0</b><span>oportunidades</span></div><i class="ar r" style="--d:6">→</i>
+    <div class="st hot r" style="--d:7"><b data-count="4">0</b><span>desarrolladas</span></div>
   </div>
-</div></div></section><section class="slide" data-shape="dust" data-col="#ff7a59"><div class="inner">
-<div class="center">
-  <div class="tag r">Ya lo dije antes</div>
-  <ul class="struck"><li class="r" style="--d:1"><s>Nadie ha evaluado esto con datos de Guatemala</s></li><li class="r" style="--d:2"><s>Dar el precio como un rango</s></li><li class="r" style="--d:3"><s>Herramienta pensada para pymes</s></li></ul>
-  <p class="hint r" style="--d:5">Todo lo que sigue es <em>nuevo</em></p>
-</div></div></section><section class="slide" data-shape="clusters" data-col="#3ddc97"><div class="inner"><div class="full"><div class="tag r">El mapa</div><div class="cols3"><div class="col tilt" style="--c:#3ddc97"><h3>Evaluar como en la vida real</h3><a class="r" style="--d:1" href="#5"><b>01</b>Probar el modelo con el futuro</a><a class="r" style="--d:2" href="#6"><b>02</b>Predecir solo con lo que se sabe al publicar</a><a class="r" style="--d:3" href="#7"><b>03</b>Empresas nuevas y arranque en frío</a><a class="r" style="--d:4" href="#15"><b>11</b>Métricas honestas para casos raros</a></div><div class="col tilt" style="--c:#ff7a59"><h3>Conocer los datos</h3><a class="r" style="--d:1" href="#9"><b>05</b>Medir y reportar la calidad de los datos</a><a class="r" style="--d:2" href="#10"><b>06</b>Los que perdieron también cuentan</a></div><div class="col tilt" style="--c:#6aa8ff"><h3>Variables nuevas</h3><a class="r" style="--d:1" href="#8"><b>04</b>Usar el texto de la convocatoria</a><a class="r" style="--d:2" href="#11"><b>07</b>Anticipar la competencia</a><a class="r" style="--d:3" href="#12"><b>08</b>La red de compradores y proveedores</a><a class="r" style="--d:4" href="#13"><b>09</b>Un modelo por tipo de compra</a><a class="r" style="--d:5" href="#14"><b>10</b>Aprender de otros países</a></div></div></div></div></section><section class="slide" data-shape="helix" data-col="#3ddc97"><div class="inner">
-<div class="op" style="--c:#3ddc97">
+</div></div></section><section class="slide" data-shape="four" data-col="#3ddc97"><div class="inner">
+<div class="full" style="justify-content:flex-start;padding-top:60px">
+  <div class="tag r">De once elegí cuatro</div>
+  <div class="crit r" style="--d:1;margin:0 0 34px"><span>El paper tiene una debilidad clara</span><span>Guatecompras tiene los datos</span><span>Ayuda a la empresa a decidir</span></div>
+  <div class="four"><a class="fc tilt r" style="--d:2;--c:#ff7a59" href="#4"><b>01</b><span>Los que perdieron también cuentan</span><i>Vacío de medición</i></a><a class="fc tilt r" style="--d:3;--c:#3ddc97" href="#7"><b>02</b><span>Probar el modelo con el futuro</span><i>Vacío de método</i></a><a class="fc tilt r" style="--d:4;--c:#6aa8ff" href="#10"><b>03</b><span>Empresas nuevas y arranque en frío</span><i>Vacío de método</i></a><a class="fc tilt r" style="--d:5;--c:#c792ff" href="#13"><b>04</b><span>Anticipar la competencia</span><i>Vacío de comparación</i></a></div>
+</div></div></section><section class="slide" data-shape="ring" data-col="#ff7a59"><div class="inner">
+<div class="op" style="--c:#ff7a59">
   <div class="opn r">01</div>
   <div class="opt">
-    <div class="tag r" style="--d:1">Evaluar como en la vida real</div>
-    <h2 class="t2 r" style="--d:2">Probar el modelo con el futuro</h2>
-    <div class="stat tilt r" style="--d:3"><b>80:20</b><span>entrenar y probar en García (2019), sin separar por fecha</span></div>
-    <div class="chips"><span class="chip r" style="--d:4" title="García Rodríguez et al. (2019), Complexity">GC12</span><span class="chip r" style="--d:5" title="Salazar et al. (2024), VigIA, Data &amp; Policy">GC28</span><span class="chip r" style="--d:6" title="Acikalin et al. (2023), Natural Language Engineering">GC11</span><span class="chip r" style="--d:7" title="Loumponias et al. (2026), Expert Systems">GC10</span></div>
+    <div class="tag r" style="--d:1">Oportunidad 1 de 4 · vacío de medición</div>
+    <h2 class="t2 r" style="--d:2">Los que perdieron también cuentan</h2>
+    <p class="idea r" style="--d:2.5">Para saber qué tan probable es ganar, hay que comparar al ganador con los que perdieron.</p>
+    <div class="stats"><div class="stat tilt r" style="--d:3"><b>6.7 %</b><span>de los participantes tiene nombre en los datos de Italia (Nai, GC02)</span></div><div class="stat alt tilt r" style="--d:4"><b>3.4 M</b><span>registros de oferentes en Guatecompras desde 2020</span></div></div>
+    <div class="chips"><span class="chip r" style="--d:5">GC23</span><span class="chip r" style="--d:6">GC02</span><span class="chip r" style="--d:7">GC07</span><span class="chip r" style="--d:8">OCDS</span></div>
   </div>
-</div></div></section><section class="slide" data-shape="wall" data-col="#3ddc97"><div class="inner">
+</div></div></section><section class="slide" data-shape="dim" data-col="#ff7a59"><div class="inner">
+<div class="full" style="--c:#ff7a59">
+  <div class="tag r">Oportunidad 1 · Qué saqué de cada paper</div>
+  <h2 class="h2s r" style="--d:1">Los que perdieron también cuentan</h2>
+  <div class="cards"><div class="card tilt r" style="--d:2"><div class="ch"><span class="chip">GC23</span><b>Soylu et al. (2022)</b><i>pág. 18</i></div>
+<p><span>Lo que saqué</span>Muchas entidades publican solo al ganador. Recomienda publicar a todos los oferentes.</p><p class="fl"><span>Dónde falla</span>Es solo una recomendación. No construye ningún modelo con esos datos.</p></div><div class="card tilt r" style="--d:3"><div class="ch"><span class="chip">GC02</span><b>Nai et al. (2023)</b><i>pág. 5</i></div>
+<p><span>Lo que saqué</span>Recomendador de licitaciones para empresas en Italia.</p><p class="fl"><span>Dónde falla</span>Solo el 21.5 % de los registros trae adjudicación y el 6.7 % trae el nombre de los participantes.</p></div><div class="card tilt r" style="--d:4"><div class="ch"><span class="chip">GC07</span><b>Ballesteros-Pérez et al. (2015)</b><i>pág. 15</i></div>
+<p><span>Lo que saqué</span>Estima la probabilidad de que cada oferente participe.</p><p class="fl"><span>Dónde falla</span>Lo hace con solo 47 contratos de Hong Kong de 1991 a 1996, porque esos datos son raros.</p></div><div class="card tilt r" style="--d:5"><div class="ch"><span class="chip">OCDS</span><b>Guatecompras (Open Contracting)</b><i>registro OCDS</i></div>
+<p><span>Lo que saqué</span>Publica a todos los oferentes: 3,365,448 registros con la extensión bids.</p><p class="fl"><span>Dónde falla</span>Tiene oferentes duplicados que hay que limpiar antes de contar.</p></div></div>
+</div></div></section><section class="slide" data-shape="dim" data-col="#ff7a59"><div class="inner">
+<div class="full" style="--c:#ff7a59">
+  <div class="tag r">Oportunidad 1 · Por qué es una oportunidad</div>
+  <h2 class="h2s r" style="--d:1">Los que perdieron también cuentan</h2>
+  <div class="flow">
+    <div class="fs tilt r" style="--d:2"><span>1 · Lo que ya se sabe</span><p>Para estimar la probabilidad de ganar hay que comparar ganadores con perdedores (GC07, GC09).</p></div><div class="fa r" style="--d:3">→</div>
+    <div class="fs tilt r" style="--d:4"><span>2 · Lo que falta</span><p>En otros países no se pudo: no publican a los perdedores (GC02, GC23) o hay muy pocos casos (GC07).</p></div><div class="fa r" style="--d:5">→</div>
+    <div class="fs hot tilt r" style="--d:6"><span>3 · Por qué vale la pena</span><p>Guatecompras sí los publica. Puedo hacer lo que en otros países no se pudo.</p></div>
+  </div>
+  <div class="do">
+    <div class="r" style="--d:8"><span>Qué haría con Guatecompras</span><p>Quitar oferentes duplicados, medir en qué porcentaje de concursos están completos y estimar la probabilidad de ganar comparando ganadores contra perdedores.</p></div>
+    <div class="r" style="--d:9"><span>Cómo sabré si funcionó</span><p>Un porcentaje alto de concursos con todos sus oferentes. Con eso la probabilidad de ganar (Y2) se puede estimar.</p></div>
+  </div>
+</div></div></section><section class="slide" data-shape="helix" data-col="#3ddc97"><div class="inner">
 <div class="op" style="--c:#3ddc97">
   <div class="opn r">02</div>
   <div class="opt">
-    <div class="tag r" style="--d:1">Evaluar como en la vida real</div>
-    <h2 class="t2 r" style="--d:2">Predecir solo con lo que se sabe al publicar</h2>
-    <div class="stat tilt r" style="--d:3"><b>87 → 76 %</b><span>exactitud de VigIA al quitar datos posteriores</span></div>
-    <div class="chips"><span class="chip r" style="--d:4" title="Salazar et al. (2024), VigIA, Data &amp; Policy">GC28</span><span class="chip r" style="--d:5" title="Loumponias et al. (2026), Expert Systems">GC10</span><span class="chip r" style="--d:6" title="Acikalin et al. (2023), Natural Language Engineering">GC11</span></div>
+    <div class="tag r" style="--d:1">Oportunidad 2 de 4 · vacío de método</div>
+    <h2 class="t2 r" style="--d:2">Probar el modelo con el futuro</h2>
+    <p class="idea r" style="--d:2.5">Entrenar con años pasados y probar con años posteriores, como lo usaría una empresa de verdad.</p>
+    <div class="stats"><div class="stat tilt r" style="--d:3"><b>80 / 20</b><span>García (D1 y D2) separa entrenamiento y prueba sin usar la fecha</span></div></div>
+    <div class="chips"><span class="chip r" style="--d:5">GC01 · D1</span><span class="chip r" style="--d:6">GC12 · D2</span><span class="chip r" style="--d:7">GC11</span><span class="chip r" style="--d:8">GC28</span></div>
   </div>
-</div></div></section><section class="slide" data-shape="cold" data-col="#3ddc97"><div class="inner">
-<div class="op" style="--c:#3ddc97">
+</div></div></section><section class="slide" data-shape="dim" data-col="#3ddc97"><div class="inner">
+<div class="full" style="--c:#3ddc97">
+  <div class="tag r">Oportunidad 2 · Qué saqué de cada paper</div>
+  <h2 class="h2s r" style="--d:1">Probar el modelo con el futuro</h2>
+  <div class="cards"><div class="card tilt r" style="--d:2"><div class="ch"><span class="chip">GC01 · D1</span><b>García Rodríguez et al. (2020)</b><i>pág. 7</i></div>
+<p><span>Lo que saqué</span>Recomienda oferentes con random forest en 102,087 licitaciones de España. Acierta en el 24 % al 38 % de los casos.</p><p class="fl"><span>Dónde falla</span>Valida con 80 % y 20 % sin separar por fecha.</p></div><div class="card tilt r" style="--d:3"><div class="ch"><span class="chip">GC12 · D2</span><b>García Rodríguez et al. (2019)</b><i>pág. 16</i></div>
+<p><span>Lo que saqué</span>Estima el precio de adjudicación en España.</p><p class="fl"><span>Dónde falla</span>Usa 46,670 para entrenar y 11,667 para probar, sin decir que sea por fecha.</p></div><div class="card tilt r" style="--d:4"><div class="ch"><span class="chip">GC11</span><b>Acikalin et al. (2023)</b><i>pág. 11, Tabla 2</i></div>
+<p><span>Lo que saqué</span>El texto del aviso predice el resultado del concurso.</p><p class="fl"><span>Dónde falla</span>Entrenamiento y prueba cubren los mismos años, 2011 a 2018.</p></div><div class="card tilt r" style="--d:5"><div class="ch"><span class="chip">GC28</span><b>Salazar et al. (2024)</b><i>pág. 15</i></div>
+<p><span>Lo que saqué</span>VigIA predice sobrecostos y retrasos de contratos en Bogotá.</p><p class="fl"><span>Dónde falla</span>Usa 70 % y 30 % sin separar por fecha.</p></div></div>
+</div></div></section><section class="slide" data-shape="dim" data-col="#3ddc97"><div class="inner">
+<div class="full" style="--c:#3ddc97">
+  <div class="tag r">Oportunidad 2 · Por qué es una oportunidad</div>
+  <h2 class="h2s r" style="--d:1">Probar el modelo con el futuro</h2>
+  <div class="flow">
+    <div class="fs tilt r" style="--d:2"><span>1 · Lo que ya se sabe</span><p>Se puede recomendar oferentes y estimar precios con aprendizaje automático (GC01, GC12).</p></div><div class="fa r" style="--d:3">→</div>
+    <div class="fs tilt r" style="--d:4"><span>2 · Lo que falta</span><p>Ninguno se probó como se usaría: con el pasado para predecir el futuro. Sus cifras pueden ser optimistas.</p></div><div class="fa r" style="--d:5">→</div>
+    <div class="fs hot tilt r" style="--d:6"><span>3 · Por qué vale la pena</span><p>Medir cuánto cambia el resultado al probar por fecha da una cifra honesta que otros pueden repetir.</p></div>
+  </div>
+  <div class="do">
+    <div class="r" style="--d:8"><span>Qué haría con Guatecompras</span><p>Entrenar con 2020 a 2023, ajustar con 2024 y probar solo con 2025. Repetir la prueba al azar y comparar.</p></div>
+    <div class="r" style="--d:9"><span>Cómo sabré si funcionó</span><p>Si la cifra por fecha es más baja que la cifra al azar, demuestro que los resultados publicados son optimistas.</p></div>
+  </div>
+</div></div></section><section class="slide" data-shape="cold" data-col="#6aa8ff"><div class="inner">
+<div class="op" style="--c:#6aa8ff">
   <div class="opn r">03</div>
   <div class="opt">
-    <div class="tag r" style="--d:1">Evaluar como en la vida real</div>
+    <div class="tag r" style="--d:1">Oportunidad 3 de 4 · vacío de método</div>
     <h2 class="t2 r" style="--d:2">Empresas nuevas y arranque en frío</h2>
-    <div class="stat tilt r" style="--d:3"><b>228 días</b><span>registro del proveedor en que baja el riesgo (VigIA)</span></div>
-    <div class="chips"><span class="chip r" style="--d:4" title="Mokhtari et al. (2026), TenderKG, HAL">GC04</span><span class="chip r" style="--d:5" title="Ballesteros-Pérez et al. (2015), Int. J. of Project Management">GC07</span><span class="chip r" style="--d:6" title="Salazar et al. (2024), VigIA, Data &amp; Policy">GC28</span><span class="chip r" style="--d:7" title="Krieger et al. (2026), Small Business Economics">GC21</span></div>
+    <p class="idea r" style="--d:2.5">Recomendar concursos a una empresa que casi no tiene historial.</p>
+    <div class="stats"><div class="stat tilt r" style="--d:3"><b>39 de 100</b><span>licitadores participaron una sola vez (Ballesteros, GC07)</span></div></div>
+    <div class="chips"><span class="chip r" style="--d:5">GC07</span><span class="chip r" style="--d:6">GC28</span><span class="chip r" style="--d:7">GC04</span><span class="chip r" style="--d:8">GC01 · D1</span></div>
   </div>
-</div></div></section><section class="slide" data-shape="page" data-col="#6aa8ff"><div class="inner">
-<div class="op" style="--c:#6aa8ff">
+</div></div></section><section class="slide" data-shape="dim" data-col="#6aa8ff"><div class="inner">
+<div class="full" style="--c:#6aa8ff">
+  <div class="tag r">Oportunidad 3 · Qué saqué de cada paper</div>
+  <h2 class="h2s r" style="--d:1">Empresas nuevas y arranque en frío</h2>
+  <div class="cards"><div class="card tilt r" style="--d:2"><div class="ch"><span class="chip">GC07</span><b>Ballesteros-Pérez et al. (2015)</b><i>pág. 15–16</i></div>
+<p><span>Lo que saqué</span>39 de cada 100 licitadores aparecen una sola vez.</p><p class="fl"><span>Dónde falla</span>Muestra muy pequeña y antigua: 47 contratos de Hong Kong de 1991 a 1996.</p></div><div class="card tilt r" style="--d:3"><div class="ch"><span class="chip">GC28</span><b>Salazar et al. (2024)</b><i>pág. 14</i></div>
+<p><span>Lo que saqué</span>Los proveedores registrados hace menos de unos 228 días tienen más riesgo.</p><p class="fl"><span>Dónde falla</span>No mide el modelo por separado para los proveedores nuevos.</p></div><div class="card tilt r" style="--d:4"><div class="ch"><span class="chip">GC04</span><b>Mokhtari et al. (2026)</b><i>resumen</i></div>
+<p><span>Lo que saqué</span>Los datos escasos y el arranque en frío son un reto para recomendar.</p><p class="fl"><span>Dónde falla</span>Lo señala, pero no reporta cómo le va al modelo con empresas nuevas.</p></div><div class="card tilt r" style="--d:5"><div class="ch"><span class="chip">GC01 · D1</span><b>García Rodríguez et al. (2020)</b><i>pág. 7</i></div>
+<p><span>Lo que saqué</span>El recomendador aprende del historial de ganadores.</p><p class="fl"><span>Dónde falla</span>Una empresa sin historial casi no aparece en sus recomendaciones.</p></div></div>
+</div></div></section><section class="slide" data-shape="dim" data-col="#6aa8ff"><div class="inner">
+<div class="full" style="--c:#6aa8ff">
+  <div class="tag r">Oportunidad 3 · Por qué es una oportunidad</div>
+  <h2 class="h2s r" style="--d:1">Empresas nuevas y arranque en frío</h2>
+  <div class="flow">
+    <div class="fs tilt r" style="--d:2"><span>1 · Lo que ya se sabe</span><p>Los recomendadores funcionan aprendiendo del historial (GC01).</p></div><div class="fa r" style="--d:3">→</div>
+    <div class="fs tilt r" style="--d:4"><span>2 · Lo que falta</span><p>Nadie reporta el resultado aparte para empresas con poco historial, y GC07 lo estudia con muy pocos datos.</p></div><div class="fa r" style="--d:5">→</div>
+    <div class="fs hot tilt r" style="--d:6"><span>3 · Por qué vale la pena</span><p>Las empresas nuevas son las que más necesitan ayuda. Si el modelo no les sirve, falla justo con ellas.</p></div>
+  </div>
+  <div class="do">
+    <div class="r" style="--d:8"><span>Qué haría con Guatecompras</span><p>Medir el recomendador en dos grupos: empresas con historial y empresas con 0 a 2 ofertas. Probar variables que no dependen del historial: categoría, monto y texto.</p></div>
+    <div class="r" style="--d:9"><span>Cómo sabré si funcionó</span><p>Comparar precision@k en los dos grupos. Si las nuevas salen mucho peor, las variables del concurso deben cerrar la brecha.</p></div>
+  </div>
+</div></div></section><section class="slide" data-shape="converge" data-col="#c792ff"><div class="inner">
+<div class="op" style="--c:#c792ff">
   <div class="opn r">04</div>
   <div class="opt">
-    <div class="tag r" style="--d:1">Variables nuevas</div>
-    <h2 class="t2 r" style="--d:2">Usar el texto de la convocatoria</h2>
-    <div class="stat tilt r" style="--d:3"><b>22</b><span>idiomas en que el texto predijo el resultado (Acikalin)</span></div>
-    <div class="chips"><span class="chip r" style="--d:4" title="Acikalin et al. (2023), Natural Language Engineering">GC11</span><span class="chip r" style="--d:5" title="Figueroa-Gómez y Galpin (2023), SN Computer Science">GC03</span><span class="chip r" style="--d:6" title="Soylu et al. (2022), Information">GC23</span></div>
-  </div>
-</div></div></section><section class="slide" data-shape="missing" data-col="#ff7a59"><div class="inner">
-<div class="op" style="--c:#ff7a59">
-  <div class="opn r">05</div>
-  <div class="opt">
-    <div class="tag r" style="--d:1">Conocer los datos</div>
-    <h2 class="t2 r" style="--d:2">Medir y reportar la calidad de los datos</h2>
-    <div class="stat tilt r" style="--d:3"><b>9 %</b><span>adjudicaciones que enlazan con su licitación en TED</span></div>
-    <div class="chips"><span class="chip r" style="--d:4" title="Soylu et al. (2022), Information">GC23</span><span class="chip r" style="--d:5" title="Rahman y Hlinska (2026), IJACSA">GC14</span><span class="chip r" style="--d:6" title="García Rodríguez et al. (2019), Complexity">GC12</span><span class="chip r" style="--d:7" title="Nai et al. (2023), Computer Law &amp; Security Review">GC02</span></div>
-  </div>
-</div></div></section><section class="slide" data-shape="ring" data-col="#ff7a59"><div class="inner">
-<div class="op" style="--c:#ff7a59">
-  <div class="opn r">06</div>
-  <div class="opt">
-    <div class="tag r" style="--d:1">Conocer los datos</div>
-    <h2 class="t2 r" style="--d:2">Los que perdieron también cuentan</h2>
-    <div class="stat tilt r" style="--d:3"><b>todos</b><span>los oferentes deberían publicarse, no solo el ganador (Soylu)</span></div>
-    <div class="chips"><span class="chip r" style="--d:4" title="Soylu et al. (2022), Information">GC23</span><span class="chip r" style="--d:5" title="Ballesteros-Pérez et al. (2015), Int. J. of Project Management">GC07</span><span class="chip r" style="--d:6" title="Sönmez y Sözgen (2017), J. of Civil Engineering and Management">GC09</span></div>
-  </div>
-</div></div></section><section class="slide" data-shape="converge" data-col="#6aa8ff"><div class="inner">
-<div class="op" style="--c:#6aa8ff">
-  <div class="opn r">07</div>
-  <div class="opt">
-    <div class="tag r" style="--d:1">Variables nuevas</div>
+    <div class="tag r" style="--d:1">Oportunidad 4 de 4 · vacío de comparación</div>
     <h2 class="t2 r" style="--d:2">Anticipar la competencia</h2>
-    <div class="stat tilt r" style="--d:3"><b>9 %</b><span>peso del número de ofertas en el precio (Rahman)</span></div>
-    <div class="chips"><span class="chip r" style="--d:4" title="Oo et al. (2025), Construction Innovation">GC08</span><span class="chip r" style="--d:5" title="Loumponias et al. (2026), Expert Systems">GC10</span><span class="chip r" style="--d:6" title="Rahman y Hlinska (2026), IJACSA">GC14</span><span class="chip r" style="--d:7" title="Taş (2020), J. of Regulatory Economics">GC37</span></div>
+    <p class="idea r" style="--d:2.5">Estimar cuántos van a ofertar antes de que cierre el concurso, y usarlo para la probabilidad de ganar.</p>
+    <div class="stats"><div class="stat tilt r" style="--d:3"><b>8.99 %</b><span>pesa el número de ofertas al predecir el valor del contrato (Rahman, GC14)</span></div></div>
+    <div class="chips"><span class="chip r" style="--d:5">GC14</span><span class="chip r" style="--d:6">GC08</span><span class="chip r" style="--d:7">GC10</span><span class="chip r" style="--d:8">GC11</span></div>
   </div>
-</div></div></section><section class="slide" data-shape="network" data-col="#6aa8ff"><div class="inner">
-<div class="op" style="--c:#6aa8ff">
-  <div class="opn r">08</div>
-  <div class="opt">
-    <div class="tag r" style="--d:1">Variables nuevas</div>
-    <h2 class="t2 r" style="--d:2">La red de compradores y proveedores</h2>
-    <div class="stat tilt r" style="--d:3"><b>33,579</b><span>contratos de Guatemala analizados como red (Waxenecker)</span></div>
-    <div class="chips"><span class="chip r" style="--d:4" title="Waxenecker y Prell (2024), Social Networks">GC27</span><span class="chip r" style="--d:5" title="Herrera Leiva et al. (2020), IEEE Access">GC31</span><span class="chip r" style="--d:6" title="Lyra et al. (2021), Applied Network Science">GC32</span><span class="chip r" style="--d:7" title="Loumponias et al. (2026), Expert Systems">GC10</span></div>
+</div></div></section><section class="slide" data-shape="dim" data-col="#c792ff"><div class="inner">
+<div class="full" style="--c:#c792ff">
+  <div class="tag r">Oportunidad 4 · Qué saqué de cada paper</div>
+  <h2 class="h2s r" style="--d:1">Anticipar la competencia</h2>
+  <div class="cards"><div class="card tilt r" style="--d:2"><div class="ch"><span class="chip">GC14</span><b>Rahman y Hlinska (2026)</b><i>pág. 1 y 4</i></div>
+<p><span>Lo que saqué</span>El número de ofertas pesa 8.99 % al predecir el valor del contrato en la UE.</p><p class="fl"><span>Dónde falla</span>Lo usa como dato conocido, pero solo se sabe cuando el concurso ya cerró.</p></div><div class="card tilt r" style="--d:3"><div class="ch"><span class="chip">GC08</span><b>Oo et al. (2025)</b><i>resumen</i></div>
+<p><span>Lo que saqué</span>Predice el número de oferentes en construcción con modelos explicables.</p><p class="fl"><span>Dónde falla</span>Solo construcción, y no lo usa para la probabilidad de ganar de una empresa.</p></div><div class="card tilt r" style="--d:4"><div class="ch"><span class="chip">GC10</span><b>Loumponias et al. (2026)</b><i>resumen</i></div>
+<p><span>Lo que saqué</span>Predice la oferta única el día en que se publica, con variables de red.</p><p class="fl"><span>Dónde falla</span>Su objetivo es vigilar al Estado, no ayudar a la empresa.</p></div><div class="card tilt r" style="--d:5"><div class="ch"><span class="chip">GC11</span><b>Acikalin et al. (2023)</b><i>pág. 15</i></div>
+<p><span>Lo que saqué</span>El texto del aviso predice el número de ofertas en 22 idiomas.</p><p class="fl"><span>Dónde falla</span>Una regla simple (la mediana del sector y del país) es muy difícil de superar.</p></div></div>
+</div></div></section><section class="slide" data-shape="dim" data-col="#c792ff"><div class="inner">
+<div class="full" style="--c:#c792ff">
+  <div class="tag r">Oportunidad 4 · Por qué es una oportunidad</div>
+  <h2 class="h2s r" style="--d:1">Anticipar la competencia</h2>
+  <div class="flow">
+    <div class="fs tilt r" style="--d:2"><span>1 · Lo que ya se sabe</span><p>El número de competidores se puede predecir (GC08, GC10, GC11) y afecta el precio (GC14).</p></div><div class="fa r" style="--d:3">→</div>
+    <div class="fs tilt r" style="--d:4"><span>2 · Lo que falta</span><p>Nadie usa esa predicción como paso previo para la probabilidad de ganar de una empresa.</p></div><div class="fa r" style="--d:5">→</div>
+    <div class="fs hot tilt r" style="--d:6"><span>3 · Por qué vale la pena</span><p>Encadenar dos modelos (cuántos competirán y luego si gano) es un diseño nuevo y fácil de comparar.</p></div>
   </div>
-</div></div></section><section class="slide" data-shape="cubes" data-col="#6aa8ff"><div class="inner">
-<div class="op" style="--c:#6aa8ff">
-  <div class="opn r">09</div>
-  <div class="opt">
-    <div class="tag r" style="--d:1">Variables nuevas</div>
-    <h2 class="t2 r" style="--d:2">Un modelo por tipo de compra</h2>
-    <div class="stat tilt r" style="--d:3"><b>88 vs 79 %</b><span>exactitud por tipo de contrato en VigIA</span></div>
-    <div class="chips"><span class="chip r" style="--d:4" title="Salazar et al. (2024), VigIA, Data &amp; Policy">GC28</span><span class="chip r" style="--d:5" title="Acikalin et al. (2023), Natural Language Engineering">GC11</span><span class="chip r" style="--d:6" title="Rahman y Hlinska (2026), IJACSA">GC14</span></div>
-  </div>
-</div></div></section><section class="slide" data-shape="bridge" data-col="#6aa8ff"><div class="inner">
-<div class="op" style="--c:#6aa8ff">
-  <div class="opn r">10</div>
-  <div class="opt">
-    <div class="tag r" style="--d:1">Variables nuevas</div>
-    <h2 class="t2 r" style="--d:2">Aprender de otros países</h2>
-    <div class="stat tilt r" style="--d:3"><b>+</b><span>entrenar con todos los idiomas mejoró los resultados (Acikalin)</span></div>
-    <div class="chips"><span class="chip r" style="--d:4" title="Acikalin et al. (2023), Natural Language Engineering">GC11</span><span class="chip r" style="--d:5" title="Rahman y Hlinska (2026), IJACSA">GC14</span><span class="chip r" style="--d:6" title="Figueroa-Gómez y Galpin (2023), SN Computer Science">GC03</span><span class="chip r" style="--d:7" title="Salazar et al. (2024), VigIA, Data &amp; Policy">GC28</span></div>
-  </div>
-</div></div></section><section class="slide" data-shape="rare" data-col="#3ddc97"><div class="inner">
-<div class="op" style="--c:#3ddc97">
-  <div class="opn r">11</div>
-  <div class="opt">
-    <div class="tag r" style="--d:1">Evaluar como en la vida real</div>
-    <h2 class="t2 r" style="--d:2">Métricas honestas para casos raros</h2>
-    <div class="stat tilt r" style="--d:3"><b>99 %</b><span>exactitud reportada con sobremuestreo (Colombia)</span></div>
-    <div class="chips"><span class="chip r" style="--d:4" title="Figueroa-Gómez y Galpin (2023), SN Computer Science">GC03</span><span class="chip r" style="--d:5" title="Acikalin et al. (2023), Natural Language Engineering">GC11</span><span class="chip r" style="--d:6" title="Salazar et al. (2024), VigIA, Data &amp; Policy">GC28</span></div>
+  <div class="do">
+    <div class="r" style="--d:8"><span>Qué haría con Guatecompras</span><p>Predecir primero el número de oferentes y usarlo como variable de la probabilidad de ganar. Comparar con y sin ese paso.</p></div>
+    <div class="r" style="--d:9"><span>Cómo sabré si funcionó</span><p>Si la AUC de la probabilidad de ganar sube al agregar la competencia esperada, el paso previo aporta.</p></div>
   </div>
 </div></div></section><section class="slide" data-shape="stack" data-col="#3ddc97"><div class="inner">
 <div class="center">
   <div class="tag r">Cómo se juntan</div>
-  <h2 class="hero r" style="--d:1">No son once tesis, <em>es una</em></h2>
-  <div class="three">
-    <div class="pill tilt r" style="--d:2;--c:#ff7a59"><b>1</b>Conocer los datos</div>
-    <div class="pill tilt r" style="--d:3;--c:#3ddc97"><b>2</b>Evaluar como en la vida real</div>
-    <div class="pill tilt r" style="--d:4;--c:#6aa8ff"><b>3</b>Probar variables nuevas</div>
-  </div>
+  <h2 class="hero r" style="--d:1">No son cuatro tesis, <em>es una</em></h2>
+  <div class="chain"><div class="pill tilt r" style="--d:2;--c:#ff7a59"><b>1</b>Todos los oferentes</div><i class="ar r" style="--d:3">→</i><div class="pill tilt r" style="--d:4;--c:#3ddc97"><b>2</b>Probar con el futuro</div><i class="ar r" style="--d:5">→</i><div class="pill tilt r" style="--d:6;--c:#6aa8ff"><b>3</b>Empresas nuevas</div><i class="ar r" style="--d:7">→</i><div class="pill tilt r" style="--d:8;--c:#c792ff"><b>4</b>Competencia esperada</div><i class="ar r" style="--d:9">→</i><div class="pill end tilt r" style="--d:10;--c:#fff">Probabilidad de ganar que la empresa puede creer</div></div>
 </div></div></section><section class="slide" data-shape="torus" data-col="#6aa8ff"><div class="inner">
 <div class="center">
-  <div class="tag r">Pregunta</div>
-  <h2 class="q r" style="--d:1">¿Qué tan bien ayudan estos modelos a una empresa en Guatecompras <em>probados como en la vida real</em>?</h2>
-</div></div></section><section class="slide" data-shape="dust" data-col="#3ddc97"><div class="inner"><div class="full"><div class="tag r">Papers citados</div><ul class="refs"><li class="r" style="--d:1.0"><span class="chip">GC02</span>Nai et al. (2023)</li><li class="r" style="--d:1.5"><span class="chip">GC03</span>Figueroa-Gómez y Galpin (2023)</li><li class="r" style="--d:2.0"><span class="chip">GC04</span>Mokhtari et al. (2026)</li><li class="r" style="--d:2.5"><span class="chip">GC07</span>Ballesteros-Pérez et al. (2015)</li><li class="r" style="--d:3.0"><span class="chip">GC08</span>Oo et al. (2025)</li><li class="r" style="--d:3.5"><span class="chip">GC09</span>Sönmez y Sözgen (2017)</li><li class="r" style="--d:4.0"><span class="chip">GC10</span>Loumponias et al. (2026)</li><li class="r" style="--d:4.5"><span class="chip">GC11</span>Acikalin et al. (2023)</li><li class="r" style="--d:5.0"><span class="chip">GC12</span>García Rodríguez et al. (2019)</li><li class="r" style="--d:5.5"><span class="chip">GC14</span>Rahman y Hlinska (2026)</li><li class="r" style="--d:6.0"><span class="chip">GC21</span>Krieger et al. (2026)</li><li class="r" style="--d:6.5"><span class="chip">GC23</span>Soylu et al. (2022)</li><li class="r" style="--d:7.0"><span class="chip">GC27</span>Waxenecker y Prell (2024)</li><li class="r" style="--d:7.0"><span class="chip">GC28</span>Salazar et al. (2024)</li><li class="r" style="--d:7.0"><span class="chip">GC31</span>Herrera Leiva et al. (2020)</li><li class="r" style="--d:7.0"><span class="chip">GC32</span>Lyra et al. (2021)</li><li class="r" style="--d:7.0"><span class="chip">GC37</span>Taş (2020)</li></ul></div></div></section></div>
+  <div class="tag r">Pregunta de investigación</div>
+  <h2 class="q r" style="--d:1">¿Qué tan bien predice un modelo la probabilidad de ganar en Guatecompras, <em>probado como en la vida real</em>?</h2>
+</div></div></section><section class="slide" data-shape="dim" data-col="#3ddc97"><div class="inner">
+<div class="full">
+  <div class="tag r">Las once oportunidades</div>
+  <table class="t11 r" style="--d:1"><thead><tr><th>#</th><th>Oportunidad</th><th>Vacío</th><th>Papers</th><th>Hoy</th></tr></thead><tbody><tr class="sel" style="--c:#3ddc97"><td>01</td><td>Probar el modelo con el futuro</td><td>Método</td><td>GC12, GC28, GC11, GC10</td><td class="st">Oportunidad 2</td></tr><tr class=""><td>02</td><td>Predecir solo con lo que se sabe al publicar</td><td>Medición</td><td>GC28, GC10, GC11</td><td class="st">Trabajo futuro</td></tr><tr class="sel" style="--c:#6aa8ff"><td>03</td><td>Empresas nuevas y arranque en frío</td><td>Método</td><td>GC04, GC07, GC28, GC21</td><td class="st">Oportunidad 3</td></tr><tr class=""><td>04</td><td>Usar el texto de la convocatoria</td><td>Método</td><td>GC11, GC03, GC23</td><td class="st">Trabajo futuro</td></tr><tr class=""><td>05</td><td>Medir y reportar la calidad de los datos</td><td>Medición</td><td>GC23, GC14, GC12, GC02</td><td class="st">Trabajo futuro</td></tr><tr class="sel" style="--c:#ff7a59"><td>06</td><td>Los que perdieron también cuentan</td><td>Medición</td><td>GC23, GC07, GC09</td><td class="st">Oportunidad 1</td></tr><tr class="sel" style="--c:#c792ff"><td>07</td><td>Anticipar la competencia</td><td>Comparación</td><td>GC08, GC10, GC14, GC37</td><td class="st">Oportunidad 4</td></tr><tr class=""><td>08</td><td>La red de compradores y proveedores</td><td>Método</td><td>GC27, GC31, GC32, GC10</td><td class="st">Trabajo futuro</td></tr><tr class=""><td>09</td><td>Un modelo por tipo de compra</td><td>Comparación</td><td>GC28, GC11, GC14</td><td class="st">Trabajo futuro</td></tr><tr class=""><td>10</td><td>Aprender de otros países</td><td>Comparación</td><td>GC11, GC14, GC03, GC28</td><td class="st">Trabajo futuro</td></tr><tr class=""><td>11</td><td>Métricas honestas para casos raros</td><td>Medición</td><td>GC03, GC11, GC28</td><td class="st">Trabajo futuro</td></tr></tbody></table>
+</div></div></section><section class="slide" data-shape="dim" data-col="#6aa8ff"><div class="inner">
+<div class="full" style="--c:#6aa8ff">
+  <div class="tag r">Los 40 papers del estado del arte · 1 de 2</div>
+  <div class="l40 r" style="--d:1"><h4>A · Recomendación</h4><div class="u"><b>GC01</b><span>García Rodríguez et al. (2020)</span><em>Recomienda oferentes (España)</em></div><div class="u"><b>GC02</b><span>Nai et al. (2023)</span><em>Recomendador de licitaciones (Italia)</em></div><div class=""><b>GC03</b><span>Figueroa-Gómez y Galpin (2023)</span><em>Licitaciones de interés (Colombia)</em></div><div class="u"><b>GC04</b><span>Mokhtari et al. (2026)</span><em>Grafo para recomendar (Francia)</em></div><div class=""><b>GC05</b><span>Siciliani et al. (2023)</span><em>Apoyo a la decisión con IA (Italia)</em></div><div class=""><b>GC06</b><span>Soylu et al. (2021)</span><em>Plataforma TheyBuyForYou (Europa)</em></div><h4>B · Competencia</h4><div class="u"><b>GC07</b><span>Ballesteros-Pérez et al. (2015)</span><em>Probabilidad de participar</em></div><div class="u"><b>GC08</b><span>Oo et al. (2025)</span><em>Número de oferentes</em></div><div class="u"><b>GC09</b><span>Sönmez y Sözgen (2017)</span><em>Ofertar o no ofertar</em></div><div class="u"><b>GC10</b><span>Loumponias et al. (2026)</span><em>Oferta única temprana</em></div><div class="u"><b>GC11</b><span>Acikalin et al. (2023)</span><em>Texto de la convocatoria (22 idiomas)</em></div><h4>C · Precio</h4><div class="u"><b>GC12</b><span>García Rodríguez et al. (2019)</span><em>Datos y precio en España</em></div><div class=""><b>GC13</b><span>García Rodríguez et al. (2021)</span><em>Estimador de precio (España)</em></div><div class="u"><b>GC14</b><span>Rahman y Hlinska (2026)</span><em>Valor de contratos (UE)</em></div><div class=""><b>GC15</b><span>Hanák y Serrat (2018)</span><em>Subastas de construcción (Eslovaquia)</em></div><div class=""><b>GC16</b><span>Kim y Jung (2018)</span><em>Precio de oferta (Corea)</em></div><h4>D · Pymes y empresas jóvenes</h4><div class=""><b>GC17</b><span>Hoekman y Taş (2020)</span><em>Política y pymes (UE)</em></div><div class=""><b>GC18</b><span>Flynn y Davis (2017)</span><em>Participación de pymes (Irlanda)</em></div><div class=""><b>GC19</b><span>Fadic (2017)</span><em>Ganar por sorteo (Ecuador)</em></div><div class=""><b>GC20</b><span>Bosio et al. (2020)</span><em>Ley y práctica en 187 países</em></div><div class=""><b>GC21</b><span>Krieger et al. (2026)</span><em>Empresas jóvenes (Alemania)</em></div><div class=""><b>GC22</b><span>Paredes Romero (2018)</span><em>Mipymes (Paraguay)</em></div></div>
+  <div class="leg r" style="--d:2"><b>En color:</b> los que uso en estas cuatro oportunidades</div>
+</div></div></section><section class="slide" data-shape="dim" data-col="#6aa8ff"><div class="inner">
+<div class="full" style="--c:#6aa8ff">
+  <div class="tag r">Los 40 papers del estado del arte · 2 de 2</div>
+  <div class="l40 r" style="--d:1"><h4>E · Datos abiertos</h4><div class="u"><b>GC23</b><span>Soylu et al. (2022)</span><em>Calidad de los datos abiertos</em></div><div class=""><b>GC24</b><span>Csáki et al. (2019)</span><em>Guía de datos abiertos</em></div><div class=""><b>GC25</b><span>Duguay et al. (2019)</span><em>Efecto de abrir los datos</em></div><div class=""><b>GC26</b><span>Muñoz Pla (2026)</span><em>Datos abiertos de España</em></div><h4>F · América Latina</h4><div class=""><b>GC27</b><span>Waxenecker y Prell (2024)</span><em>Redes de corrupción (Guatemala)</em></div><div class="u"><b>GC28</b><span>Salazar et al. (2024)</span><em>VigIA (Bogotá)</em></div><div class=""><b>GC29</b><span>Aldana et al. (2022)</span><em>Corrupción con ML (México)</em></div><div class=""><b>GC30</b><span>Falcón-Cortés et al. (2022)</span><em>Riesgo de corrupción (México)</em></div><div class=""><b>GC31</b><span>Herrera Leiva et al. (2020)</span><em>Redes de proveedores (Chile)</em></div><div class=""><b>GC32</b><span>Lyra et al. (2021)</span><em>Red de co-oferta (Brasil)</em></div><div class=""><b>GC33</b><span>Silva Atencio (2026)</span><em>Riesgo de corrupción (LATAM)</em></div><div class=""><b>GC34</b><span>Brugués et al. (2024)</span><em>Conexiones políticas (Ecuador)</em></div><h4>G · Corrupción</h4><div class=""><b>GC35</b><span>Fazekas y Kocsis (2017)</span><em>Indicadores de corrupción</em></div><div class=""><b>GC36</b><span>Decarolis y Giorgiantonio (2020)</span><em>Banderas rojas (Italia)</em></div><div class=""><b>GC37</b><span>Taş (2020)</span><em>Regulación y competencia (UE)</em></div><div class=""><b>GC38</b><span>Schneider dos Santos et al. (2025)</span><em>Revisión: fraude</em></div><div class=""><b>GC39</b><span>Lyra et al. (2022)</span><em>Revisión: colusión y redes</em></div><h4>H · Explicabilidad</h4><div class=""><b>GC40</b><span>Lundberg y Lee (2017)</span><em>SHAP: explicar el modelo</em></div></div>
+  <div class="leg r" style="--d:2"><b>En color:</b> los que uso en estas cuatro oportunidades</div>
+</div></div></section><section class="slide" data-shape="galaxy" data-col="#3ddc97"><div class="inner">
+<div class="center">
+  <div class="tag r">Gracias</div>
+  <h2 class="hero r" style="--d:1">¿Preguntas?</h2>
+  <div class="by r" style="--d:2">Los PDF traducidos están en la carpeta con su identificador GC</div>
+</div></div></section></div>
 <div id="bar"></div><div id="cnt"></div><div id="hint">← → para avanzar · F pantalla completa</div>
 <script src="lib/three.min.js"></script>
 <script>
@@ -270,14 +380,16 @@ const SH={
  bridge:(i,c)=>{if(i<N*.15){const t=Math.random();return[[-10+t*20,Math.sin(t*Math.PI)*5,rnd(.3)],W,1.3]}const left=i%2==0,p=sph(Math.cbrt(Math.random())*(left?6:3.5));return[[p[0]+(left?-11:11),p[1],p[2]],left?D.clone().lerp(c,.5):c,left?1:1.5]},
  rare:(i,c)=>{const p=sph(Math.cbrt(Math.random())*14);const hit=i%60===0;return[p,hit?c:D,hit?3:.7]},
  stack:(i,c)=>{const k=i%3,a=Math.random()*6.283,r=4.6+rnd(.3);return[[Math.cos(a)*r,(k-1)*3.4+7.5,Math.sin(a)*r],new THREE.Color(['#ff7a59','#3ddc97','#6aa8ff'][k]),1.1]},
+ four:(i,c)=>{const k=i%4,ce=[[-13,-17,-10],[-4.3,-17,-10],[4.3,-17,-10],[13,-17,-10]][k],p=sph(Math.cbrt(Math.random())*2.4);return[[ce[0]+p[0],ce[1]+p[1],ce[2]+p[2]],new THREE.Color(['#ff7a59','#3ddc97','#6aa8ff','#c792ff'][k]),1.1]},
+ dim:(i,c)=>{const p=sph(16+Math.random()*20);return[p,D.clone().lerp(c,.55),.8]},
  torus:(i,c)=>{const u=Math.random()*6.283,v=Math.random()*6.283,R1=10,r1=3.4;return[[(R1+r1*Math.cos(v))*Math.cos(u),r1*Math.sin(v),(R1+r1*Math.cos(v))*Math.sin(u)],i%7?c:W,1]}};
-const LINESHAPES={network:1,clusters:.35,converge:.25};
+const LINESHAPES={network:1,clusters:.35,converge:.25,four:.3};
 window.morph=function(sh,hex){C.set(hex);const f=SH[sh]||SH.galaxy;
  for(let i=0;i<N;i++){const [p,cc,s]=f(i,C);tp.set(p,i*3);tc.set([cc.r,cc.g,cc.b],i*3);tsz[i]=s}
  lineTarget=LINESHAPES[sh]||0;lm.color.set(hex);pairs=[];
  if(lineTarget){for(let k=0;k<LN;k++){const a=Math.floor(Math.random()*N);let b=a+9*(1+Math.floor(Math.random()*3));if(sh!=='network')b=a+3;pairs.push([a,b%N])}}
  spin={galaxy:.0016,funnel:.003,helix:.0008,page:.0004,wall:.0006,cubes:.0012,torus:.002}[sh]||.0012;
- const L={galaxy:9,funnel:11,dust:6,stack:15,torus:10},O={clusters:0};offx=sh in O?0:(sh in L?L[sh]:-13);alT={clusters:.38,galaxy:.6}[sh]||.7;
+ const L={galaxy:9,funnel:11,dust:6,stack:15,torus:10,ring:-18,helix:-25,cold:-15,converge:-19},O={clusters:0,four:0,dim:0};offx=sh in O?0:(sh in L?L[sh]:-13);alT={clusters:.38,galaxy:.6,four:.36,dim:.2}[sh]||.7;
  grp.rotation.x=0;tilt={page:.0,wall:.0,helix:.25}[sh]??.35};
 let tilt=.35;
 function size(){R.setSize(innerWidth,innerHeight,false);cam.aspect=innerWidth/innerHeight;cam.position.z=innerWidth<innerHeight?52:34;cam.updateProjectionMatrix()}
