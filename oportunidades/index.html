@@ -92,7 +92,25 @@ background:linear-gradient(160deg,rgba(255,255,255,.08),rgba(255,255,255,.015));
 .cards{display:grid;grid-template-columns:1fr 1fr;gap:22px}
 .card{padding:24px 28px;border-radius:18px;background:linear-gradient(160deg,rgba(255,255,255,.085),rgba(255,255,255,.02));
 border:1px solid rgba(255,255,255,.1);border-left:4px solid var(--c);backdrop-filter:blur(12px);box-shadow:0 24px 60px rgba(0,0,0,.4);transition:transform .3s}
-.inner:has(.full){padding:56px 110px}
+.inner:has(.full),.inner:has(.opx){padding:50px 90px}
+.opx{height:100%;display:grid;grid-template-columns:560px 1fr;gap:50px;align-items:center}
+.opn2{font:200 150px/.8 "Fraunces",serif;color:transparent;-webkit-text-stroke:2px var(--c);filter:drop-shadow(0 0 30px color-mix(in srgb,var(--c) 45%,transparent))}
+.t3{font:300 54px/1.04 "Fraunces",serif;letter-spacing:-.02em;margin-top:20px}
+.idea2{font:400 22px/1.4 "Inter";color:#c3c9d6;margin-top:18px}
+.opx .stat{margin-top:26px;padding:18px 24px}
+.opx .stat b{font-size:56px}
+.opx .stat span{font-size:16px;max-width:440px}
+.hare{margin-top:22px;padding:18px 22px;border-radius:16px;border:1px dashed rgba(255,255,255,.2);font:400 18px/1.4 "Inter";color:#dfe3ec}
+.hare span{display:block;font:600 12px "Inter";letter-spacing:.2em;text-transform:uppercase;color:var(--c);margin-bottom:6px}
+.rc{display:flex;flex-direction:column;gap:14px}
+.pr{padding:14px 20px;border-radius:14px;background:linear-gradient(160deg,rgba(255,255,255,.075),rgba(255,255,255,.02));border-left:3px solid var(--c);backdrop-filter:blur(10px)}
+.pr .ct{font-size:18px;margin-bottom:2px}
+.pm{font:600 13px "Inter";color:var(--c);margin-bottom:4px}
+.pr p{font:400 16px/1.35 "Inter";color:#dfe3ec;margin-top:3px}
+.pr p span{font:600 11px "Inter";letter-spacing:.16em;text-transform:uppercase;color:var(--c);margin-right:10px}
+.pr p.fl{color:#ffd2c4}
+.pr p.fl span{color:#ff7a59}
+.q2{font:300 50px/1.15 "Fraunces",serif;letter-spacing:-.02em;max-width:1300px}
 .cards .card{padding:20px 26px}
 .ct{font:italic 400 20px/1.25 "Fraunces",serif;color:#fff;margin-bottom:8px}
 .ch{display:flex;align-items:center;gap:14px;margin-bottom:10px}
@@ -127,12 +145,12 @@ border:1px solid rgba(255,255,255,.1);border-left:4px solid var(--c);backdrop-fi
 .t11 .st{font:600 13px "Inter";letter-spacing:.08em;text-transform:uppercase;white-space:nowrap}
 .t11 tr.sel .st{color:var(--c)}
 .l40{display:block}
-.l40 h4{font:600 13px "Inter";letter-spacing:.18em;text-transform:uppercase;color:var(--c);margin:16px 0 8px;break-after:avoid}
+.l40 h4{font:600 12px "Inter";letter-spacing:.18em;text-transform:uppercase;color:var(--c);margin:12px 0 4px}
 .l40 h4:first-child{margin-top:0}
-.l40 div{display:flex;gap:18px;align-items:baseline;justify-content:space-between;font:400 19px/1.35 "Inter";color:#8b93a7;padding:7px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.l40 div{display:flex;gap:18px;align-items:baseline;justify-content:space-between;font:400 14.5px/1.3 "Inter";color:#8b93a7;padding:3px 0;border-bottom:1px solid rgba(255,255,255,.06)}
 .l40 div b{font:600 14px "Inter";color:#5c6478;min-width:44px}
 .l40 div span{color:#c3c9d6}
-.l40 div em{font-style:normal;color:#6c7488;white-space:nowrap;font-size:16px}
+.l40 div em{font-style:normal;color:#6c7488;white-space:nowrap;font-size:13px}
 .l40 div.u b,.l40 div.u span{color:var(--c)}
 .leg{margin-top:20px;font:500 15px "Inter";color:var(--mute)}
 .leg b{color:var(--c)}
@@ -144,186 +162,83 @@ border:1px solid rgba(255,255,255,.1);border-left:4px solid var(--c);backdrop-fi
   <h1 class="mega r" style="--d:1"><span class="big3d">4</span></h1>
   <h2 class="hero r" style="--d:2">oportunidades<br><em>para ayudar a la empresa</em></h2>
   <div class="by r" style="--d:3">Mynor Barrios · UNIS · 2026</div>
-</div></div></section><section class="slide" data-shape="funnel" data-col="#3ddc97"><div class="inner">
-<div class="center">
-  <div class="tag r">De dónde salen</div>
-  <div class="steps">
-    <div class="st r" style="--d:1"><b data-count="496">0</b><span>encontrados</span></div><i class="ar r" style="--d:2">→</i>
-    <div class="st r" style="--d:3"><b data-count="40">0</b><span>con DOI y relevantes</span></div><i class="ar r" style="--d:4">→</i>
-    <div class="st hot r" style="--d:5"><b data-count="11">0</b><span>oportunidades</span></div><i class="ar r" style="--d:6">→</i>
-    <div class="st hot r" style="--d:7"><b data-count="4">0</b><span>desarrolladas</span></div>
-  </div>
 </div></div></section><section class="slide" data-shape="four" data-col="#3ddc97"><div class="inner">
-<div class="full" style="justify-content:flex-start;padding-top:60px">
-  <div class="tag r">De once elegí cuatro</div>
-  <div class="crit r" style="--d:1;margin:0 0 34px"><span>El paper tiene una debilidad clara</span><span>Guatecompras tiene los datos</span><span>Ayuda a la empresa a decidir</span></div>
-  <div class="four"><a class="fc tilt r" style="--d:2;--c:#ff7a59" href="#4"><b>01</b><span>Los que perdieron también cuentan</span><i>Vacío de medición</i></a><a class="fc tilt r" style="--d:3;--c:#3ddc97" href="#7"><b>02</b><span>Probar el modelo con el futuro</span><i>Vacío de método</i></a><a class="fc tilt r" style="--d:4;--c:#6aa8ff" href="#10"><b>03</b><span>Empresas nuevas y arranque en frío</span><i>Vacío de método</i></a><a class="fc tilt r" style="--d:5;--c:#c792ff" href="#13"><b>04</b><span>Anticipar la competencia</span><i>Vacío de comparación</i></a></div>
-</div></div></section><section class="slide" data-shape="ring" data-col="#ff7a59"><div class="inner">
-<div class="op" style="--c:#ff7a59">
-  <div class="opn r">01</div>
-  <div class="opt">
-    <div class="tag r" style="--d:1">Oportunidad 1 de 4 · vacío de medición</div>
-    <h2 class="t2 r" style="--d:2">Los que perdieron también cuentan</h2>
-    <p class="idea r" style="--d:2.5">Para saber qué tan probable es ganar, hay que comparar al ganador con los que perdieron.</p>
-    <div class="stats"><div class="stat tilt r" style="--d:3"><b>6.7 %</b><span>de los participantes tiene nombre en los datos de Italia (Nai et al., 2023)</span></div><div class="stat alt tilt r" style="--d:4"><b>3.4 M</b><span>registros de oferentes en Guatecompras desde 2020</span></div></div>
-    <div class="chips"><span class="chip r" style="--d:5">Soylu et al. (2022)</span><span class="chip r" style="--d:6">Nai et al. (2023)</span><span class="chip r" style="--d:7">Ballesteros-Pérez et al. (2015)</span><span class="chip r" style="--d:8">Guatecompras (Open Contracting)</span></div>
-  </div>
+<div class="full" style="justify-content:flex-start;padding-top:170px">
+  <div class="tag r">40 papers · 11 oportunidades · elegí 4</div>
+  <div class="four"><a class="fc tilt r" style="--d:2;--c:#ff7a59" href="#3"><b>01</b><span>Los que perdieron también cuentan</span></a><a class="fc tilt r" style="--d:3;--c:#3ddc97" href="#4"><b>02</b><span>Probar el modelo con el futuro</span></a><a class="fc tilt r" style="--d:4;--c:#6aa8ff" href="#5"><b>03</b><span>Empresas nuevas y arranque en frío</span></a><a class="fc tilt r" style="--d:5;--c:#c792ff" href="#6"><b>04</b><span>Anticipar la competencia</span></a></div>
 </div></div></section><section class="slide" data-shape="dim" data-col="#ff7a59"><div class="inner">
-<div class="full" style="--c:#ff7a59">
-  <div class="tag r">Oportunidad 1 · Qué saqué de cada paper</div>
-  <h2 class="h2s r" style="--d:1">Los que perdieron también cuentan</h2>
-  <div class="cards"><div class="card tilt r" style="--d:2"><div class="ct">Data Quality Barriers for Transparency in Public Procurement</div><div class="ch"><b>Soylu et al. (2022)</b><i>pág. 18</i></div>
-<p><span>Lo que saqué</span>Muchas entidades publican solo al ganador. Recomienda publicar a todos los oferentes.</p><p class="fl"><span>Dónde falla</span>Es solo una recomendación. No construye ningún modelo con esos datos.</p></div><div class="card tilt r" style="--d:3"><div class="ct">Public tenders, complaints, machine learning and recommender systems: a case study in public administration</div><div class="ch"><b>Nai et al. (2023)</b><i>pág. 5</i></div>
-<p><span>Lo que saqué</span>Recomendador de licitaciones para empresas en Italia.</p><p class="fl"><span>Dónde falla</span>Solo el 21.5 % de los registros trae adjudicación y el 6.7 % trae el nombre de los participantes.</p></div><div class="card tilt r" style="--d:4"><div class="ct">Improving the estimation of probability of bidder participation in procurement auctions</div><div class="ch"><b>Ballesteros-Pérez et al. (2015)</b><i>pág. 15</i></div>
-<p><span>Lo que saqué</span>Estima la probabilidad de que cada oferente participe.</p><p class="fl"><span>Dónde falla</span>Lo hace con solo 47 contratos de Hong Kong de 1991 a 1996, porque esos datos son raros.</p></div><div class="card tilt r" style="--d:5"><div class="ct">Guatecompras open contracting data (OCDS)</div><div class="ch"><b>Guatecompras (Open Contracting)</b><i>registro OCDS</i></div>
-<p><span>Lo que saqué</span>Publica a todos los oferentes: 3,365,448 registros con la extensión bids.</p><p class="fl"><span>Dónde falla</span>Tiene oferentes duplicados que hay que limpiar antes de contar.</p></div></div>
-</div></div></section><section class="slide" data-shape="dim" data-col="#ff7a59"><div class="inner">
-<div class="full" style="--c:#ff7a59">
-  <div class="tag r">Oportunidad 1 · Por qué es una oportunidad</div>
-  <h2 class="h2s r" style="--d:1">Los que perdieron también cuentan</h2>
-  <div class="flow">
-    <div class="fs tilt r" style="--d:2"><span>1 · Lo que ya se sabe</span><p>Para estimar la probabilidad de ganar hay que comparar ganadores con perdedores (Ballesteros-Pérez et al., 2015 y Sönmez y Sözgen, 2017).</p></div><div class="fa r" style="--d:3">→</div>
-    <div class="fs tilt r" style="--d:4"><span>2 · Lo que falta</span><p>En otros países no se pudo: no publican a los perdedores (Nai et al., 2023 y Soylu et al., 2022) o hay muy pocos casos (Ballesteros-Pérez et al., 2015).</p></div><div class="fa r" style="--d:5">→</div>
-    <div class="fs hot tilt r" style="--d:6"><span>3 · Por qué vale la pena</span><p>Guatecompras sí los publica. Puedo hacer lo que en otros países no se pudo.</p></div>
+<div class="opx" style="--c:#ff7a59">
+  <div class="lc">
+    <div class="opn2 r">01</div>
+    <h2 class="t3 r" style="--d:1">Los que perdieron también cuentan</h2>
+    <p class="idea2 r" style="--d:2">Para saber qué tan probable es ganar, hay que comparar al ganador con los que perdieron.</p>
+    <div class="stat r" style="--d:3"><b>6.7 %</b><span>de los participantes tiene nombre en los datos de Italia (Nai et al., 2023)</span></div>
+    <div class="hare r" style="--d:4"><span>Lo que haré</span>Quitar oferentes duplicados, medir en qué porcentaje de concursos están completos y estimar la probabilidad de ganar comparando ganadores contra perdedores.</div>
   </div>
-  <div class="do">
-    <div class="r" style="--d:8"><span>Qué haría con Guatecompras</span><p>Quitar oferentes duplicados, medir en qué porcentaje de concursos están completos y estimar la probabilidad de ganar comparando ganadores contra perdedores.</p></div>
-    <div class="r" style="--d:9"><span>Cómo sabré si funcionó</span><p>Un porcentaje alto de concursos con todos sus oferentes. Con eso la probabilidad de ganar (Y2) se puede estimar.</p></div>
-  </div>
-</div></div></section><section class="slide" data-shape="helix" data-col="#3ddc97"><div class="inner">
-<div class="op" style="--c:#3ddc97">
-  <div class="opn r">02</div>
-  <div class="opt">
-    <div class="tag r" style="--d:1">Oportunidad 2 de 4 · vacío de método</div>
-    <h2 class="t2 r" style="--d:2">Probar el modelo con el futuro</h2>
-    <p class="idea r" style="--d:2.5">Entrenar con años pasados y probar con años posteriores, como lo usaría una empresa de verdad.</p>
-    <div class="stats"><div class="stat tilt r" style="--d:3"><b>80 / 20</b><span>García Rodríguez et al. (2019 y 2020) separan entrenamiento y prueba sin usar la fecha</span></div></div>
-    <div class="chips"><span class="chip r" style="--d:5">García Rodríguez et al. (2020)</span><span class="chip r" style="--d:6">García Rodríguez et al. (2019)</span><span class="chip r" style="--d:7">Acikalin et al. (2023)</span><span class="chip r" style="--d:8">Salazar et al. (2024)</span></div>
-  </div>
+  <div class="rc"><div class="pr r" style="--d:3"><div class="ct">Data Quality Barriers for Transparency in Public Procurement</div><div class="pm">Soylu et al. (2022) · pág. 18</div>
+<p><span>Saqué</span>Muchas entidades publican solo al ganador. Recomienda publicar a todos los oferentes.</p><p class="fl"><span>Falla</span>Es solo una recomendación. No construye ningún modelo con esos datos.</p></div><div class="pr r" style="--d:4"><div class="ct">Public tenders, complaints, machine learning and recommender systems: a case study in public administration</div><div class="pm">Nai et al. (2023) · pág. 5</div>
+<p><span>Saqué</span>Recomendador de licitaciones para empresas en Italia.</p><p class="fl"><span>Falla</span>Solo el 21.5 % de los registros trae adjudicación y el 6.7 % trae el nombre de los participantes.</p></div><div class="pr r" style="--d:5"><div class="ct">Improving the estimation of probability of bidder participation in procurement auctions</div><div class="pm">Ballesteros-Pérez et al. (2015) · pág. 15</div>
+<p><span>Saqué</span>Estima la probabilidad de que cada oferente participe.</p><p class="fl"><span>Falla</span>Lo hace con solo 47 contratos de Hong Kong de 1991 a 1996, porque esos datos son raros.</p></div><div class="pr r" style="--d:6"><div class="ct">Guatecompras open contracting data (OCDS)</div><div class="pm">Guatecompras (Open Contracting) · registro OCDS</div>
+<p><span>Saqué</span>Publica a todos los oferentes: 3,365,448 registros con la extensión bids.</p><p class="fl"><span>Falla</span>Tiene oferentes duplicados que hay que limpiar antes de contar.</p></div></div>
 </div></div></section><section class="slide" data-shape="dim" data-col="#3ddc97"><div class="inner">
-<div class="full" style="--c:#3ddc97">
-  <div class="tag r">Oportunidad 2 · Qué saqué de cada paper</div>
-  <h2 class="h2s r" style="--d:1">Probar el modelo con el futuro</h2>
-  <div class="cards"><div class="card tilt r" style="--d:2"><div class="ct">Bidders Recommender for Public Procurement Auctions Using Machine Learning: Data Analysis, Algorithm, and Case Study with Tenders from Spain</div><div class="ch"><b>García Rodríguez et al. (2020)</b><i>pág. 7</i></div>
-<p><span>Lo que saqué</span>Recomienda oferentes con random forest en 102,087 licitaciones de España. Acierta en el 24 % al 38 % de los casos.</p><p class="fl"><span>Dónde falla</span>Valida con 80 % y 20 % sin separar por fecha.</p></div><div class="card tilt r" style="--d:3"><div class="ct">Public Procurement Announcements in Spain: Regulations, Data Analysis, and Award Price Estimator Using Machine Learning</div><div class="ch"><b>García Rodríguez et al. (2019)</b><i>pág. 16</i></div>
-<p><span>Lo que saqué</span>Estima el precio de adjudicación en España.</p><p class="fl"><span>Dónde falla</span>Usa 46,670 para entrenar y 11,667 para probar, sin decir que sea por fecha.</p></div><div class="card tilt r" style="--d:4"><div class="ct">How you describe procurement calls matters: Predicting outcome of public procurement using call descriptions</div><div class="ch"><b>Acikalin et al. (2023)</b><i>pág. 11, Tabla 2</i></div>
-<p><span>Lo que saqué</span>El texto del aviso predice el resultado del concurso.</p><p class="fl"><span>Dónde falla</span>Entrenamiento y prueba cubren los mismos años, 2011 a 2018.</p></div><div class="card tilt r" style="--d:5"><div class="ct">VigIA: prioritizing public procurement oversight with machine learning models and risk indices</div><div class="ch"><b>Salazar et al. (2024)</b><i>pág. 15</i></div>
-<p><span>Lo que saqué</span>VigIA predice sobrecostos y retrasos de contratos en Bogotá.</p><p class="fl"><span>Dónde falla</span>Usa 70 % y 30 % sin separar por fecha.</p></div></div>
+<div class="opx" style="--c:#3ddc97">
+  <div class="lc">
+    <div class="opn2 r">02</div>
+    <h2 class="t3 r" style="--d:1">Probar el modelo con el futuro</h2>
+    <p class="idea2 r" style="--d:2">Entrenar con años pasados y probar con años posteriores, como lo usaría una empresa de verdad.</p>
+    <div class="stat r" style="--d:3"><b>80 / 20</b><span>García Rodríguez et al. (2019 y 2020) separan entrenamiento y prueba sin usar la fecha</span></div>
+    <div class="hare r" style="--d:4"><span>Lo que haré</span>Entrenar con 2020 a 2023, ajustar con 2024 y probar solo con 2025. Repetir la prueba al azar y comparar.</div>
+  </div>
+  <div class="rc"><div class="pr r" style="--d:3"><div class="ct">Bidders Recommender for Public Procurement Auctions Using Machine Learning: Data Analysis, Algorithm, and Case Study with Tenders from Spain</div><div class="pm">García Rodríguez et al. (2020) · pág. 7</div>
+<p><span>Saqué</span>Recomienda oferentes con random forest en 102,087 licitaciones de España. Acierta en el 24 % al 38 % de los casos.</p><p class="fl"><span>Falla</span>Valida con 80 % y 20 % sin separar por fecha.</p></div><div class="pr r" style="--d:4"><div class="ct">Public Procurement Announcements in Spain: Regulations, Data Analysis, and Award Price Estimator Using Machine Learning</div><div class="pm">García Rodríguez et al. (2019) · pág. 16</div>
+<p><span>Saqué</span>Estima el precio de adjudicación en España.</p><p class="fl"><span>Falla</span>Usa 46,670 para entrenar y 11,667 para probar, sin decir que sea por fecha.</p></div><div class="pr r" style="--d:5"><div class="ct">How you describe procurement calls matters: Predicting outcome of public procurement using call descriptions</div><div class="pm">Acikalin et al. (2023) · pág. 11, Tabla 2</div>
+<p><span>Saqué</span>El texto del aviso predice el resultado del concurso.</p><p class="fl"><span>Falla</span>Entrenamiento y prueba cubren los mismos años, 2011 a 2018.</p></div><div class="pr r" style="--d:6"><div class="ct">VigIA: prioritizing public procurement oversight with machine learning models and risk indices</div><div class="pm">Salazar et al. (2024) · pág. 15</div>
+<p><span>Saqué</span>VigIA predice sobrecostos y retrasos de contratos en Bogotá.</p><p class="fl"><span>Falla</span>Usa 70 % y 30 % sin separar por fecha.</p></div></div>
+</div></div></section><section class="slide" data-shape="dim" data-col="#6aa8ff"><div class="inner">
+<div class="opx" style="--c:#6aa8ff">
+  <div class="lc">
+    <div class="opn2 r">03</div>
+    <h2 class="t3 r" style="--d:1">Empresas nuevas y arranque en frío</h2>
+    <p class="idea2 r" style="--d:2">Recomendar concursos a una empresa que casi no tiene historial.</p>
+    <div class="stat r" style="--d:3"><b>39 de 100</b><span>licitadores participaron una sola vez (Ballesteros-Pérez et al., 2015)</span></div>
+    <div class="hare r" style="--d:4"><span>Lo que haré</span>Medir el recomendador en dos grupos: empresas con historial y empresas con 0 a 2 ofertas. Probar variables que no dependen del historial: categoría, monto y texto.</div>
+  </div>
+  <div class="rc"><div class="pr r" style="--d:3"><div class="ct">Improving the estimation of probability of bidder participation in procurement auctions</div><div class="pm">Ballesteros-Pérez et al. (2015) · pág. 15–16</div>
+<p><span>Saqué</span>39 de cada 100 licitadores aparecen una sola vez.</p><p class="fl"><span>Falla</span>Muestra muy pequeña y antigua: 47 contratos de Hong Kong de 1991 a 1996.</p></div><div class="pr r" style="--d:4"><div class="ct">VigIA: prioritizing public procurement oversight with machine learning models and risk indices</div><div class="pm">Salazar et al. (2024) · pág. 14</div>
+<p><span>Saqué</span>Los proveedores registrados hace menos de unos 228 días tienen más riesgo.</p><p class="fl"><span>Falla</span>No mide el modelo por separado para los proveedores nuevos.</p></div><div class="pr r" style="--d:5"><div class="ct">TenderKG: A Knowledge Graph Dataset for Recommendation in Public Procurement</div><div class="pm">Mokhtari et al. (2026) · resumen</div>
+<p><span>Saqué</span>Los datos escasos y el arranque en frío son un reto para recomendar.</p><p class="fl"><span>Falla</span>Lo señala, pero no reporta cómo le va al modelo con empresas nuevas.</p></div><div class="pr r" style="--d:6"><div class="ct">Bidders Recommender for Public Procurement Auctions Using Machine Learning: Data Analysis, Algorithm, and Case Study with Tenders from Spain</div><div class="pm">García Rodríguez et al. (2020) · pág. 7</div>
+<p><span>Saqué</span>El recomendador aprende del historial de ganadores.</p><p class="fl"><span>Falla</span>Una empresa sin historial casi no aparece en sus recomendaciones.</p></div></div>
+</div></div></section><section class="slide" data-shape="dim" data-col="#c792ff"><div class="inner">
+<div class="opx" style="--c:#c792ff">
+  <div class="lc">
+    <div class="opn2 r">04</div>
+    <h2 class="t3 r" style="--d:1">Anticipar la competencia</h2>
+    <p class="idea2 r" style="--d:2">Estimar cuántos van a ofertar antes de que cierre el concurso, y usarlo para la probabilidad de ganar.</p>
+    <div class="stat r" style="--d:3"><b>8.99 %</b><span>pesa el número de ofertas al predecir el valor del contrato (Rahman y Hlinska, 2026)</span></div>
+    <div class="hare r" style="--d:4"><span>Lo que haré</span>Predecir primero el número de oferentes y usarlo como variable de la probabilidad de ganar. Comparar con y sin ese paso.</div>
+  </div>
+  <div class="rc"><div class="pr r" style="--d:3"><div class="ct">EU Public Procurement Contract Value Prediction: A Machine Learning Approach</div><div class="pm">Rahman y Hlinska (2026) · pág. 1 y 4</div>
+<p><span>Saqué</span>El número de ofertas pesa 8.99 % al predecir el valor del contrato en la UE.</p><p class="fl"><span>Falla</span>Lo usa como dato conocido, pero solo se sabe cuando el concurso ya cerró.</p></div><div class="pr r" style="--d:4"><div class="ct">Predicting the number of bidders in construction competitive bidding using explainable machine learning models</div><div class="pm">Oo et al. (2025) · resumen</div>
+<p><span>Saqué</span>Predice el número de oferentes en construcción con modelos explicables.</p><p class="fl"><span>Falla</span>Solo construcción, y no lo usa para la probabilidad de ganar de una empresa.</p></div><div class="pr r" style="--d:5"><div class="ct">A Network‐Enhanced Supervised Learning Framework for Early Prediction of Corruption Risk Indicators in Public Procurement Data</div><div class="pm">Loumponias et al. (2026) · resumen</div>
+<p><span>Saqué</span>Predice la oferta única el día en que se publica, con variables de red.</p><p class="fl"><span>Falla</span>Su objetivo es vigilar al Estado, no ayudar a la empresa.</p></div><div class="pr r" style="--d:6"><div class="ct">How you describe procurement calls matters: Predicting outcome of public procurement using call descriptions</div><div class="pm">Acikalin et al. (2023) · pág. 15</div>
+<p><span>Saqué</span>El texto del aviso predice el número de ofertas en 22 idiomas.</p><p class="fl"><span>Falla</span>Una regla simple (la mediana del sector y del país) es muy difícil de superar.</p></div></div>
 </div></div></section><section class="slide" data-shape="dim" data-col="#3ddc97"><div class="inner">
-<div class="full" style="--c:#3ddc97">
-  <div class="tag r">Oportunidad 2 · Por qué es una oportunidad</div>
-  <h2 class="h2s r" style="--d:1">Probar el modelo con el futuro</h2>
-  <div class="flow">
-    <div class="fs tilt r" style="--d:2"><span>1 · Lo que ya se sabe</span><p>Se puede recomendar oferentes y estimar precios con aprendizaje automático (García Rodríguez et al., 2019 y 2020).</p></div><div class="fa r" style="--d:3">→</div>
-    <div class="fs tilt r" style="--d:4"><span>2 · Lo que falta</span><p>Ninguno se probó como se usaría: con el pasado para predecir el futuro. Sus cifras pueden ser optimistas.</p></div><div class="fa r" style="--d:5">→</div>
-    <div class="fs hot tilt r" style="--d:6"><span>3 · Por qué vale la pena</span><p>Medir cuánto cambia el resultado al probar por fecha da una cifra honesta que otros pueden repetir.</p></div>
-  </div>
-  <div class="do">
-    <div class="r" style="--d:8"><span>Qué haría con Guatecompras</span><p>Entrenar con 2020 a 2023, ajustar con 2024 y probar solo con 2025. Repetir la prueba al azar y comparar.</p></div>
-    <div class="r" style="--d:9"><span>Cómo sabré si funcionó</span><p>Si la cifra por fecha es más baja que la cifra al azar, demuestro que los resultados publicados son optimistas.</p></div>
-  </div>
-</div></div></section><section class="slide" data-shape="cold" data-col="#6aa8ff"><div class="inner">
-<div class="op" style="--c:#6aa8ff">
-  <div class="opn r">03</div>
-  <div class="opt">
-    <div class="tag r" style="--d:1">Oportunidad 3 de 4 · vacío de método</div>
-    <h2 class="t2 r" style="--d:2">Empresas nuevas y arranque en frío</h2>
-    <p class="idea r" style="--d:2.5">Recomendar concursos a una empresa que casi no tiene historial.</p>
-    <div class="stats"><div class="stat tilt r" style="--d:3"><b>39 de 100</b><span>licitadores participaron una sola vez (Ballesteros-Pérez et al., 2015)</span></div></div>
-    <div class="chips"><span class="chip r" style="--d:5">Ballesteros-Pérez et al. (2015)</span><span class="chip r" style="--d:6">Salazar et al. (2024)</span><span class="chip r" style="--d:7">Mokhtari et al. (2026)</span><span class="chip r" style="--d:8">García Rodríguez et al. (2020)</span></div>
-  </div>
-</div></div></section><section class="slide" data-shape="dim" data-col="#6aa8ff"><div class="inner">
-<div class="full" style="--c:#6aa8ff">
-  <div class="tag r">Oportunidad 3 · Qué saqué de cada paper</div>
-  <h2 class="h2s r" style="--d:1">Empresas nuevas y arranque en frío</h2>
-  <div class="cards"><div class="card tilt r" style="--d:2"><div class="ct">Improving the estimation of probability of bidder participation in procurement auctions</div><div class="ch"><b>Ballesteros-Pérez et al. (2015)</b><i>pág. 15–16</i></div>
-<p><span>Lo que saqué</span>39 de cada 100 licitadores aparecen una sola vez.</p><p class="fl"><span>Dónde falla</span>Muestra muy pequeña y antigua: 47 contratos de Hong Kong de 1991 a 1996.</p></div><div class="card tilt r" style="--d:3"><div class="ct">VigIA: prioritizing public procurement oversight with machine learning models and risk indices</div><div class="ch"><b>Salazar et al. (2024)</b><i>pág. 14</i></div>
-<p><span>Lo que saqué</span>Los proveedores registrados hace menos de unos 228 días tienen más riesgo.</p><p class="fl"><span>Dónde falla</span>No mide el modelo por separado para los proveedores nuevos.</p></div><div class="card tilt r" style="--d:4"><div class="ct">TenderKG: A Knowledge Graph Dataset for Recommendation in Public Procurement</div><div class="ch"><b>Mokhtari et al. (2026)</b><i>resumen</i></div>
-<p><span>Lo que saqué</span>Los datos escasos y el arranque en frío son un reto para recomendar.</p><p class="fl"><span>Dónde falla</span>Lo señala, pero no reporta cómo le va al modelo con empresas nuevas.</p></div><div class="card tilt r" style="--d:5"><div class="ct">Bidders Recommender for Public Procurement Auctions Using Machine Learning: Data Analysis, Algorithm, and Case Study with Tenders from Spain</div><div class="ch"><b>García Rodríguez et al. (2020)</b><i>pág. 7</i></div>
-<p><span>Lo que saqué</span>El recomendador aprende del historial de ganadores.</p><p class="fl"><span>Dónde falla</span>Una empresa sin historial casi no aparece en sus recomendaciones.</p></div></div>
-</div></div></section><section class="slide" data-shape="dim" data-col="#6aa8ff"><div class="inner">
-<div class="full" style="--c:#6aa8ff">
-  <div class="tag r">Oportunidad 3 · Por qué es una oportunidad</div>
-  <h2 class="h2s r" style="--d:1">Empresas nuevas y arranque en frío</h2>
-  <div class="flow">
-    <div class="fs tilt r" style="--d:2"><span>1 · Lo que ya se sabe</span><p>Los recomendadores funcionan aprendiendo del historial (García Rodríguez et al., 2020).</p></div><div class="fa r" style="--d:3">→</div>
-    <div class="fs tilt r" style="--d:4"><span>2 · Lo que falta</span><p>Nadie reporta el resultado aparte para empresas con poco historial, y Ballesteros-Pérez et al. (2015) lo estudian con muy pocos datos.</p></div><div class="fa r" style="--d:5">→</div>
-    <div class="fs hot tilt r" style="--d:6"><span>3 · Por qué vale la pena</span><p>Las empresas nuevas son las que más necesitan ayuda. Si el modelo no les sirve, falla justo con ellas.</p></div>
-  </div>
-  <div class="do">
-    <div class="r" style="--d:8"><span>Qué haría con Guatecompras</span><p>Medir el recomendador en dos grupos: empresas con historial y empresas con 0 a 2 ofertas. Probar variables que no dependen del historial: categoría, monto y texto.</p></div>
-    <div class="r" style="--d:9"><span>Cómo sabré si funcionó</span><p>Comparar precision@k en los dos grupos. Si las nuevas salen mucho peor, las variables del concurso deben cerrar la brecha.</p></div>
-  </div>
-</div></div></section><section class="slide" data-shape="converge" data-col="#c792ff"><div class="inner">
-<div class="op" style="--c:#c792ff">
-  <div class="opn r">04</div>
-  <div class="opt">
-    <div class="tag r" style="--d:1">Oportunidad 4 de 4 · vacío de comparación</div>
-    <h2 class="t2 r" style="--d:2">Anticipar la competencia</h2>
-    <p class="idea r" style="--d:2.5">Estimar cuántos van a ofertar antes de que cierre el concurso, y usarlo para la probabilidad de ganar.</p>
-    <div class="stats"><div class="stat tilt r" style="--d:3"><b>8.99 %</b><span>pesa el número de ofertas al predecir el valor del contrato (Rahman y Hlinska, 2026)</span></div></div>
-    <div class="chips"><span class="chip r" style="--d:5">Rahman y Hlinska (2026)</span><span class="chip r" style="--d:6">Oo et al. (2025)</span><span class="chip r" style="--d:7">Loumponias et al. (2026)</span><span class="chip r" style="--d:8">Acikalin et al. (2023)</span></div>
-  </div>
-</div></div></section><section class="slide" data-shape="dim" data-col="#c792ff"><div class="inner">
-<div class="full" style="--c:#c792ff">
-  <div class="tag r">Oportunidad 4 · Qué saqué de cada paper</div>
-  <h2 class="h2s r" style="--d:1">Anticipar la competencia</h2>
-  <div class="cards"><div class="card tilt r" style="--d:2"><div class="ct">EU Public Procurement Contract Value Prediction: A Machine Learning Approach</div><div class="ch"><b>Rahman y Hlinska (2026)</b><i>pág. 1 y 4</i></div>
-<p><span>Lo que saqué</span>El número de ofertas pesa 8.99 % al predecir el valor del contrato en la UE.</p><p class="fl"><span>Dónde falla</span>Lo usa como dato conocido, pero solo se sabe cuando el concurso ya cerró.</p></div><div class="card tilt r" style="--d:3"><div class="ct">Predicting the number of bidders in construction competitive bidding using explainable machine learning models</div><div class="ch"><b>Oo et al. (2025)</b><i>resumen</i></div>
-<p><span>Lo que saqué</span>Predice el número de oferentes en construcción con modelos explicables.</p><p class="fl"><span>Dónde falla</span>Solo construcción, y no lo usa para la probabilidad de ganar de una empresa.</p></div><div class="card tilt r" style="--d:4"><div class="ct">A Network‐Enhanced Supervised Learning Framework for Early Prediction of Corruption Risk Indicators in Public Procurement Data</div><div class="ch"><b>Loumponias et al. (2026)</b><i>resumen</i></div>
-<p><span>Lo que saqué</span>Predice la oferta única el día en que se publica, con variables de red.</p><p class="fl"><span>Dónde falla</span>Su objetivo es vigilar al Estado, no ayudar a la empresa.</p></div><div class="card tilt r" style="--d:5"><div class="ct">How you describe procurement calls matters: Predicting outcome of public procurement using call descriptions</div><div class="ch"><b>Acikalin et al. (2023)</b><i>pág. 15</i></div>
-<p><span>Lo que saqué</span>El texto del aviso predice el número de ofertas en 22 idiomas.</p><p class="fl"><span>Dónde falla</span>Una regla simple (la mediana del sector y del país) es muy difícil de superar.</p></div></div>
-</div></div></section><section class="slide" data-shape="dim" data-col="#c792ff"><div class="inner">
-<div class="full" style="--c:#c792ff">
-  <div class="tag r">Oportunidad 4 · Por qué es una oportunidad</div>
-  <h2 class="h2s r" style="--d:1">Anticipar la competencia</h2>
-  <div class="flow">
-    <div class="fs tilt r" style="--d:2"><span>1 · Lo que ya se sabe</span><p>El número de competidores se puede predecir (Oo et al., Loumponias et al. y Acikalin et al.) y afecta el precio (Rahman y Hlinska).</p></div><div class="fa r" style="--d:3">→</div>
-    <div class="fs tilt r" style="--d:4"><span>2 · Lo que falta</span><p>Nadie usa esa predicción como paso previo para la probabilidad de ganar de una empresa.</p></div><div class="fa r" style="--d:5">→</div>
-    <div class="fs hot tilt r" style="--d:6"><span>3 · Por qué vale la pena</span><p>Encadenar dos modelos (cuántos competirán y luego si gano) es un diseño nuevo y fácil de comparar.</p></div>
-  </div>
-  <div class="do">
-    <div class="r" style="--d:8"><span>Qué haría con Guatecompras</span><p>Predecir primero el número de oferentes y usarlo como variable de la probabilidad de ganar. Comparar con y sin ese paso.</p></div>
-    <div class="r" style="--d:9"><span>Cómo sabré si funcionó</span><p>Si la AUC de la probabilidad de ganar sube al agregar la competencia esperada, el paso previo aporta.</p></div>
-  </div>
-</div></div></section><section class="slide" data-shape="stack" data-col="#3ddc97"><div class="inner">
 <div class="center">
-  <div class="tag r">Cómo se juntan</div>
-  <h2 class="hero r" style="--d:1">No son cuatro tesis, <em>es una</em></h2>
+  <div class="tag r">No son cuatro tesis, es una</div>
+  <h2 class="q2 r" style="--d:1">¿Qué tan bien predice un modelo la probabilidad de ganar en Guatecompras, <em>probado como en la vida real</em>?</h2>
   <div class="chain"><div class="pill tilt r" style="--d:2;--c:#ff7a59"><b>1</b>Todos los oferentes</div><i class="ar r" style="--d:3">→</i><div class="pill tilt r" style="--d:4;--c:#3ddc97"><b>2</b>Probar con el futuro</div><i class="ar r" style="--d:5">→</i><div class="pill tilt r" style="--d:6;--c:#6aa8ff"><b>3</b>Empresas nuevas</div><i class="ar r" style="--d:7">→</i><div class="pill tilt r" style="--d:8;--c:#c792ff"><b>4</b>Competencia esperada</div><i class="ar r" style="--d:9">→</i><div class="pill end tilt r" style="--d:10;--c:#fff">Probabilidad de ganar que la empresa puede creer</div></div>
-</div></div></section><section class="slide" data-shape="torus" data-col="#6aa8ff"><div class="inner">
-<div class="center">
-  <div class="tag r">Pregunta de investigación</div>
-  <h2 class="q r" style="--d:1">¿Qué tan bien predice un modelo la probabilidad de ganar en Guatecompras, <em>probado como en la vida real</em>?</h2>
 </div></div></section><section class="slide" data-shape="dim" data-col="#3ddc97"><div class="inner">
 <div class="full">
   <div class="tag r">Las once oportunidades</div>
-  <table class="t11 r" style="--d:1"><thead><tr><th>#</th><th>Oportunidad</th><th>Vacío</th><th>Papers</th><th>Hoy</th></tr></thead><tbody><tr class="sel" style="--c:#3ddc97"><td>01</td><td>Probar el modelo con el futuro</td><td>Método</td><td>García Rodríguez et al., Salazar et al., Acikalin et al.</td><td class="st">Oportunidad 2</td></tr><tr class=""><td>02</td><td>Predecir solo con lo que se sabe al publicar</td><td>Medición</td><td>Salazar et al., Loumponias et al., Acikalin et al.</td><td class="st">Trabajo futuro</td></tr><tr class="sel" style="--c:#6aa8ff"><td>03</td><td>Empresas nuevas y arranque en frío</td><td>Método</td><td>Mokhtari et al., Ballesteros-Pérez et al., Salazar et al.</td><td class="st">Oportunidad 3</td></tr><tr class=""><td>04</td><td>Usar el texto de la convocatoria</td><td>Método</td><td>Acikalin et al., Figueroa-Gómez y Galpin, Soylu et al.</td><td class="st">Trabajo futuro</td></tr><tr class=""><td>05</td><td>Medir y reportar la calidad de los datos</td><td>Medición</td><td>Soylu et al., Rahman y Hlinska, García Rodríguez et al.</td><td class="st">Trabajo futuro</td></tr><tr class="sel" style="--c:#ff7a59"><td>06</td><td>Los que perdieron también cuentan</td><td>Medición</td><td>Soylu et al., Ballesteros-Pérez et al., Sönmez y Sözgen</td><td class="st">Oportunidad 1</td></tr><tr class="sel" style="--c:#c792ff"><td>07</td><td>Anticipar la competencia</td><td>Comparación</td><td>Oo et al., Loumponias et al., Rahman y Hlinska</td><td class="st">Oportunidad 4</td></tr><tr class=""><td>08</td><td>La red de compradores y proveedores</td><td>Método</td><td>Waxenecker y Prell, Herrera Leiva et al., Lyra et al.</td><td class="st">Trabajo futuro</td></tr><tr class=""><td>09</td><td>Un modelo por tipo de compra</td><td>Comparación</td><td>Salazar et al., Acikalin et al., Rahman y Hlinska</td><td class="st">Trabajo futuro</td></tr><tr class=""><td>10</td><td>Aprender de otros países</td><td>Comparación</td><td>Acikalin et al., Rahman y Hlinska, Figueroa-Gómez y Galpin</td><td class="st">Trabajo futuro</td></tr><tr class=""><td>11</td><td>Métricas honestas para casos raros</td><td>Medición</td><td>Figueroa-Gómez y Galpin, Acikalin et al., Salazar et al.</td><td class="st">Trabajo futuro</td></tr></tbody></table>
+  <table class="t11 r" style="--d:1"><thead><tr><th>#</th><th>Oportunidad</th><th>Papers</th><th>Hoy</th></tr></thead><tbody><tr class="sel" style="--c:#3ddc97"><td>01</td><td>Probar el modelo con el futuro</td><td>García Rodríguez et al., Salazar et al., Acikalin et al.</td><td class="st">Oportunidad 2</td></tr><tr class=""><td>02</td><td>Predecir solo con lo que se sabe al publicar</td><td>Salazar et al., Loumponias et al., Acikalin et al.</td><td class="st">Trabajo futuro</td></tr><tr class="sel" style="--c:#6aa8ff"><td>03</td><td>Empresas nuevas y arranque en frío</td><td>Mokhtari et al., Ballesteros-Pérez et al., Salazar et al.</td><td class="st">Oportunidad 3</td></tr><tr class=""><td>04</td><td>Usar el texto de la convocatoria</td><td>Acikalin et al., Figueroa-Gómez y Galpin, Soylu et al.</td><td class="st">Trabajo futuro</td></tr><tr class=""><td>05</td><td>Medir y reportar la calidad de los datos</td><td>Soylu et al., Rahman y Hlinska, García Rodríguez et al.</td><td class="st">Trabajo futuro</td></tr><tr class="sel" style="--c:#ff7a59"><td>06</td><td>Los que perdieron también cuentan</td><td>Soylu et al., Ballesteros-Pérez et al., Sönmez y Sözgen</td><td class="st">Oportunidad 1</td></tr><tr class="sel" style="--c:#c792ff"><td>07</td><td>Anticipar la competencia</td><td>Oo et al., Loumponias et al., Rahman y Hlinska</td><td class="st">Oportunidad 4</td></tr><tr class=""><td>08</td><td>La red de compradores y proveedores</td><td>Waxenecker y Prell, Herrera Leiva et al., Lyra et al.</td><td class="st">Trabajo futuro</td></tr><tr class=""><td>09</td><td>Un modelo por tipo de compra</td><td>Salazar et al., Acikalin et al., Rahman y Hlinska</td><td class="st">Trabajo futuro</td></tr><tr class=""><td>10</td><td>Aprender de otros países</td><td>Acikalin et al., Rahman y Hlinska, Figueroa-Gómez y Galpin</td><td class="st">Trabajo futuro</td></tr><tr class=""><td>11</td><td>Métricas honestas para casos raros</td><td>Figueroa-Gómez y Galpin, Acikalin et al., Salazar et al.</td><td class="st">Trabajo futuro</td></tr></tbody></table>
 </div></div></section><section class="slide" data-shape="dim" data-col="#6aa8ff"><div class="inner">
 <div class="full" style="--c:#6aa8ff">
-  <div class="tag r">Los 40 papers del estado del arte · 1 de 4</div>
-  <div class="l40 r" style="--d:1"><h4>A · Recomendación</h4><div class="u"><span>Bidders Recommender for Public Procurement Auctions Using Machine Learning: Data Analysis, Algorithm, and Case Study with Tenders from Spain</span><em>García Rodríguez et al. (2020)</em></div><div class="u"><span>Public tenders, complaints, machine learning and recommender systems: a case study in public administration</span><em>Nai et al. (2023)</em></div><div class=""><span>Identifying Public Tenders of Interest Using Classification Models: A Comparative Analysis</span><em>Figueroa-Gómez y Galpin (2023)</em></div><div class="u"><span>TenderKG: A Knowledge Graph Dataset for Recommendation in Public Procurement</span><em>Mokhtari et al. (2026)</em></div><div class=""><span>AI-based decision support system for public procurement</span><em>Siciliani et al. (2023)</em></div><div class=""><span>TheyBuyForYou platform and knowledge graph: Expanding horizons in public procurement with open linked data</span><em>Soylu et al. (2021)</em></div><h4>B · Competencia</h4><div class="u"><span>Improving the estimation of probability of bidder participation in procurement auctions</span><em>Ballesteros-Pérez et al. (2015)</em></div><div class="u"><span>Predicting the number of bidders in construction competitive bidding using explainable machine learning models</span><em>Oo et al. (2025)</em></div><div class="u"><span>A support vector machine method for bid/no bid decision making</span><em>Sönmez y Sözgen (2017)</em></div><div class="u"><span>A Network‐Enhanced Supervised Learning Framework for Early Prediction of Corruption Risk Indicators in Public Procurement Data</span><em>Loumponias et al. (2026)</em></div><div class="u"><span>How you describe procurement calls matters: Predicting outcome of public procurement using call descriptions</span><em>Acikalin et al. (2023)</em></div></div>
-  <div class="leg r" style="--d:2"><b>En color:</b> los que uso en estas cuatro oportunidades</div>
+  <div class="tag r">Los 40 papers · 1 de 2 · <b style="color:#fff">en color, los que uso</b></div>
+  <div class="l40 r" style="--d:1"><h4>Recomendación</h4><div class="u"><span>Bidders Recommender for Public Procurement Auctions Using Machine Learning: Data Analysis, Algorithm, and Case Study with Tenders from Spain</span><em>García Rodríguez et al. (2020)</em></div><div class="u"><span>Public tenders, complaints, machine learning and recommender systems: a case study in public administration</span><em>Nai et al. (2023)</em></div><div class=""><span>Identifying Public Tenders of Interest Using Classification Models: A Comparative Analysis</span><em>Figueroa-Gómez y Galpin (2023)</em></div><div class="u"><span>TenderKG: A Knowledge Graph Dataset for Recommendation in Public Procurement</span><em>Mokhtari et al. (2026)</em></div><div class=""><span>AI-based decision support system for public procurement</span><em>Siciliani et al. (2023)</em></div><div class=""><span>TheyBuyForYou platform and knowledge graph: Expanding horizons in public procurement with open linked data</span><em>Soylu et al. (2021)</em></div><h4>Competencia</h4><div class="u"><span>Improving the estimation of probability of bidder participation in procurement auctions</span><em>Ballesteros-Pérez et al. (2015)</em></div><div class="u"><span>Predicting the number of bidders in construction competitive bidding using explainable machine learning models</span><em>Oo et al. (2025)</em></div><div class="u"><span>A support vector machine method for bid/no bid decision making</span><em>Sönmez y Sözgen (2017)</em></div><div class="u"><span>A Network‐Enhanced Supervised Learning Framework for Early Prediction of Corruption Risk Indicators in Public Procurement Data</span><em>Loumponias et al. (2026)</em></div><div class="u"><span>How you describe procurement calls matters: Predicting outcome of public procurement using call descriptions</span><em>Acikalin et al. (2023)</em></div><h4>Precio</h4><div class="u"><span>Public Procurement Announcements in Spain: Regulations, Data Analysis, and Award Price Estimator Using Machine Learning</span><em>García Rodríguez et al. (2019)</em></div><div class=""><span>Award Price Estimator for Public Procurement Auctions Using Machine Learning Algorithms: Case Study with Tenders from Spain</span><em>García Rodríguez et al. (2021)</em></div><div class="u"><span>EU Public Procurement Contract Value Prediction: A Machine Learning Approach</span><em>Rahman y Hlinska (2026)</em></div><div class=""><span>Analysis of Construction Auctions Data in Slovak Public Procurement</span><em>Hanák y Serrat (2018)</em></div><div class=""><span>Predicting bid prices by using machine learning methods</span><em>Kim y Jung (2018)</em></div><h4>Pymes y empresas jóvenes</h4><div class=""><span>Procurement policy and SME participation in public purchasing</span><em>Hoekman y Taş (2020)</em></div><div class=""><span>Explaining sme participation and success in public procurement using a capability-based model of tendering</span><em>Flynn y Davis (2017)</em></div><div class=""><span>Letting Luck Decide: Government Procurement and the Growth of Small Firms</span><em>Fadic (2017)</em></div><div class=""><span>Public Procurement in Law and Practice</span><em>Bosio et al. (2020)</em></div><div class=""><span>The participation of young firms in public procurement</span><em>Krieger et al. (2026)</em></div><div class=""><span>Analysis of participation of MSMEs in Public Procurement of Paraguay based on open data, Period 2011 - 2017</span><em>Paredes Romero (2018)</em></div></div>
 </div></div></section><section class="slide" data-shape="dim" data-col="#6aa8ff"><div class="inner">
 <div class="full" style="--c:#6aa8ff">
-  <div class="tag r">Los 40 papers del estado del arte · 2 de 4</div>
-  <div class="l40 r" style="--d:1"><h4>C · Precio</h4><div class="u"><span>Public Procurement Announcements in Spain: Regulations, Data Analysis, and Award Price Estimator Using Machine Learning</span><em>García Rodríguez et al. (2019)</em></div><div class=""><span>Award Price Estimator for Public Procurement Auctions Using Machine Learning Algorithms: Case Study with Tenders from Spain</span><em>García Rodríguez et al. (2021)</em></div><div class="u"><span>EU Public Procurement Contract Value Prediction: A Machine Learning Approach</span><em>Rahman y Hlinska (2026)</em></div><div class=""><span>Analysis of Construction Auctions Data in Slovak Public Procurement</span><em>Hanák y Serrat (2018)</em></div><div class=""><span>Predicting bid prices by using machine learning methods</span><em>Kim y Jung (2018)</em></div><h4>D · Pymes y empresas jóvenes</h4><div class=""><span>Procurement policy and SME participation in public purchasing</span><em>Hoekman y Taş (2020)</em></div><div class=""><span>Explaining sme participation and success in public procurement using a capability-based model of tendering</span><em>Flynn y Davis (2017)</em></div><div class=""><span>Letting Luck Decide: Government Procurement and the Growth of Small Firms</span><em>Fadic (2017)</em></div><div class=""><span>Public Procurement in Law and Practice</span><em>Bosio et al. (2020)</em></div><div class=""><span>The participation of young firms in public procurement</span><em>Krieger et al. (2026)</em></div><div class=""><span>Analysis of participation of MSMEs in Public Procurement of Paraguay based on open data, Period 2011 - 2017</span><em>Paredes Romero (2018)</em></div></div>
-  <div class="leg r" style="--d:2"><b>En color:</b> los que uso en estas cuatro oportunidades</div>
-</div></div></section><section class="slide" data-shape="dim" data-col="#6aa8ff"><div class="inner">
-<div class="full" style="--c:#6aa8ff">
-  <div class="tag r">Los 40 papers del estado del arte · 3 de 4</div>
-  <div class="l40 r" style="--d:1"><h4>E · Datos abiertos</h4><div class="u"><span>Data Quality Barriers for Transparency in Public Procurement</span><em>Soylu et al. (2022)</em></div><div class=""><span>Utilizing Open Data: A Primer for Public Procurement Research</span><em>Csáki et al. (2019)</em></div><div class=""><span>The Impact of Open Data on Public Procurement</span><em>Duguay et al. (2019)</em></div><div class=""><span>A Decade of Public Procurement in Spain: A Longitudinal Open Dataset from the BOE (2014-2024)</span><em>Muñoz Pla (2026)</em></div><h4>F · América Latina</h4><div class=""><span>Corruption dynamics in public procurement: A longitudinal network analysis of local construction contracts in Guatemala</span><em>Waxenecker y Prell (2024)</em></div><div class="u"><span>VigIA: prioritizing public procurement oversight with machine learning models and risk indices</span><em>Salazar et al. (2024)</em></div><div class=""><span>A machine learning model to identify corruption in México&#x27;s public procurement contracts</span><em>Aldana et al. (2022)</em></div><div class=""><span>Practices of public procurement and the risk of corrupt behavior before and after the government transition in México</span><em>Falcón-Cortés et al. (2022)</em></div><div class=""><span>Characterization of the Chilean Public Procurement Ecosystem Using Social Network Analysis</span><em>Herrera Leiva et al. (2020)</em></div><div class=""><span>Characterization of the firm–firm public procurement co-bidding network from the State of Ceará (Brazil) municipalities</span><em>Lyra et al. (2021)</em></div><div class=""><span>A quantitatively validated Latin American model for corruption risk detection in public procurement open data</span><em>Silva Atencio (2026)</em></div><div class=""><span>Political connections and misallocation of procurement contracts: Evidence from Ecuador</span><em>Brugués et al. (2024)</em></div></div>
-  <div class="leg r" style="--d:2"><b>En color:</b> los que uso en estas cuatro oportunidades</div>
-</div></div></section><section class="slide" data-shape="dim" data-col="#6aa8ff"><div class="inner">
-<div class="full" style="--c:#6aa8ff">
-  <div class="tag r">Los 40 papers del estado del arte · 4 de 4</div>
-  <div class="l40 r" style="--d:1"><h4>G · Corrupción</h4><div class=""><span>Uncovering High-Level Corruption: Cross-National Objective Corruption Risk Indicators Using Public Procurement Data</span><em>Fazekas y Kocsis (2017)</em></div><div class=""><span>Corruption Red Flags in Public Procurement: New Evidence from Italian Calls for Tenders</span><em>Decarolis y Giorgiantonio (2020)</em></div><div class=""><span>Effect of public procurement regulation on competition and cost-effectiveness</span><em>Taş (2020)</em></div><div class=""><span>Detection of fraud in public procurement using data-driven methods: a systematic mapping study</span><em>Schneider dos Santos et al. (2025)</em></div><div class=""><span>Fraud, corruption, and collusion in public procurement activities, a systematic literature review on data-driven methods</span><em>Lyra et al. (2022)</em></div><h4>H · Explicabilidad</h4><div class=""><span>A Unified Approach to Interpreting Model Predictions</span><em>Lundberg y Lee (2017)</em></div></div>
-  <div class="leg r" style="--d:2"><b>En color:</b> los que uso en estas cuatro oportunidades</div>
-</div></div></section><section class="slide" data-shape="galaxy" data-col="#3ddc97"><div class="inner">
-<div class="center">
-  <div class="tag r">Gracias</div>
-  <h2 class="hero r" style="--d:1">¿Preguntas?</h2>
-  <div class="by r" style="--d:2">Los PDF traducidos están en la carpeta Papers traducidos</div>
+  <div class="tag r">Los 40 papers · 2 de 2 · <b style="color:#fff">en color, los que uso</b></div>
+  <div class="l40 r" style="--d:1"><h4>Datos abiertos</h4><div class="u"><span>Data Quality Barriers for Transparency in Public Procurement</span><em>Soylu et al. (2022)</em></div><div class=""><span>Utilizing Open Data: A Primer for Public Procurement Research</span><em>Csáki et al. (2019)</em></div><div class=""><span>The Impact of Open Data on Public Procurement</span><em>Duguay et al. (2019)</em></div><div class=""><span>A Decade of Public Procurement in Spain: A Longitudinal Open Dataset from the BOE (2014-2024)</span><em>Muñoz Pla (2026)</em></div><h4>América Latina</h4><div class=""><span>Corruption dynamics in public procurement: A longitudinal network analysis of local construction contracts in Guatemala</span><em>Waxenecker y Prell (2024)</em></div><div class="u"><span>VigIA: prioritizing public procurement oversight with machine learning models and risk indices</span><em>Salazar et al. (2024)</em></div><div class=""><span>A machine learning model to identify corruption in México&#x27;s public procurement contracts</span><em>Aldana et al. (2022)</em></div><div class=""><span>Practices of public procurement and the risk of corrupt behavior before and after the government transition in México</span><em>Falcón-Cortés et al. (2022)</em></div><div class=""><span>Characterization of the Chilean Public Procurement Ecosystem Using Social Network Analysis</span><em>Herrera Leiva et al. (2020)</em></div><div class=""><span>Characterization of the firm–firm public procurement co-bidding network from the State of Ceará (Brazil) municipalities</span><em>Lyra et al. (2021)</em></div><div class=""><span>A quantitatively validated Latin American model for corruption risk detection in public procurement open data</span><em>Silva Atencio (2026)</em></div><div class=""><span>Political connections and misallocation of procurement contracts: Evidence from Ecuador</span><em>Brugués et al. (2024)</em></div><h4>Corrupción</h4><div class=""><span>Uncovering High-Level Corruption: Cross-National Objective Corruption Risk Indicators Using Public Procurement Data</span><em>Fazekas y Kocsis (2017)</em></div><div class=""><span>Corruption Red Flags in Public Procurement: New Evidence from Italian Calls for Tenders</span><em>Decarolis y Giorgiantonio (2020)</em></div><div class=""><span>Effect of public procurement regulation on competition and cost-effectiveness</span><em>Taş (2020)</em></div><div class=""><span>Detection of fraud in public procurement using data-driven methods: a systematic mapping study</span><em>Schneider dos Santos et al. (2025)</em></div><div class=""><span>Fraud, corruption, and collusion in public procurement activities, a systematic literature review on data-driven methods</span><em>Lyra et al. (2022)</em></div><h4>Explicabilidad</h4><div class=""><span>A Unified Approach to Interpreting Model Predictions</span><em>Lundberg y Lee (2017)</em></div></div>
 </div></div></section></div>
 <div id="bar"></div><div id="cnt"></div><div id="hint">← → para avanzar · F pantalla completa</div>
 <script src="lib/three.min.js"></script>
